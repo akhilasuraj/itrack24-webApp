@@ -1,0 +1,45 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/custom-style.css">
+
+ <div class ="jumbotron pro-banner" style="height: 800px; padding-top: 150px;">
+<div class="container">
+  <h1 class="text-left">Welcome {{details.first_name}} !</h1>
+  <div>
+    <table class="table col-md-6 mx-auto  font-weight-bold  text-black">
+      <tr>
+        <td>First Name :  {{details.first_name}}</td>
+
+      </tr>
+      <tr>
+        <td>Last Name :   {{details?.last_name}}</td>
+
+      </tr>
+      <tr>
+        <td>Address :       {{details?.address}}</td>
+
+      </tr>
+      <tr>
+        <td>Contact Number :  {{details.contact_num}}</td>
+
+      </tr>
+
+      <tr>
+        <td>Email :  {{details.email}}</td>
+
+      </tr>
+
+    </table>
+    <div class="container">
+       <button type="button" class="btn btn-primary" routerLink="/edit-profile">Edit Profile</button>
+       <button type="button" class="btn btn-danger">Settings & Privacy</button>
+       <button type="button" class="btn btn-secondary">Help & Support</button>
+    </div>
+    
+  </div>
+</div>
+</div>
+
+
+

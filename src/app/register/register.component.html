@@ -1,0 +1,49 @@
+<html>
+<div class style="height: 800px; padding-top: 150px;">
+<body>
+	<div class="box">
+    <h5 style=color:#007bff>Register</h5>
+	  <form (submit)= "register()" ngNativeValidate>
+      <div class="row">
+          <div class="col-md-6" style="color:white">
+      <div class="inputBox">
+				<input type="text"class="form-control"  name="first_name" placeholder=""  [(ngModel)]="credential.first_name" required>
+				<label for="">First Name</label>
+      </div>
+          </div>
+          <div class="col-md-6" style="color:white">
+			<div class="inputBox">
+        <input type="text" class="form-control" name="last_name" placeholder="" [(ngModel)]="credential.last_name" required>
+				<label for="">Last Name</label>
+      </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" style="color:white">
+        <div class="inputBox">
+            <input type="text"class="form-control"  name="address" placeholder=""  [(ngModel)]="credential.address" required>
+            <label for="">Address</label>
+          </div>
+        </div>
+        <div class="col-md-6" style="color:white">
+          <div class="inputBox">
+              <input type="text"class="form-control"  name="contact" placeholder=""  [(ngModel)]="credential.contact_num" required>
+              <label for="">Contact</label>
+            </div>
+          </div>
+    </div>
+            <div class="inputBox">
+                <input type="email"class="form-control"  name="email" placeholder=""  [(ngModel)]="credential.email" required>
+                <label for="">Email</label>
+              </div>
+              <div class="inputBox">
+                  <input type="password"class="form-control"  name="password" placeholder=""  [(ngModel)]="credential.password" required>
+                  <!-- ngModel pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" -->
+                  <label for="">Password</label>
+                </div>
+      <button class="btn btn-primary" type="submit">Sign in</button>
+		</form>
+	</div>
+</body>
+</div>
+</html>

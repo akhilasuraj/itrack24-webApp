@@ -1,0 +1,55 @@
+.big-banner {
+
+  background-image: url('/assets/img/Colombo-Municipal-Council.jpg');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover
+}
+
+.log-banner {
+
+  background-image: url('assets/img/abstract-background-beautiful-1435752.jpg');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover
+}
+
+.regi-banner {
+
+  background-image: url('assets/img/abstract-background-beautiful-1435752.jpg');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover
+}
+
+
+.pro-banner {
+
+  background-image: url('assets/img/adult-background-beard-941693.jpg');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover
+}
+
+.checked {
+  color: orange;
+}
+
+/* login form*/
+
+.user-log {
+  display: flex;
+  flex-direction: column;
+  background-color: cornflowerblue;
+  height: 100%;
+  width: 100%;
+}
+
+.regi{
+     background-position-y:top;
+
+}

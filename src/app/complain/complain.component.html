@@ -1,0 +1,101 @@
+<div class="jumbotron comp-banner" style="height: 1000px; padding-top: 50px;">
+  <form (submit)= "MakeComplain()" ngNativeValidate>
+<div class="jumbotron bg-comp" style="height:800px; padding-top: 150px;">
+  <h3 style="color:black"><b>Place your complaint here...</b></h3><br>
+  <div class="row">
+    <div class="col-md-5" style="color:black">
+      <br>
+      <div class="row">
+        <div class="col-sm">
+          <div class="label control-label">Category</div>
+          <select class="form-control" [(ngModel)]="credential.category" name="category" required>
+              <option value="Signal post" selected >Signal post </option>
+              <option value="Garbage disposal">Garbage disposal</option>
+              <option value="other">other</option>
+            </select>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm">
+          <label>
+            Description
+          </label>
+          <textarea rows="4" cols="80" class="form-control" placeholder="Description" name="description" [(ngModel)]="credential.description" required></textarea>
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col-sm">
+          <label>
+              <div calss="label control-label">Address 1</div>
+          </label>
+          <input type="text" class="form-control" placeholder="Address 1" name="address1" [(ngModel)]="credential.address1" required>
+        </div>
+        <div class="col-sm">
+          <label>
+            <div calss="label control-label">Address 2</div>
+          </label>
+          <input type="text" class="form-control" placeholder="Address 2" name="address2" [(ngModel)]="credential.address2" required>
+        </div>
+      <div>
+        <input type="date" class="form-control" placeholder="" name="date" [(ngModel)]="credential.date" required>
+      </div>
+      <div>
+        <input type="time" class="form-control" placeholder="" name="time" [(ngModel)]="credential.time" required>
+      </div>
+        <div class="col-sm">
+          <label>
+         <div calss="label control-label">District</div>
+        </label>
+         <select class="form-control" [(ngModel)]="credential.district" name="district" required>
+           <option value ="Colombo" selected="Colombo">Colombo</option>
+           <option value ="Gampaha" selected>Gampaha</option>
+           <option value ="Negambo">Negambo</option>
+           <option value ="Kaluthara">Kaluthara</option>
+         </select>
+        </div>
+        <br>
+
+    </div>
+    <br><br>
+    <button class="btn btn-primary" type="submit">Submit Complain</button>
+    </div>
+
+
+    <div class="col-md-2"></div>
+    
+    <div class="col-md-5" style="color:black">
+      <div class="row">
+        <div class="col-md-6">
+         <form (submit)="Upload()" method="POST">
+           <img src="http://localhost:3000/{{ fileUrl?.img_name }}" alt="{{ fileUrl }}" width="20%" height="20%"><br>
+           <input type="file" name="comp_images" accept="image/*" (change)="OnFileSelected($event)">
+           <button type="submit">Upload</button>
+         </form>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-sm">
+          <label>
+            <b>Add location</b>
+          </label>
+          <!--Google map-->
+          <!-- <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+            <iframe src="https://maps.google.com/maps?q=colombo&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="1" style="border:1; color:black"
+              allowfullscreen></iframe>
+          </div> -->
+          <app-map></app-map>
+        </div>
+        <!--Google Maps-->
+      </div>
+    </div>
+
+  </div>
+  </div>
+</form>
+</div>

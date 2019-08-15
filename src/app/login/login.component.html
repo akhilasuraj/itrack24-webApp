@@ -1,0 +1,21 @@
+<html>
+<div class style="height: 800px; padding-top: 150px;">
+<body>
+	<div class="box">
+      <h5 style=color:#007bff>Login</h5>
+	  <form (submit)= "login()" ngNativeValidate>
+			<div class="inputBox">
+				<input type="email"class="form-control"  name="email" placeholder=""  [(ngModel)]="credential.email" required>
+				<label for="">Email</label>
+			</div>
+			<div class="inputBox">
+        <input type="password" class="form-control" name="password" placeholder="" [(ngModel)]="credential.password" required>
+				<label for="">Password</label>
+			</div>
+      <button class="btn btn-primary" type="submit">Sign in</button>&nbsp;&nbsp;
+      <a href="#" routerLink='/reset-password'>or Forget Password? Click here</a>
+		</form>
+	</div>
+</body>
+</div>
+</html>
