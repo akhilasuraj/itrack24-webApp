@@ -1,0 +1,21 @@
+<form (submit)="getMyPost()" method="POST">
+    <button type="submit">Go to my Posts</button>
+</form>
+
+<h3>Here all my posts</h3>
+
+<div *ngFor="let info of postdata">
+    <div class="col-sm-8-left">
+        <table>
+            <tr>
+                <th>{{ info?.PostText}}</th>
+            </tr>
+            <tr>
+                <th>{{ info?.PostTime}} {{ info?.PostDate}} </th>
+            </tr>
+        </table>
+        <img src="http://localhost:3000/{{ info?.PostImg}}" alt="http://localhost:3000/{{ info?.PostImg}}" width="10%"
+            height="10%">
+        <td><button (click)="delete(info.id, info.UserID)">Delete</button></td>
+    </div>
+</div>

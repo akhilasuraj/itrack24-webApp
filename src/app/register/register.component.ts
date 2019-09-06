@@ -18,11 +18,16 @@ export class RegisterComponent {
          email: '',
          password: '',
          profilepic:''
+        
    };
 
+//    user_Data = {
+//     user_ID: 0
+//  };
+//    SelectedFile: File = null;
+//    fileUrl;
     constructor(private auth: AuthenticationService, private router: Router) { }
-
-
+    
     register() {
          this.auth.register(this.credential).subscribe(
           (data) => {
@@ -35,9 +40,30 @@ export class RegisterComponent {
             }
           },
          )
-          }
+          };
 
-          }
+          // OnFileSelected(event){
+          
+          //   this.SelectedFile =  event.target.files[0] as File;
+            
+          // }
+
+          // Upload(){
+          //     console.log('hi upload')
+          //   this.user_Data.user_ID = this.auth.getUserDetails().id;
+          //   const fd = new FormData();
+          //   fd.append('profileimg', this.SelectedFile, this.SelectedFile.name);
+          //   this.auth.uploadPhoto(fd).subscribe(
+          //     data => {
+          //          console.log('image upload success');
+          //     }
+          //   );
+  
+          //   window.location.reload();
+          // }
+
+
+}
 
 
 

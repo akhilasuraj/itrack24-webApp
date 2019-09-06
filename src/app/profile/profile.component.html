@@ -7,6 +7,12 @@
 <div class="container">
   <h1 class="text-left">Welcome {{details.first_name}} !</h1>
   <div>
+      <form (submit)="Upload()" method="POST">
+          <img src="http://localhost:3000/{{ fileUrl?.img_name }}" alt="{{ fileUrl }}" width="20%" height="20%"><br>
+          <input type="file" name="proimage" accept="image/*" (change)="OnFileSelected($event)">
+          <button type="submit">Upload</button>
+        </form>
+
     <table class="table col-md-6 mx-auto  font-weight-bold  text-black">
       <tr>
         <td>First Name :  {{details.first_name}}</td>

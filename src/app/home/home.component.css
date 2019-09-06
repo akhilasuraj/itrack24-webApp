@@ -1,0 +1,40 @@
+
+/*HOME*/
+
+#sticky-footer {
+    flex-shrink: none;
+    position: sticky
+  }
+  span.container-fluid {
+    display: inline;
+  }
+  
+  .navbar-brand{
+   font-size:200%;
+  }
+  
+  .nav-item{
+   font-size: 120%;
+   text-align: center;
+  }
+  
+  .nav-item dropdown{
+   font-size: 120%;
+   text-align: center;
+  }
+  .dropdown-menu{
+   font-size: 90%;
+   text-align: center;
+  }
+  .dropdown-menu a:hover{
+   background-color: #b4b4b4;
+   color:black;
+  }
+  .navbar{
+   margin-bottom:0px;
+  }
+  
+  .nav-link{
+   font-size: 120%;
+   text-align: center;
+  }

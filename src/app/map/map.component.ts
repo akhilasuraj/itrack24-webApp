@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, NgZone } from '@angular/core';
 import { } from 'googlemaps';
 import { ViewChild } from '@angular/core';
+import { MapsAPILoader, MouseEvent } from '@agm/core';
 
 @Component({
   selector: 'app-map',
@@ -13,7 +14,17 @@ export class MapComponent implements OnInit {
   mapElement: any;
   map: google.maps.Map;
 
-  constructor() { }
+  latitude: number;
+  longitude: number;
+  zoom: number;
+  address: string;
+ 
+
+  @ViewChild('search')
+  public searchElementRef: ElementRef;
+  constructor(
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone) { }
 
   ngOnInit() {
     const mapProperties = {
@@ -21,7 +32,7 @@ export class MapComponent implements OnInit {
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
   }
-
 }

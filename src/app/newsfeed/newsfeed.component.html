@@ -1,0 +1,18 @@
+
+<div *ngFor="let info of postdata">
+  <div class="col-sm-7-left">
+      <table>
+          <tr>
+              <td>{{ info?.FirstName}} {{ info?.LastName}} </td>
+          </tr>
+          <tr>
+              <td>{{ info?.PostTime}} {{ info?.PostDate}} </td>
+          </tr>
+          <tr>
+              <td>{{ info?.PostText}}</td>
+          </tr>
+      </table>
+      <img src="http://localhost:3000/{{ info?.PostImg}}" alt="http://localhost:3000/{{ info?.PostImg}}" width="50%"
+          height="50%">
+  </div>
+</div>

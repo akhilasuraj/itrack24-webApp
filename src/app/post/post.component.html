@@ -1,0 +1,19 @@
+ <div class="row">
+  <div class="col-sm">
+  <form (submit)="AddText()" method="POST">
+    <label>
+      Add Post Text
+    </label>
+    <textarea rows="4" cols="80" class="form-control" placeholder="text" name="PostText" [(ngModel)]="credential.PostText" required></textarea>
+    <button type="submit">Add Text</button>
+  </form>
+  </div>
+  <div class="col-md-6">
+   <form (submit)="AddImage()" method="POST">
+     <label>Add images to post</label>
+     <img src="http://localhost:3000/{{ fileUrl?.img_name }}" alt="{{ fileUrl }}" width="20%" height="20%"><br>
+     <input type="file" name="postImg" accept="image/*" (change)="OnFileSelected($event)">
+     <button type="submit">Add Image</button>
+   </form>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<h3>new posts</h3>
+
+<div *ngFor="let info1 of notificationPost">
+  <div class="col-sm-8-left">
+      <table>
+          <tr>
+              <th>{{ info1?.FirstName}} {{ info1.LastName}} added new Post at {{ info1?.PostTime}} {{ info1?.PostDate}}</th>
+          </tr>
+      </table>
+      <td><button (click)="GetValues(info1.id, info1.UserID)" routerLink="/pop-post">View More</button></td>
+  </div>
+</div>

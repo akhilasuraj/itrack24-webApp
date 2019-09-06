@@ -47,17 +47,10 @@ export class ComplainService {
     return this.http.post(`http://localhost:3000/users/complain`, complains);
   }
 
-  public sendUserID(userData): Observable<any>{
-    return this.http.post(`http://localhost:3000/users/getID`, userData);
-  }
-
   public uploadPhoto(fd): Observable<any>{
     return this.http.post(`http://localhost:3000/users/upload-image`, fd);
   }
 
-  public viewPhoto(userData): Observable<any>{
-    return this.http.post(`http://localhost:3000/users/view_photo`, userData);
-  }
 }
 
 
