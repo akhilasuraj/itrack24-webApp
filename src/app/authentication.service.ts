@@ -33,7 +33,7 @@ export interface TokenPayload {
   contact_num: string;
   email: string;
   password: string;
-  profilepic: string
+
 
 }
 
@@ -166,4 +166,9 @@ export class AuthenticationService {
     return this.http.post(`http://localhost:3000/users/reset?token=`+token, {password: pass});//password eka body parameter ekak, token eka query parameter ekak//
   }
 
+  /*activate_user_account*/
+
+  public verification(token,email): Observable<any>{
+    return this.http.get(`http://localhost:3000/users/verify?token=`+ token + "&email=" + email);
+  }
 }

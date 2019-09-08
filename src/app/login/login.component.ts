@@ -20,7 +20,7 @@ export class LoginComponent {
          contact_num: '',
          email: '',
          password: '',
-         profilepic:''
+         
    };
 
     constructor(private auth: AuthenticationService, private router: Router) { }

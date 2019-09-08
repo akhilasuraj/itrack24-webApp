@@ -7,6 +7,29 @@
               <th>{{ info1?.FirstName}} {{ info1.LastName}} added new Post at {{ info1?.PostTime}} {{ info1?.PostDate}}</th>
           </tr>
       </table>
-      <td><button (click)="GetValues(info1.id, info1.UserID)" routerLink="/pop-post">View More</button></td>
+      <td><button (click)="GetValues(info1.id, info1.UserID)"  data-toggle="modal" data-target="#exampleModalCenter">View More</button></td>
   </div>
 </div>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      
+      <div class="modal-content">
+        
+<div *ngFor="let info1 of notificationPost">
+    <div class="col-sm-8-left">
+        <table>
+            <tr>
+                <th>{{ info1?.FirstName}} {{ info1.LastName}} added new Post at {{ info1?.PostTime}} {{ info1?.PostDate}}</th>
+            </tr>
+        </table>
+        <td><button (click)="GetValues(info1.id, info1.UserID)"  data-toggle="modal" data-target="#exampleModalCenter">View More</button></td>
+    </div>
+  </div>
+        <app-pop-post></app-pop-post>
+      </div>
+    </div>
+  </div>

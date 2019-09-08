@@ -18,7 +18,7 @@ export class EditProfileComponent implements OnInit {
     contact_num: '',
     email: '',
     password: '',
-    profilepic:''
+ 
  
    
 }

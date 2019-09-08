@@ -42,6 +42,7 @@ import { NotificationComponent } from './notification/notification.component'
 import { NotificationService} from './notification/notification.service';
 import { PopPostComponent } from './pop-post/pop-post.component';
 import { TransferService} from './notification/transfer.service';
+import { VerifyComponent } from './verify/verify.component';
 
 //
 const routes: Routes = [
@@ -65,9 +66,8 @@ const routes: Routes = [
    { path: 'mycomplain', component: MycomplainComponent },
    { path: 'chart', component: ChartComponent },
    { path: 'notification', component: NotificationComponent},
-   { path: 'pop-post', component: PopPostComponent}
-
-
+   { path: 'pop-post', component: PopPostComponent},
+   { path: 'verify', component: VerifyComponent}
 ];
 
 @NgModule({
@@ -89,6 +89,7 @@ const routes: Routes = [
       ChartComponent,
       NotificationComponent,
       PopPostComponent,
+      VerifyComponent,
 
    ],
    imports: [

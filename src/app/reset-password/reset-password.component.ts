@@ -18,7 +18,7 @@ export class ResetPasswordComponent implements OnInit {
     contact_num: '',
     email: '',
     password: '',
-    profilepic:''
+   
    
 };
 
