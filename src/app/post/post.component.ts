@@ -31,16 +31,17 @@ export class PostComponent implements OnInit {
     this.credential.FirstName = this.auth.getUserDetails().first_name;
     this.credential.LastName = this.auth.getUserDetails().last_name;
     
-    this.pt.viewPostImage(this.credential).subscribe(
-      data=>{
-        this.Fileurl=data;
-      })
+    // this.pt.viewPostImage(this.credential).subscribe(
+    //   data=>{
+    //     console.log(data);
+    //     this.Fileurl=data;
+    
   }
 
   AddText() {
     this.pt.makePost(this.credential).subscribe(
       data => {
-        this.route.navigateByUrl('/');
+        this.route.navigateByUrl('/newsfeed');
         console.log(data);
         console.log('POST_CREATED_SUCCESFULLY');
       });
@@ -52,14 +53,13 @@ export class PostComponent implements OnInit {
           
         }
 
-        AddImage(){
+      async  AddImage(){
           const fd = new FormData();
           fd.append('postImg', this.SelectedFile, this.SelectedFile.name);
           this.pt.uploadPostImage(fd).subscribe(
             res => {
-
-            }
-          );
+                console.log("your image uploaded")
+            });
 
           window.location.reload();
         }

@@ -48,33 +48,35 @@ export class ComplainComponent implements OnInit {
     // );
   }
 
- async MakeComplain() {//complain kiyne service eken ewna function eka//
-    this.ser.complain(this.credential).subscribe(
-      data => {
-        this.router.navigateByUrl('/');
-        if (data) {
-          console.log(data);
-        }
-
-      }
-    )
+  async Upload() {
+    const fd = new FormData();
+    fd.append('compImg', this.SelectedFile, this.SelectedFile.name);
+    console.log(fd);
+    await this.ser.uploadPhoto(fd).subscribe(
+      res => {
+        window.location.reload();
+      });
   }
+
 
 
   OnFileSelected(event) {
     this.SelectedFile = event.target.files[0] as File;
   }
 
- async Upload() {
-    const fd = new FormData();
-    fd.append('compImg', this.SelectedFile, this.SelectedFile.name);
-    this.ser.uploadPhoto(fd).subscribe(
-      res => {
 
-      }
-    );
+  async MakeComplain() {//complain kiyne service eken ewna function eka//
+    await this.ser.complain(this.credential).subscribe(
+      data => {
+        this.router.navigateByUrl('/');
+        if (data) {
+          console.log(data);
+        }
 
-    window.location.reload();
+      });
   }
 
+
 }
+
+

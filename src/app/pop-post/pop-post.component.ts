@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TransferService } from '../notification/transfer.service';
 import { NotificationService } from '../notification/notification.service';
 import { Router } from '@angular/router';
+import {PopPostService} from './pop-post.service';
+
 
 @Component({
   selector: 'app-pop-post',
@@ -10,13 +12,12 @@ import { Router } from '@angular/router';
 })
 export class PopPostComponent implements OnInit {
 
-  constructor(private ts: TransferService, private ns: NotificationService, private route: Router) { }
+  constructor( private ps: PopPostService,private ns: NotificationService, private route: Router, private ts: TransferService) { }
 
   postdata = this.ts.getData()
 
   ngOnInit() {
-    console.log("this is the relevant data " + this.postdata);
-    this.ns.GetSelectPost(this.postdata).subscribe(
+    this.ps.GetSelectPost(this.postdata).subscribe(
       pdata => {
         console.log(pdata);
         this.route.navigateByUrl('/notification');

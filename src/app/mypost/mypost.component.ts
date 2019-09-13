@@ -23,16 +23,16 @@ export class MypostComponent implements OnInit {
 
   ngOnInit() {
      this.userID = this.auth.getUserDetails().id
+
+     console.log(this.auth.getUserDetails().id);
+     this.mp.myposts(this.userID).subscribe(
+       data => {
+         this.postdata=data;
+         console.log(this.postdata)
+       })
 }
 
-  public getMyPost() {
-
-    console.log(this.auth.getUserDetails().id);
-    this.mp.myposts(this.userID).subscribe(
-      data => {
-        this.postdata=data;
-        console.log(this.postdata)
-      })
+  public getMyPost() {  
   }
 
   public delete(id,UserID){

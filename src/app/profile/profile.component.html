@@ -1,18 +1,19 @@
+<app-navbar></app-navbar>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/custom-style.css">
 
  <div class ="jumbotron pro-banner" style="height: 800px; padding-top: 150px;">
+  <form (submit)="Upload()" method="POST">
+    <img src="http://localhost:3000/{{ fileUrl?.pic_name }}" alt="{{ fileUrl }}" width="100px" height="100px"><br>
+    <input type="file" name="proimage" accept="image/*" (change)="OnFileSelected($event)">
+    <button type="submit">Upload</button>
+  </form>
+
 <div class="container">
   <h1 class="text-left">Welcome {{details.first_name}} !</h1>
   <div>
-      <form (submit)="Upload()" method="POST">
-          <img src="http://localhost:3000/{{ fileUrl?.img_name }}" alt="{{ fileUrl }}" width="20%" height="20%"><br>
-          <input type="file" name="proimage" accept="image/*" (change)="OnFileSelected($event)">
-          <button type="submit">Upload</button>
-        </form>
-
     <table class="table col-md-6 mx-auto  font-weight-bold  text-black">
       <tr>
         <td>First Name :  {{details.first_name}}</td>
@@ -38,13 +39,19 @@
 
     </table>
     <div class="container">
-       <button type="button" class="btn btn-primary" routerLink="/edit-profile">Edit Profile</button>
-       <button type="button" class="btn btn-danger">Settings & Privacy</button>
-       <button type="button" class="btn btn-secondary">Help & Support</button>
+        <button data-toggle="modal" data-target="#exampleModalCenter"  class="btn btn-secondary">Update profile</button>
     </div>
     
   </div>
 </div>
+
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">    
+    <div class="modal-content">
+      <app-edit-profile></app-edit-profile>
+    </div>
+  </div>
 </div>
 
 

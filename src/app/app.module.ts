@@ -8,6 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { ChartsModule } from 'ng2-charts';
+import { MatCardModule } from '@angular/material';
+
 
 
 
@@ -43,13 +45,15 @@ import { NotificationService} from './notification/notification.service';
 import { PopPostComponent } from './pop-post/pop-post.component';
 import { TransferService} from './notification/transfer.service';
 import { VerifyComponent } from './verify/verify.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import {NavbarService} from './navbar/navbar.service';
 
 //
 const routes: Routes = [
-
-   { path: '', component: HomeComponent },
+   {path:'',redirectTo:'login',pathMatch:'full'},
+   { path: 'home', component: HomeComponent },
    { path: 'login', component: LoginComponent },
-   { path: 'register', component: RegisterComponent },
+   { path: 'register', component: LoginComponent },
    {
       path: 'profile',
       component: ProfileComponent,
@@ -90,6 +94,7 @@ const routes: Routes = [
       NotificationComponent,
       PopPostComponent,
       VerifyComponent,
+      NavbarComponent,
 
    ],
    imports: [
@@ -105,7 +110,8 @@ const routes: Routes = [
          apiKey: 'AIzaSyCy3YWkcSF7UpkpFx9sDoAH3RegR1HGUE0',
          libraries: ['places']
       }),
-      ChartsModule
+      ChartsModule,
+      MatCardModule
 
    ],
    providers: [
@@ -119,7 +125,8 @@ const routes: Routes = [
       ChartService,
       AppService,
       NotificationService,
-      TransferService
+      TransferService,
+      NavbarService
 
    ],
    bootstrap: [

@@ -157,7 +157,7 @@ export class AuthenticationService {
   }
 
   public viewPhoto(userData): Observable<any> {
-    return this.http.post(`http://localhost:3000/users/view_Profilephoto`, userData);
+    return this.http.post(`http://localhost:3000/users/viewproimage`, userData);
   }
 
   /*reset_password_using_token*/

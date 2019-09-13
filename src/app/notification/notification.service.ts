@@ -18,9 +18,4 @@ export class NotificationService {
   public getOtherComplains(Cdata):Observable<any>{
     return this.http.post(`http://localhost:3000/users/viewCompNotifications`,Cdata)
   }
-
-  public GetSelectPost(data):Observable<any>{
-    return this.http.post(`http://localhost:3000/users/getselectedpost`,data);
-  }
-
 }

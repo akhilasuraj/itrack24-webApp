@@ -29,9 +29,9 @@ export class PostService {
     return this.http.post(`http://localhost:3000/users/addimage`, fd);
   }
 
-  public viewPostImage(viewimg: TokenPayload): Observable<any>{
-    return this.http.post(`http://localhost:3000/users/viewpostimg`,viewimg);
-  }
+  // public viewPostImage(viewimg: TokenPayload): Observable<any>{
+  //   return this.http.post(`http://localhost:3000/users/viewpostimg`,viewimg);
+  // }
 
 }
 

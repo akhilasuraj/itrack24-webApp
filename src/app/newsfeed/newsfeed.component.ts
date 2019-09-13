@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {NewsfeedService} from './newsfeed.service';
 
+
 @Component({
   selector: 'app-newsfeed',
   templateUrl: './newsfeed.component.html',

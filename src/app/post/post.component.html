@@ -1,19 +1,73 @@
- <div class="row">
+<app-navbar></app-navbar>
+
+<!-- <div class="row">
   <div class="col-sm">
-  <form (submit)="AddText()" method="POST">
-    <label>
-      Add Post Text
-    </label>
-    <textarea rows="4" cols="80" class="form-control" placeholder="text" name="PostText" [(ngModel)]="credential.PostText" required></textarea>
-    <button type="submit">Add Text</button>
-  </form>
+    <form (submit)="AddText()" method="POST">
+      <label>
+        Add Title
+      </label>
+      <textarea rows="2" cols="20" class="form-control" placeholder="text" name="PostTitle"
+        [(ngModel)]="credential.PostTitle" required></textarea>
+     
+        <br>
+        
+        <label>
+        Add Post Text
+      </label>
+      <textarea rows="4" cols="80" class="form-control" placeholder="text" name="PostText"
+        [(ngModel)]="credential.PostText" required></textarea>
+      <button type="submit">Submit Post</button>
+    </form>
   </div>
   <div class="col-md-6">
-   <form (submit)="AddImage()" method="POST">
-     <label>Add images to post</label>
-     <img src="http://localhost:3000/{{ fileUrl?.img_name }}" alt="{{ fileUrl }}" width="20%" height="20%"><br>
-     <input type="file" name="postImg" accept="image/*" (change)="OnFileSelected($event)">
-     <button type="submit">Add Image</button>
-   </form>
+    <form (submit)="AddImage()" method="POST">
+      <label>Add images to post</label>
+      <img src="http://localhost:3000/{{ fileUrl?.img_name }}" alt="{{ fileUrl }}" width="20%" height="20%"><br>
+      <input type="file" name="postImg" accept="image/*" (change)="OnFileSelected($event)">
+      <button type="submit">Add Image</button>
+    </form>
   </div>
 </div>
+  -->
+
+
+<div class="body">
+    <br><br><br><br>
+<div class="login-wrap">
+    <div class="login-html">
+      <label for="pass" class="label">Make your post</label>
+      <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"></label>
+      <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+      <div class="login-form">
+        <div class="sign-in-htm">           
+<div class="row">
+    <div class="col-sm">
+          <form (submit)="AddText()" method="POST" ngNativeValidate>
+            <div class="group">
+              <label for="pass" class="label">Title</label>
+              <textarea rows="2" cols="20" class="form-control" placeholder="text" name="PostTitle" [(ngModel)]="credential.PostTitle" required></textarea>
+            </div>
+            <div class="group">
+                <label for="pass" class="label">Caption</label>
+                <textarea rows="2" cols="20" class="form-control" placeholder="text" name="PostTitle" [(ngModel)]="credential.PostText" required></textarea>
+              </div>
+            <div class="group">
+              <button type="submit" class="button">Create Post</button>
+            </div>
+          </form>
+    </div>
+    <div class="col-md-6">
+        <form (submit)="AddImage()" method="POST">
+            <label>Add images to post</label>
+            <img src="http://localhost:3000/{{ fileUrl?.img_name }}" alt="{{ fileUrl }}" width="20%" height="20%"><br>
+            <input type="file" name="postImg" accept="image/*" (change)="OnFileSelected($event)">
+            <button type="submit">Add Image</button>
+          </form>
+    </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div> 
+<br><br><br><br><br><br>
+</div> 

@@ -9,19 +9,16 @@ export class TransferService {
 
   constructor(private route: Router) { }
 
-  private data;
+  public data;
 
-  setData(data) {
-    this.data = data;
+ public setData(value) {
+    this.data = value;
+    console.log("set data = " + this.data.id);
+    return this.data;
   }
-
-  getData() {
-    let temp = this.data;
-    this.clearData();
-    return temp;
-  }
-
-  clearData() {
-    this.data = undefined;
-  }
+ public getData() {
+   const temp = this.data
+   console.log("temp = " + temp);
+   return temp;
+ }
 }

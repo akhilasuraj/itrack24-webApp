@@ -21,11 +21,9 @@ export class NotificationComponent implements OnInit {
   }
 
   postData = {
-    userid: 0,
-    postid: 0
+    id: 0
   }
 
- 
 
   constructor(private ts:TransferService, private ns: NotificationService, private auth: AuthenticationService,private route: Router) { }
 
@@ -46,10 +44,9 @@ export class NotificationComponent implements OnInit {
       });
   }
 
-   public GetValues(id,UserID){ //GET_DATA_AND_SEND_TO_POP_COMPONENT_USING_SERVICE_FILE
-    this.postData.postid=id;
-    this.postData.userid=UserID;
-
+   public GetValues(id){ //GET_DATA_AND_SEND_TO_POP_COMPONENT_USING_SERVICE_FILE
+    this.postData.id=id;
+     console.log(this.postData)
     this.ts.setData(this.postData);
    }
 }
