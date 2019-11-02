@@ -23,6 +23,7 @@ export class ResetPasswordComponent implements OnInit {
 };
 
 message : string;
+mark;
 
   constructor(private auth: AuthenticationService, private router: Router) { }
 
@@ -33,11 +34,12 @@ message : string;
      this.auth.ResetPassword(this.credential).subscribe(
        (data)=>{
          if(data){
+           this.mark = false;
           this.message = ('Email has sent to the'+ this.credential.email);
            console.log(data);
-           window.location.reload();
+           this.credential.email = "";
+         
          }
-       }
-     )
+       });
   }
 }

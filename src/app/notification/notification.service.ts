@@ -10,12 +10,12 @@ export class NotificationService {
 
   constructor(private http:HttpClient, private route:Router) {  }
 
-  public getOtherPosts(Pdata):Observable<any>{
+  public NotificationPosts(Pdata):Observable<any>{
     return this.http.post(`http://localhost:3000/users/viewPostNotifications`,Pdata)
   }
   
   
-  public getOtherComplains(Cdata):Observable<any>{
+  public NotificationComplains(Cdata):Observable<any>{
     return this.http.post(`http://localhost:3000/users/viewCompNotifications`,Cdata)
   }
 }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ComplainService, TokenPayload } from './complain.service';
+import { ComplainService} from './complain.service';
 import { AuthenticationService } from '../authentication.service';
-import { formatDate } from '@angular/common';
 
 
 
@@ -14,9 +13,9 @@ import { formatDate } from '@angular/common';
 
 export class ComplainComponent implements OnInit {
 
-  credential: TokenPayload = {
+  credential={
     complain_id: 0,
-    user_id: 0,
+    user_id:0,
     category: '',
     description: '',
     address1: '',
@@ -31,7 +30,7 @@ export class ComplainComponent implements OnInit {
     user_ID: 0
   };
   SelectedFile: File;
-  fileUrl;
+  imageUrl: any;
 
 
 
@@ -41,40 +40,47 @@ export class ComplainComponent implements OnInit {
 
     this.credential.user_id = this.auth.getUserDetails().id;
     this.userData.user_ID = this.auth.getUserDetails().id;
-    //  this.ser.viewPhoto(this.userData).subscribe(
-    //     result => {
-    //       this.fileUrl = result;
-    //     }
-    // );
   }
 
-  async Upload() {
-    const fd = new FormData();
-    fd.append('compImg', this.SelectedFile, this.SelectedFile.name);
-    console.log(fd);
-    await this.ser.uploadPhoto(fd).subscribe(
-      res => {
-        window.location.reload();
-      });
-  }
+  OnFileSelected(event: {
+    target: { files: Blob[]; };
+  }) {
+    console.log(event);
 
-
-
-  OnFileSelected(event) {
     this.SelectedFile = event.target.files[0] as File;
-  }
+    if (event.target.files[0]) {
+      const reader = new FileReader();
 
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event) => {
+        this.imageUrl = reader.result;
+      };
+      console.log(this.imageUrl);
+    }
+  };
 
-  async MakeComplain() {//complain kiyne service eken ewna function eka//
-    await this.ser.complain(this.credential).subscribe(
-      data => {
-        this.router.navigateByUrl('/');
-        if (data) {
-          console.log(data);
-        }
+//SUBMITTING_COMPLAIN
+ onFileUpload(event:any){
+  const fd = new FormData();
+  fd.append('compImg', this.SelectedFile, this.SelectedFile.name);
+  fd.append('description', this.credential.description);
+  fd.append('category', this.credential.category);
+  fd.append('user_id', this.credential.user_id.toString());
+  fd.append('address1', this.credential.address1);
+  fd.append('address2', this.credential.address2);
+  fd.append('district', this.credential.district);
+  fd.append('date', this.credential.date);
+  fd.append('time', this.credential.time);
+  fd.append('longitude', this.credential.longitude.toString());
+  fd.append('latitude', this.credential.latitude.toString());
 
-      });
-  }
+  this.ser.complain(fd).subscribe(
+    data=>{
+         this.router.navigateByUrl("/home");
+    });
+
+}
+
 
 
 }

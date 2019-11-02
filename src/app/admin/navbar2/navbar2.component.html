@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="assets/custom-style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #1d5080;">
+  <a class="navbar-brand" href="#" style="width: 250px; height:50px; color:white">itrack<span class="itrack"
+      style="color:red;">24 Admin</span></a>
+  <button class="navbar-toggler" type="button" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" style="width: 200px; height:50px; color:white"
+              id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Supervisors
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="width: 200px">
+              <a class="dropdown-item" routerLink="/viewsuperevisors">View Supervisors</a>
+              <a class="dropdown-item" routerLink="/addsupervisor">Add supervisors</a>
+              <a class="dropdown-item" routerLink="/addworkers">Add workers</a>
+            </div>
+          </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" style="width: 200px; height:50px; color:white"
+          id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Complain
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="width: 200px">
+          <a class="dropdown-item" routerLink="/complain">Completed Complains</a>
+          <a class="dropdown-item" routerLink="/mycomplain">Inprogress Complains</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/notification2" style="width: 200px; height:50px;">
+          <span><i class="material-icons" style="color:beige">notification_important</i></span>
+          <span class="badge" style="color: red">{{ countc + countp}}</span></a>
+      </li>
+      <!-- <div class="float-right">
+      <li class="nav-item">
+          <a class="nav-link dropdown-toggle" href="#" style="width: 200px; height:50px; color:white"
+          id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="http://localhost:3000/{{ fileUrl?.pic_name }}" alt="{{ fileUrl }}" width="35px" height="35px" 
+          class="profile-image img-circle">
+        </a>
+        <ul class="dropdown-menu">
+            <li class="nav-item" *ngIf="auth.isLoggedIn()">
+                <a routerLink="/profile" class="nav-link">Profile</a>
+              </li>
+          <li class="divider"></li>
+          <li class="nav-item" *ngIf="auth.isLoggedIn()">
+            <a (click)="auth.logout()" routerLink="" class="nav-link">Logout</a>
+          </li>
+        </ul>
+      </li>
+      </div> -->
+
+       <li class="nav-item" *ngIf="!au.isLoggedIn()">
+        <a routerLink="/login" class="nav-link"></a>
+      </li> 
+       <!-- <li class="nav-item" *ngIf="auth.isLoggedIn()">
+        <a routerLink="/profile" class="nav-link">{{auth.getUserDetails()?.first_name}}</a>
+      </li> -->
+      <li class="nav-item" *ngIf="au.isLoggedIn()">
+        <a (click)="au.logout()" routerLink="" class="nav-link">Logout</a>
+      </li> 
+    </ul>
+  </div>
+</nav>

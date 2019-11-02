@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { PostService, TokenPayload } from './post.service';
+import { PostService } from './post.service';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
@@ -10,19 +10,20 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class PostComponent implements OnInit {
 
-  credential: TokenPayload = {
-    post_id:0,
-    UserID:0,
+  credential = {
+    post_id: 0,
+    UserID: 0,
     FirstName: '',
     LastName: '',
-    PostText: '',
-    PostImg:'',
+    PostContent: '',
+    PostTitle: '',
+    PostImg: '',
     PostDate: '',
     PostTime: ''
-  }
+  };
 
-  SelectedFile: File
-  Fileurl;
+  SelectedFile: File;
+  Fileurl: any;
 
   constructor(private pt: PostService, private route: Router, private auth: AuthenticationService) { }
 
@@ -30,39 +31,41 @@ export class PostComponent implements OnInit {
     this.credential.UserID = this.auth.getUserDetails().id;
     this.credential.FirstName = this.auth.getUserDetails().first_name;
     this.credential.LastName = this.auth.getUserDetails().last_name;
-    
-    // this.pt.viewPostImage(this.credential).subscribe(
-    //   data=>{
-    //     console.log(data);
-    //     this.Fileurl=data;
-    
   }
 
-  AddText() {
-    this.pt.makePost(this.credential).subscribe(
-      data => {
-        this.route.navigateByUrl('/newsfeed');
-        console.log(data);
-        console.log('POST_CREATED_SUCCESFULLY');
+
+  OnFileSelected(event: {
+    target: { files: Blob[]; };
+  }) {
+    console.log(event);
+
+    this.SelectedFile = event.target.files[0] as File;
+    if (event.target.files[0]) {
+      const reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (event) => {
+        this.Fileurl = reader.result;
+      };
+      console.log(this.Fileurl);
+    }
+  };
+
+  //SUBMITING_POST
+  onFileUpload(event: any) {
+    const fd = new FormData();
+    fd.append('postImg', this.SelectedFile, this.SelectedFile.name);
+    fd.append('PostContent', this.credential.PostContent);
+    fd.append('PostTitle', this.credential.PostTitle);
+    fd.append('FirstName', this.credential.FirstName);
+    fd.append('LastName', this.credential.LastName);
+    fd.append('UserID', this.credential.UserID.toString());
+
+    this.pt.makePost(fd).subscribe(
+      data=>{
+        this.route.navigateByUrl("/home");
       });
   }
-
-     OnFileSelected(event){
-          
-          this.SelectedFile =  event.target.files[0] as File;
-          
-        }
-
-      async  AddImage(){
-          const fd = new FormData();
-          fd.append('postImg', this.SelectedFile, this.SelectedFile.name);
-          this.pt.uploadPostImage(fd).subscribe(
-            res => {
-                console.log("your image uploaded")
-            });
-
-          window.location.reload();
-        }
 
 
 }

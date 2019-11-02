@@ -1,22 +1,78 @@
 <app-navbar></app-navbar>
-<h3>new posts</h3>
 
-<div *ngFor="let info1 of notificationPost">
-  <div class="col-sm-8-left">
-      <table>
+<div *ngIf="marked">
+
+  <div *ngFor="let info1 of notificationPost">
+
+    <div *ngIf="info1?.isAccepted">
+      <div class="col-sm-8-left">
+        <table>
           <tr>
-              <th>{{ info1?.FirstName}} {{ info1.LastName}} added new Post at {{ info1?.PostTime}} {{ info1?.PostDate}}</th>
+            <th>new Post at {{ info1?.PostTime}} {{ info1?.PostDate}} Accepted
+            </th>
           </tr>
-      </table>
-      <td><button (click)="GetValues(info1.id)"  data-toggle="modal" data-target="#exampleModalCenter">View More</button></td>
-  </div>
-</div>
+        </table>
+        <td><button (click)="GetValues(info1.id)">Close</button></td>
+      </div>
+    </div>
 
- 
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div *ngIf="!info1?.isAccepted">
+      <div class="col-sm-8-left">
+        <table>
+          <tr>
+            <th>new Post at {{ info1?.PostTime}} {{ info1?.PostDate}} Rejected
+            </th>
+          </tr>
+        </table>
+        <td><button (click)="GetValues(info1.id)">Close</button></td>
+      </div>
+    </div>
+
+  </div>
+
+    <div *ngFor="let info2 of notificationComp">
+  
+      <div *ngIf="info2?.isAccepted">
+        <div class="col-sm-8-left">
+          <table>
+            <tr>
+              <th>new Complain at {{ info2?.Category}}  Accepted
+              </th>
+            </tr>
+          </table>
+          <td><button (click)="GetValuesComp(info2.id)">Close</button></td>
+        </div>
+      </div>
+  
+      <div *ngIf="!info2?.isAccepted">
+        <div class="col-sm-8-left">
+          <table>
+            <tr>
+              <th>new Complain at {{ info2?.category}}  Rejected
+              </th>
+            </tr>
+          </table>
+          <td><button (click)="GetValuesComp(info2.id)">Close</button></td>
+        </div>
+      </div>
+  
+    </div>
+  
+
+
+
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <app-pop-post></app-pop-post>
+
       </div>
     </div>
   </div>
+
+</div>
+
+<div *ngIf="!marked">
+  <app-pop-post></app-pop-post>
+</div>

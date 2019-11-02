@@ -16,7 +16,6 @@ import { MatCardModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
-import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
@@ -41,22 +40,42 @@ import { MycomplainService } from './mycomplain/mycomplain.service';
 import { ChartComponent } from './chart/chart.component';
 import { ChartService } from './chart/chart.service';
 import { NotificationComponent } from './notification/notification.component'
-import { NotificationService} from './notification/notification.service';
+import { NotificationService } from './notification/notification.service';
 import { PopPostComponent } from './pop-post/pop-post.component';
-import { TransferService} from './notification/transfer.service';
 import { VerifyComponent } from './verify/verify.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import {NavbarService} from './navbar/navbar.service';
+import { NavbarService } from './navbar/navbar.service';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AddsupervisorComponent } from './admin/addsupervisor/addsupervisor.component';
+import { AddsupervisorService } from './admin/addsupervisor/addsupervisor.service';
+import { Navbar2Component } from './admin/navbar2/navbar2.component';
+import { Navbar2Service} from './admin/navbar2/navbar2.service';
+import { Notification2Component } from './admin/notification2/notification2.component';
+import { Notification2Service} from './admin/notification2/notification2.service';
+import { ApprovedComplainComponent } from './admin/approved-complain/approved-complain.component';
+import { ApprovedComplainService } from './admin/approved-complain/approved-complain.service';
+import { AuthService} from './admin/auth.service';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { PopResetpasswordComponent } from './pop-resetpassword/pop-resetpassword.component';
+import { PopRegisterComponent } from './pop-register/pop-register.component';
+import { PopComplainComponent } from './pop-complain/pop-complain.component';
+import { PopSubmitpostComponent } from './pop-submitpost/pop-submitpost.component';
+import { AddworkersComponent } from './admin/addworkers/addworkers.component';
+import { AddworkersService } from './admin/addworkers/addworkers.service';
+
+
+
+
 
 //
 const routes: Routes = [
-   {path:'',redirectTo:'login',pathMatch:'full'},
+   { path: '', redirectTo: 'login', pathMatch: 'full' },
    { path: 'home', component: HomeComponent },
    { path: 'login', component: LoginComponent },
    { path: 'register', component: LoginComponent },
    {
-      path: 'profile',
-      component: ProfileComponent,
+      path: 'userprofile',
+      component: UserprofileComponent,
       canActivate: [AuthGuardService]
    },
    { path: 'edit-profile', component: EditProfileComponent },
@@ -69,16 +88,21 @@ const routes: Routes = [
    { path: 'mypost', component: MypostComponent },
    { path: 'mycomplain', component: MycomplainComponent },
    { path: 'chart', component: ChartComponent },
-   { path: 'notification', component: NotificationComponent},
-   { path: 'pop-post', component: PopPostComponent},
-   { path: 'verify', component: VerifyComponent}
+   { path: 'notification', component: NotificationComponent },
+   { path: 'pop-post', component: PopPostComponent },
+   { path: 'verify', component: VerifyComponent },
+   { path: 'dashboard', component: DashboardComponent },
+   { path: 'addsupervisor', component: AddsupervisorComponent },
+   { path: 'notification2', component: Notification2Component},
+   { path: 'approved-complain', component: ApprovedComplainComponent},
+   { path: 'pop-resetpassword', component: PopResetpasswordComponent},
+   { path: 'addworkers', component: AddworkersComponent}
 ];
 
 @NgModule({
    declarations: [
       AppComponent,
       HomeComponent,
-      ProfileComponent,
       LoginComponent,
       RegisterComponent,
       EditProfileComponent,
@@ -95,6 +119,20 @@ const routes: Routes = [
       PopPostComponent,
       VerifyComponent,
       NavbarComponent,
+      DashboardComponent,
+      AddsupervisorComponent,
+      Navbar2Component,
+      Notification2Component,
+      ApprovedComplainComponent,
+      UserprofileComponent,
+      PopResetpasswordComponent,
+      PopRegisterComponent,
+      PopComplainComponent,
+      PopSubmitpostComponent,
+      AddworkersComponent,
+    
+      
+ 
 
    ],
    imports: [
@@ -125,8 +163,13 @@ const routes: Routes = [
       ChartService,
       AppService,
       NotificationService,
-      TransferService,
-      NavbarService
+      NavbarService,
+      AddsupervisorService,
+      Navbar2Service,
+      Notification2Service,
+      ApprovedComplainService,
+      AuthService,
+      AddworkersService
 
    ],
    bootstrap: [

@@ -1,9 +1,10 @@
 <app-navbar></app-navbar>
 <div class="body">
     <br><br><br>
+    <div class="row">
 <div *ngFor="let info of postdata">
+    <div class="colum-sm-2">
 <div class="wrapper">
-    		
         <div class="card radius shadowDepth1">
             <div class="card__image border-tlr-radius">
                 <img src="http://localhost:3000/{{ info?.PostImg}}" alt="http://localhost:3000/{{ info?.PostImg}}" alt="image" class="border-tlr-radius">
@@ -16,7 +17,7 @@
                 </div>
 
                 <article class="card__article">
-                    <p>{{ info?.PostText}}</p>
+                    <p>{{ info?.PostContent}}</p>
                 </article>
             </div>
 
@@ -30,6 +31,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </div>
 <br><br><br>

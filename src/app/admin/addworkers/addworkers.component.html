@@ -1,0 +1,104 @@
+<app-navbar2></app-navbar2>
+<html>
+<div class style="height: 800px; padding-top: 25px">
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7">
+          <div class="box">
+            <h5 style=color:#007bff>Register Workers</h5>
+            <form (submit)="Register()" ngNativeValidate>
+              <div class="inputBox">
+                <label for="">Last Name</label>
+                <input type="text" class="form-control" name="LastName" placeholder="last name"
+                  [(ngModel)]="credential.LastName" required>
+              </div>
+              <br>
+              <div class="inputBox">
+                <label for="">National Id</label>
+                <input type="text" class="form-control" name="Nicno" placeholder="Nic no" [(ngModel)]="credential.Nicno"
+                  required>
+              </div>
+              <br>
+              <div class="inputBox">
+                <label for="">Contact No</label>
+                <input type="text" class="form-control" name="contactno" placeholder="contact no"
+                  [(ngModel)]="credential.contactno" required>
+              </div>
+              <br>
+              <div class="group">
+                  <label for="">Job Type 1</label>
+                  <select class="form-control" [(ngModel)]="credential.JobType1" name="JobType1"  placeholder="Street-Signal post" required>
+                    <optgroup label="Emergency on street">
+                      <option value="Street-Signal post">Street-Signal post</option>
+                      <option value="Street-Pedestrian crossing">Street-Pedestrian crossing</option>
+                      <option value="Street-lamp">Street-lamp</option>
+                      <option value="Street-Color light">Street-Color light</option>
+                      <option value="Street-Dangerous tree">Street-Dangerous tree</option>
+                      <option value="Street-Dangerous construction area">Street-Dangerous construction area</option>
+                    </optgroup>
+                    <optgroup label="Drainage Blockage">
+                      <option value="Drainage Blockage-house">Drainage Blockage-house</option>
+                      <option value="Drainage Blockage-Public building">Drainage Blockage-Public building</option>
+                      <option value="Drainage Blockage-Road">Drainage Blockage-Road</option>
+                    </optgroup>
+                    <optgroup label="Solid Waste Removal">
+                      <option value="Solid waste-house">Solid waste-house</option>
+                      <option value="Solid waste-Public premises">Solid waste-Public premises</option>
+                    </optgroup>
+                    <optgroup label="Removal of Tree Cutting Debris">
+                      <option value="Tree Cutting Debris-house">Tree Cutting Debris-house</option>
+                      <option value="Tree Cutting Debris-Public premises">Tree Cutting Debris-Public premises
+                      </option>
+                    </optgroup>
+                    <optgroup label="Other">
+                      <option value="Mosquito breeding area">Mosquito breeding area</option>
+                    </optgroup>
+                  </select>
+                </div>
+
+                <div class="group">
+                    <label for="">Job Type 2</label>
+                    <select class="form-control" [(ngModel)]="credential.JobType2" name="JobType2"  placeholder="Drainage Blockage" required>
+                      <optgroup label="Emergency on street">
+                        <option value="Street-Signal post">Street-Signal post</option>
+                        <option value="Street-Pedestrian crossing">Street-Pedestrian crossing</option>
+                        <option value="Street-lamp">Street-lamp</option>
+                        <option value="Street-Color light">Street-Color light</option>
+                        <option value="Street-Dangerous tree">Street-Dangerous tree</option>
+                        <option value="Street-Dangerous construction area">Street-Dangerous construction area</option>
+                      </optgroup>
+                      <optgroup label="Drainage Blockage">
+                        <option value="Drainage Blockage-house">Drainage Blockage-house</option>
+                        <option value="Drainage Blockage-Public building">Drainage Blockage-Public building</option>
+                        <option value="Drainage Blockage-Road">Drainage Blockage-Road</option>
+                      </optgroup>
+                      <optgroup label="Solid Waste Removal">
+                        <option value="Solid waste-house">Solid waste-house</option>
+                        <option value="Solid waste-Public premises">Solid waste-Public premises</option>
+                      </optgroup>
+                      <optgroup label="Removal of Tree Cutting Debris">
+                        <option value="Tree Cutting Debris-house">Tree Cutting Debris-house</option>
+                        <option value="Tree Cutting Debris-Public premises">Tree Cutting Debris-Public premises
+                        </option>
+                      </optgroup>
+                      <optgroup label="Other">
+                        <option value="Mosquito breeding area">Mosquito breeding area</option>
+                      </optgroup>
+                    </select>
+                  </div>
+              <br>
+              <div class="row">
+              </div>
+              <br><br>
+              <button class="btn btn-primary" type="submit">Register</button>&nbsp;&nbsp;
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</div>
+
+</html>

@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { NavbarService} from '../navbar/navbar.service';
+import * as socketIo from 'socket.io-client';
+import { Subscription, timer, pipe } from 'rxjs';
+import { switchMapTo, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -12,16 +15,20 @@ import { NavbarService} from '../navbar/navbar.service';
 
 export class NavbarComponent implements CanActivate{
   userData = {
-    uid: 0
+    user_id: 0,
+    UserID:0
   }
-
-  navData ={
-    user_ID:0
+  
+  navData = {
+    id:0
   }
 
   postcount;
   compcount;
   fileUrl;
+
+  subscription1;
+  subscription2;
 
 constructor(private ns:NavbarService,private auth: AuthenticationService, private router: Router) { }
 
@@ -34,28 +41,50 @@ canActivate(): boolean {
 }
 
 ngOnInit(){
-  this.userData.uid = this.auth.getUserDetails().id;
-  this.navData.user_ID = this.auth.getUserDetails().id;
-  console.log(this.navData);
+  this.userData.UserID = this.auth.getUserDetails().id;
+  this.userData.user_id = this.auth.getUserDetails().id;
+  this.navData.id  = this.auth.getUserDetails().id
 
-  this.ns.NavImage(this.navData).subscribe(
-    data=>{
-      this.fileUrl = data;
-      console.log("this is navbar pro image =" + data);
-    });
+ //NAVBAR_PROFILE_IMAGE
+    this.ns.NavImage(this.navData).subscribe(
+      data=>{
+        this.fileUrl = data;
+        console.log("this is navbar pro image =" + data);
+      });
+ 
 
-  this.ns.PostCount(this.userData).subscribe(
+//  this.subscription1 = timer(0,10000).pipe(
+// switchMap(()=>
+this.ns.PostCount(this.userData).subscribe(
     data1 => {
       this.postcount=data1;
       console.log(this.postcount);
     });
-  this.ns.CompCount(this.userData).subscribe(
+ 
+  
+
+//  this.subscription2 = timer(0,1000).pipe(
+//  switchMap(()=>
+this.ns.CompCount(this.userData).subscribe( 
     data2 => {
       this.compcount=data2;
       console.log(this.compcount);
-    });
+    });  
 
   }
+  
+  
+  // ngOnDestroy(){
+  //   this.subscription1.unsubscribe()
+  //   this.subscription2.unsubscribe()
+  // }
+
 
 
 }
+
+
+
+
+
+

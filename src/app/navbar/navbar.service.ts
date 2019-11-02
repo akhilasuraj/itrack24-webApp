@@ -16,6 +16,6 @@ export class NavbarService {
   }
   
   public NavImage(navImg): Observable<any> {
-    return this.http.post(`http://localhost:3000/users/viewproimage`, navImg);
+    return this.http.post(`http://localhost:3000/users/viewnavimage`, navImg);
   }
 }

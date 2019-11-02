@@ -13,4 +13,11 @@ export class PopPostService {
   public GetSelectPost(data):Observable<any>{
     return this.http.post(`http://localhost:3000/users/getselectedpost`,data);
   }
+
+  
+  public  GetSelectComplain(data):Observable<any>{
+    return this.http.post(`http://localhost:3000/users/getselectedcomplain`,data);
+  }
+
+ 
 }

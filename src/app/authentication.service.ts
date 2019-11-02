@@ -156,7 +156,7 @@ export class AuthenticationService {
     return this.http.post(`http://localhost:3000/users/profilepic`, fd);
   }
 
-  public viewPhoto(userData): Observable<any> {
+  public viewPhoto(userData): Observable<any> { //IN_PROFILE
     return this.http.post(`http://localhost:3000/users/viewproimage`, userData);
   }
 

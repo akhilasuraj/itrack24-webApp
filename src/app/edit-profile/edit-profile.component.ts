@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenPayload, AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -14,39 +15,37 @@ export class EditProfileComponent implements OnInit {
     user_type: 'user',
     first_name: '',
     last_name: '',
-    address:  '',
+    address: '',
     contact_num: '',
     email: '',
     password: '',
- 
- 
-   
-}
+  }
+
+ userdetails;
 
   constructor(private auth: AuthenticationService, private router: Router) { }
+  
 
-
-  async EditProfile() {
-
+   EditProfile() {
+   
     this.credential.id = this.auth.getUserDetails().id;
 
-   await this.auth.EditProfile(this.credential).subscribe(
-     (data) => {
-       if(data) {
-         window.location.reload();
-       } else{
-         alert('invalid');
-       }
-     },
-    )
-     }
+     this.auth.EditProfile(this.credential).subscribe(
+      (data) => {
+        if (data) {
+          this.userdetails = data;
+          window.location.reload();
+        } else {
+          alert('invalid');
+        }}
+      )};
 
- async ngOnInit() {
-  this.credential.first_name = this.auth.getUserDetails().first_name;
-  this.credential.last_name = this.auth.getUserDetails().last_name;
-  this.credential.address = this.auth.getUserDetails().address;
-  this.credential.contact_num = this.auth.getUserDetails().contact_num;
-  this.credential.email = this.auth.getUserDetails().email;
+  async ngOnInit() {
+    this.credential.first_name = this.auth.getUserDetails().first_name;
+    this.credential.last_name = this.auth.getUserDetails().last_name;
+    this.credential.address = this.auth.getUserDetails().address;
+    this.credential.contact_num = this.auth.getUserDetails().contact_num;
+    this.credential.email = this.auth.getUserDetails().email;
   }
 
 

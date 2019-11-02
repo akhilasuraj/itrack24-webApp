@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from './notification.service';
 import { AuthenticationService } from '../authentication.service';
-import { TransferService} from './transfer.service';
-
+import { switchMap } from 'rxjs/operators';
+import * as socketIo from 'socket.io-client';
+import { Subscription, timer, pipe } from 'rxjs';
 
 @Component({
   selector: 'app-notification',
@@ -23,32 +24,60 @@ export class NotificationComponent implements OnInit {
   postData = {
     id: 0
   }
+  
+  compData = {
+    id: 0
+  }
 
+  marked = true;
+  red;
 
-  constructor(private ts:TransferService, private ns: NotificationService, private auth: AuthenticationService,private route: Router) { }
+  subscription1;
+  subscription2;
+
+  constructor(private ns: NotificationService, private auth: AuthenticationService, private route: Router) { }
 
   ngOnInit() {
     this.userData.UserID = this.auth.getUserDetails().id;
     this.userData.user_id = this.auth.getUserDetails().id;
 
-    this.ns.getOtherPosts(this.userData).subscribe(
+    this.subscription1 = timer(0, 800).pipe(
+      switchMap(() => this.ns.NotificationPosts(this.userData))
+    ).subscribe(
       data1 => {
+        this.red = true;
         this.notificationPost = data1;
-        console.log(data1);
       });
 
-    this.ns.getOtherComplains(this.userData).subscribe(
+
+    this.subscription1 = timer(0, 800).pipe(
+      switchMap(() => this.ns.NotificationComplains(this.userData))
+    ).subscribe(
       data2 => {
+        this.red = false;
         this.notificationComp = data2;
-        console.log(data2);
       });
+
   }
 
-   public GetValues(id){ //GET_DATA_AND_SEND_TO_POP_COMPONENT_USING_SERVICE_FILE
-    this.postData.id=id;
-     console.log(this.postData)
-    this.ts.setData(this.postData);
-   }
+  GetValues(id: number) {      //VIEW_MORE
+    this.postData.id = id;
+    this.marked = false
+    console.log("postdata " + this.postData.id);
+  }
+
+
+  GetValuesComp(id: number) {      //VIEW_MORE
+    this.compData.id = id;
+    this.marked = false
+    console.log("compdata " + this.compData.id);
+  }
+
+
+  ngOnDestroy() {
+    this.subscription1.unsubscribe()
+  }
+
 }
 
 

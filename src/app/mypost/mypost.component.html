@@ -2,56 +2,25 @@
 <div class="body">
     <br><br><br>
 <div *ngFor="let info of postdata">
-<div class="wrapper">
-    		
+<!-- <div class="wrapper">		
         <div class="card radius shadowDepth1">
-            <div class="card__image border-tlr-radius">
-                <img src="http://localhost:3000/{{ info?.PostImg}}" alt="http://localhost:3000/{{ info?.PostImg}}" alt="image" class="border-tlr-radius">
-            </div>
-
             <div class="card__content card__padding">
                 <div class="card__meta">
                     	<a href="#">{{ info?.PostTitle}}</a>
                     <time>{{ info?.PostDate}}  at  {{ info?.PostTime}}</time>
                 </div>
-
-                <article class="card__article">
-                    <p>{{ info?.PostText}}</p>
-                </article>
             </div>
-
             <div class="card__action">
-                
-                <div class="card__author">
-                    <img src="http://lorempixel.com/40/40/sports/" alt="user">
-                    <div class="card__author-content">
-                        By <time>{{ info?.FirstName}} {{ info?.LastName}}</time>
-                    </div>
-                </div>
                 <button type="button" class="btn btn-danger" (click)="delete(info.id, info.UserID)">Delete</button>
             </div>
         </div>
-    </div>
+    </div> -->
+    <ul class="list-group">
+            <li class="list-group-item">{{ info?.PostTitle}} - {{ info?.PostDate}} at {{ info?.PostTime}} &nbsp;&nbsp;&nbsp;&nbsp; <button type="button" class="btn btn-danger" (click)="delete(info.id, info.UserID)">Delete</button>                          
+            </li>
+    </ul>
+    
 </div>
 <br><br><br>
 </div>
  
-
-<!-- 
-
-<app-navbar></app-navbar>
-<div *ngFor="let info of postdata">
-    <div class="col-sm-8-left">
-        <table>
-            <tr>
-                <th>{{ info?.PostText}}</th>
-            </tr>
-            <tr>
-                <th>{{ info?.PostTime}} {{ info?.PostDate}} </th>
-            </tr>
-        </table>
-        <img src="http://localhost:3000/{{ info?.PostImg}}" alt="http://localhost:3000/{{ info?.PostImg}}" width="10%"
-            height="10%">
-        <td><button type="button" class="btn btn-danger" (click)="delete(info.id, info.UserID)">Delete</button></td> 
-    </div>
-</div>  -->

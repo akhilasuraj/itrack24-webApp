@@ -15,22 +15,19 @@ export class MycomplainComponent implements OnInit {
   }
 
   complains;
-  
+
 
   constructor(private mc: MycomplainService, private auth: AuthenticationService, private route: Router) { }
 
   ngOnInit() {
     this.MycompData.user_id = this.auth.getUserDetails().id;
-   
-  }
-  
 
-  public getMyComplain() {
-    
     this.mc.getMyComp(this.MycompData).subscribe(
       cpm => {
         this.complains = cpm
         console.log(this.complains);
-      })
+  });
+ 
   }
+
 }

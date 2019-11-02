@@ -1,73 +1,43 @@
 <app-navbar></app-navbar>
-
-<!-- <div class="row">
-  <div class="col-sm">
-    <form (submit)="AddText()" method="POST">
-      <label>
-        Add Title
-      </label>
-      <textarea rows="2" cols="20" class="form-control" placeholder="text" name="PostTitle"
-        [(ngModel)]="credential.PostTitle" required></textarea>
-     
-        <br>
-        
-        <label>
-        Add Post Text
-      </label>
-      <textarea rows="4" cols="80" class="form-control" placeholder="text" name="PostText"
-        [(ngModel)]="credential.PostText" required></textarea>
-      <button type="submit">Submit Post</button>
-    </form>
-  </div>
-  <div class="col-md-6">
-    <form (submit)="AddImage()" method="POST">
-      <label>Add images to post</label>
-      <img src="http://localhost:3000/{{ fileUrl?.img_name }}" alt="{{ fileUrl }}" width="20%" height="20%"><br>
-      <input type="file" name="postImg" accept="image/*" (change)="OnFileSelected($event)">
-      <button type="submit">Add Image</button>
-    </form>
-  </div>
-</div>
-  -->
-
-
 <div class="body">
-    <br><br><br><br>
-<div class="login-wrap">
+  <br><br><br><br>
+  <div class="login-wrap">
     <div class="login-html">
-      <label for="pass" class="label">Make your post</label>
+      <label for="pass" class="label" style="color:black"><h3>Make your post</h3></label><br><br>
       <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"></label>
       <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
       <div class="login-form">
-        <div class="sign-in-htm">           
-<div class="row">
-    <div class="col-sm">
-          <form (submit)="AddText()" method="POST" ngNativeValidate>
-            <div class="group">
-              <label for="pass" class="label">Title</label>
-              <textarea rows="2" cols="20" class="form-control" placeholder="text" name="PostTitle" [(ngModel)]="credential.PostTitle" required></textarea>
-            </div>
-            <div class="group">
-                <label for="pass" class="label">Caption</label>
-                <textarea rows="2" cols="20" class="form-control" placeholder="text" name="PostTitle" [(ngModel)]="credential.PostText" required></textarea>
+        <div class="sign-in-htm">
+          <div class="row">
+            <form ngNativeValidate>
+              <div class="col-sm-20">
+                <div class="group">
+                  <label>Title</label>
+                  <textarea rows="2" cols="80" class="form-control" placeholder="Title" name="PostTitle"
+                    [(ngModel)]="credential.PostTitle" required></textarea>
+                </div>
+                <div class="group">
+                  <label>Content</label>
+                  <textarea rows="3" cols="50" class="form-control" placeholder="text" name="PostContent"
+                    [(ngModel)]="credential.PostContent" required></textarea>
+                </div>
               </div>
-            <div class="group">
-              <button type="submit" class="button">Create Post</button>
-            </div>
-          </form>
-    </div>
-    <div class="col-md-6">
-        <form (submit)="AddImage()" method="POST">
-            <label>Add images to post</label>
-            <img src="http://localhost:3000/{{ fileUrl?.img_name }}" alt="{{ fileUrl }}" width="20%" height="20%"><br>
-            <input type="file" name="postImg" accept="image/*" (change)="OnFileSelected($event)">
-            <button type="submit">Add Image</button>
-          </form>
-    </div>
+              <div class="col-sm-5">
+                <form method="POST">
+                  <label>Add images to post</label><br>
+                  <img [src]="Fileurl" style=width:40%; height="40%"><br><br>
+                  <input type="file" name="postImg" (change)="OnFileSelected($event)"><br><br>
+                </form>
+              </div>
+              <br>
+              <div class="group">
+               <button (click)="onFileUpload($event)" class="btn btn-primary">Submit Post</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div> 
-</div> 
-<br><br><br><br><br><br>
-</div> 
+  </div>
+  <br><br><br><br><br><br>
+</div>

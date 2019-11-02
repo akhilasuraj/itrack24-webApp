@@ -1,8 +1,8 @@
 
-<div class style="height: 800px; padding-top: 150px;">
+<div class style="height: 575px;">
 <div class="container">
   <div class="row">
-    <div class="col-md-6 mt-5 mx-auto font-weight-bold  text-black">
+    <div class="col-md-7 mt-5 mx-auto font-weight-bold  text-black">
       <form (submit)="EditProfile()" ngNativeValidate>
           <h5 style=color:#007bff>Edit profile</h5>
         <div class="form-group font-weight-bold">
@@ -29,7 +29,7 @@
         <input type="email" class="form-control" id="" name="email" placeholder="Email"  #email="ngModel" [(ngModel)]="credential.email" required>
       </div>
 
-         <button class="btn btn-danger" type="submit" >Update</button>
+         <button class="btn btn-danger" type="submit" style="margin-left: 60px;" >Save and Exit</button>
       </form>
     </div>
 </div>

@@ -14,7 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 export class LoginComponent {
   credential: TokenPayload = {
     id: 0,
-    user_type: 'user',
+    user_type: '',
     first_name: '',
     last_name: '',
     address: '',
@@ -25,41 +25,41 @@ export class LoginComponent {
   };
 
   constructor(private auth: AuthenticationService, private router: Router) { }
-  login() {
-
-    if (this.credential.email !== '' && this.credential.password !== '') {
-      this.auth.login(this.credential).subscribe(
-        (data) => {
-          console.log(data);
-          if (data) {
-            if (this.auth.getUserDetails().user_type === 'user') {
-              this.router.navigateByUrl('/home');
-            } else {
-              this.router.navigateByUrl('/admin');
-            }
-          } else {
-            alert('Invalid');
+  async login() {
+   await this.auth.login(this.credential).subscribe(
+      (data) => {
+        console.log(data.user_type);
+        if (data) {
+          if (data.user_type === 'user') {
+            this.router.navigateByUrl('/home');
           }
-        },
-        err => {
-          console.error(err);
+          else if (data.user_type === 'admin') {
+            this.router.navigateByUrl('/dashboard');
+          }
+          else{
+            console.log("user_type_not_exist");
+          }
         }
-      );
-
-    }
+      });
 
   }
-  register() {
-    this.auth.register(this.credential).subscribe(
+
+  marke;
+
+ async register() {
+   await this.auth.register(this.credential).subscribe(
       (data) => {
         if (data) {
+          this.marke = false;
           console.log(data);
-          this.router.navigateByUrl('/profile');
         }
-        else {
-          alert('invalid');
+        else{
+          this.marke = true;
+          alert("invalid")
         }
-      },
-    )
-  };
+        
+      });
+  }
+
+
 }

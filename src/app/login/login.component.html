@@ -55,9 +55,9 @@
                         <input type="password"class="form-control"  name="password" placeholder=""  [(ngModel)]="credential.password" required>
                   <!-- ngModel pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" -->	
 				</div>
-				<div class="group">
-					<button type="submit" class="button">Sign Up</button>
-                </div>
+                        <div class="col-md-2">
+                                    <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-secondary">Register</button>
+                                </div>
                 <div class="hr"></div>
             </form>  
 			</div>
@@ -66,3 +66,12 @@
 </div>
 <br><br><br>
 </body>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" 
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <app-pop-register></app-pop-register>
+  </div>
+</div>
+</div>

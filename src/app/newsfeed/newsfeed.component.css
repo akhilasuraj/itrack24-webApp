@@ -36,7 +36,8 @@ h2 {
 }
 
 .wrapper {
-	max-width: 700px;
+	height: auto;
+	max-width: 500px;
 	margin: 50px auto;
 	padding-left: 1em;
 	padding-right: 1em;
@@ -220,3 +221,22 @@ background-attachment: fixed;
 	.googleplus:hover {
 		color: #eee;
 	}
+
+
+
+
+	.column {
+		float: left;
+		width: 25%;
+		padding: 0 10px;
+	  }
+	  
+	  /* Remove extra left and right margins, due to padding */
+	  .row {margin: 0 -5px;}
+	  
+	  /* Clear floats after the columns */
+	  .row:after {
+		content: "";
+		display: table;
+		clear: both;
+	  }

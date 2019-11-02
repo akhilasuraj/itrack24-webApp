@@ -3,11 +3,13 @@ import { Router } from '@angular/router';
 import { AuthenticationService, UserDetails, TokenPayload } from '../authentication.service';
 
 @Component({
-  templateUrl: './profile.component.html'
+  selector: 'app-userprofile',
+  templateUrl: './userprofile.component.html',
+  styleUrls: ['./userprofile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class UserprofileComponent implements OnInit {
 
-
+  constructor(private auth: AuthenticationService, private router: Router) { }
   details: UserDetails;
 
   userData = {
@@ -15,8 +17,9 @@ export class ProfileComponent implements OnInit {
   };
   SelectedFile: File;
   fileUrl;
-
-  constructor(private auth: AuthenticationService, private router: Router) { }
+ 
+ 
+  
   ngOnInit() {
     this.userData.user_ID = this.auth.getUserDetails().id;
 
@@ -67,4 +70,3 @@ export class ProfileComponent implements OnInit {
   }
 
 }
-
