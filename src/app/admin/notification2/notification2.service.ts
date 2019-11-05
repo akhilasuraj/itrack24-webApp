@@ -8,37 +8,35 @@ import { Observable } from 'rxjs';
 })
 export class Notification2Service {
 
-  constructor(private http:HttpClient, private route:Router) { }
+  constructor(private http: HttpClient, private route: Router) { }
 
-  public ViewCompNotifications():Observable<any>{
-    return this.http.get("http://localhost:3000/admin/viewcompNotification");
+
+  public viewComplain(obj1): Observable<any> {
+    return this.http.post(`/admin/gointoComplain`, obj1);
   }
 
-  public ViewPostNotifications():Observable<any>{
-    return this.http.get("http://localhost:3000/admin/viewpostNotification");
+  public viewPost(obj2): Observable<any> {
+    return this.http.post(`/admin/gointoPost`, obj2);
   }
 
-  public ViewMoreComplain(obj1):Observable<any>{
-    return this.http.post("http://localhost:3000/admin/viewcomplainMore",obj1);
+
+  public AcceptPost(data1): Observable<any> {
+    return this.http.post(`/admin/acceptpost`, data1);
   }
 
-  public ViewMorePost(obj2):Observable<any>{
-    return this.http.post("http://localhost:3000/admin/viewpostMore",obj2);
-  }
-  
-  
-  public AcceptPost(data1):Observable<any>{
-    return this.http.post("http://localhost:3000/admin/acceptpost",data1);
+
+  public AcceptComplain(data2): Observable<any> {
+    return this.http.post(`/admin/acceptcomp`, data2);
   }
 
-  
-  public AcceptComplain(data2):Observable<any>{
-    return this.http.post("http://localhost:3000/admin/acceptcomp",data2);
+
+  public RejectPost(data3): Observable<any> {
+    return this.http.post(`/admin/rejectpost`, data3);
   }
 
-  
-  public RejectPost(data3):Observable<any>{
-    return this.http.post("http://localhost:3000/admin/rejectpost",data3);
+
+  public RejectComplain(data4): Observable<any> {
+    return this.http.post(`/admin/rejectcomp`, data4);
   }
 
 

@@ -17,10 +17,11 @@ export class UserprofileComponent implements OnInit {
   };
   SelectedFile: File;
   fileUrl;
- 
- 
-  
+
+  tokenid: string;
+
   ngOnInit() {
+
     this.userData.user_ID = this.auth.getUserDetails().id;
 
     this.auth.profile().subscribe(
@@ -32,12 +33,11 @@ export class UserprofileComponent implements OnInit {
         console.error(err)
       });
 
-      this.auth.viewPhoto(this.userData).subscribe(
-        pic=>{
-          this.fileUrl=pic;
-          console.log("here is the profile image "+ pic);
-        }
-      )
+    this.auth.viewPhoto(this.userData).subscribe(
+      pic => {
+        this.fileUrl = pic;
+        console.log("here is the profile image " + pic);
+      });
 
 
 
@@ -65,8 +65,6 @@ export class UserprofileComponent implements OnInit {
         window.location.reload();
       }
     );
-
-    window.location.reload();
   }
 
 }

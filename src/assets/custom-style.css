@@ -66,20 +66,20 @@ span.container-fluid {
 }
 
 .navbar-brand{
- font-size:200%;
+ font-size:180%;
 }
 
 .nav-item{
- font-size: 120%;
+ font-size: 110%;
  text-align: center;
 }
 
 .nav-item dropdown{
- font-size: 120%;
+ font-size: 110%;
  text-align: center;
 }
 .dropdown-menu{
- font-size: 90%;
+ font-size: 100%;
  text-align: center;
 }
 .dropdown-menu a:hover{
@@ -91,6 +91,6 @@ span.container-fluid {
 }
 
 .nav-link{
- font-size: 120%;
+ font-size: 110%;
  text-align: center;
 }

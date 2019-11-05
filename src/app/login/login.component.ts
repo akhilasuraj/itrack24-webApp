@@ -44,17 +44,16 @@ export class LoginComponent {
 
   }
 
-  marke;
-
+  
  async register() {
    await this.auth.register(this.credential).subscribe(
       (data) => {
         if (data) {
-          this.marke = false;
+         
           console.log(data);
         }
         else{
-          this.marke = true;
+          
           alert("invalid")
         }
         

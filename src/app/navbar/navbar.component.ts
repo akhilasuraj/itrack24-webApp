@@ -25,7 +25,7 @@ export class NavbarComponent implements CanActivate{
 
   postcount;
   compcount;
-  fileUrl;
+  infoUrl;
 
   subscription1;
   subscription2;
@@ -48,8 +48,8 @@ ngOnInit(){
  //NAVBAR_PROFILE_IMAGE
     this.ns.NavImage(this.navData).subscribe(
       data=>{
-        this.fileUrl = data;
-        console.log("this is navbar pro image =" + data);
+        this.infoUrl = data;
+        
       });
  
 

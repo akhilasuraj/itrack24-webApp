@@ -48,9 +48,9 @@
       </li>
       <div class="float-right">
       <li class="nav-item dropdown ">
-          <a class="nav-link dropdown-toggle" href="#" style="width: 200px; height:50px; color:white"
+          <a class="nav-link dropdown-toggle" href="#" style="width: 50px; height:50px; color:white"
           id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="http://localhost:3000/{{ fileUrl?.pic_name }}" alt="{{ fileUrl }}" width="35px" height="35px" 
+          <img src="http://localhost:3000/{{ infoUrl?.pic_name }}" alt="{{ infoUrl }}" width="35px" height="35px" 
           class="profile-image img-circle">  {{auth.getUserDetails()?.first_name}}
         </a>
         <ul class="dropdown-menu">
@@ -72,14 +72,6 @@
       <li class="nav-item" *ngIf="!auth.isLoggedIn()">
         <a routerLink="/register" class="nav-link"></a>
       </li>
-
-      <!-- <li class="nav-item" *ngIf="auth.isLoggedIn()">
-        <a routerLink="/profile" class="nav-link">{{auth.getUserDetails()?.first_name}}</a>
-      </li>
-
-      <li class="nav-item" *ngIf="auth.isLoggedIn()">
-        <a (click)="auth.logout()" routerLink="" class="nav-link">Logout</a>
-      </li> -->
     </ul>
   </div>
 </nav>

@@ -76,7 +76,7 @@ export class AuthenticationService {
   }
 
   public register(user: TokenPayload): Observable<any> {
-    const base = this.http.post(`http://localhost:3000/users/register`, user);
+    const base = this.http.post(`/users/register`, user);
 
     const request = base.pipe(
       map((data: TokenResponse) => {
@@ -93,7 +93,7 @@ export class AuthenticationService {
     return request;
   }
   public login(user: TokenPayload): Observable<any> {
-    const base = this.http.post(`http://localhost:3000/users/login`, user);
+    const base = this.http.post(`/users/login`, user);
 
     const request = base.pipe(
       map((data: TokenResponse) => {
@@ -108,11 +108,15 @@ export class AuthenticationService {
     );
 
     return request;
-  }// profile
+
+  }
+
+  // profile
   public profile(): Observable<any> {
-    return this.http.get(`http://localhost:3000/users/profile`, {
+    return this.http.get(`/users/profile`, {
       headers: { Authorization: `${this.getToken()}` }
     });
+
   }
   // logout
   public logout(): void {
@@ -124,13 +128,13 @@ export class AuthenticationService {
 
   // forgot_password
   public ResetPassword(user: TokenPayload): Observable<any> {
-    return this.http.post(`http://localhost:3000/users/forgot`, user);
+    return this.http.post(`/users/forgot`, user);
   }
 
 
   // edit-profile
   public EditProfile(user: TokenPayload): Observable<any> {
-    const base = this.http.post(`http://localhost:3000/users/editprofile`, user);
+    const base = this.http.post(`/users/editprofile`, user);
 
     const request = base.pipe(
       map((data: TokenResponse) => {
@@ -149,26 +153,26 @@ export class AuthenticationService {
 
   /*upload_profile_pic*/
   public sendUserID(userData): Observable<any> {
-    return this.http.post(`http://localhost:3000/users/getUserID`, userData);
+    return this.http.post(`/users/getUserID`, userData);
   }
 
   public uploadPhoto(fd): Observable<any> {
-    return this.http.post(`http://localhost:3000/users/profilepic`, fd);
+    return this.http.post(`/users/profilepic`, fd);
   }
 
   public viewPhoto(userData): Observable<any> { //IN_PROFILE
-    return this.http.post(`http://localhost:3000/users/viewproimage`, userData);
+    return this.http.post(`/users/viewproimage`, userData);
   }
 
   /*reset_password_using_token*/
 
-  public resetPasswordWithToken(token,pass): Observable<any> {
-    return this.http.post(`http://localhost:3000/users/reset?token=`+token, {password: pass});//password eka body parameter ekak, token eka query parameter ekak//
+  public resetPasswordWithToken(token, pass): Observable<any> {
+    return this.http.post(`/users/reset?token=` + token, { password: pass });//password eka body parameter ekak, token eka query parameter ekak//
   }
 
   /*activate_user_account*/
 
-  public verification(token,email): Observable<any>{
-    return this.http.get(`http://localhost:3000/users/verify?token=`+ token + "&email=" + email);
+  public verification(token, email): Observable<any> {
+    return this.http.get(`/users/verify?token=` + token + "&email=" + email);
   }
 }

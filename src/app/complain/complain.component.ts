@@ -23,8 +23,8 @@ export class ComplainComponent implements OnInit {
     district: '',
     date: '',
     time: '',
-    longitude: 6.795350,
-    latitude: 79.900808
+    longitude:7.564,
+    latitude: 6.457
   };
   userData = {
     user_ID: 0
@@ -32,12 +32,11 @@ export class ComplainComponent implements OnInit {
   SelectedFile: File;
   imageUrl: any;
 
-
+  
 
   constructor(private ser: ComplainService, private router: Router, private auth: AuthenticationService) { }
 
   ngOnInit() {
-
     this.credential.user_id = this.auth.getUserDetails().id;
     this.userData.user_ID = this.auth.getUserDetails().id;
   }
@@ -61,6 +60,7 @@ export class ComplainComponent implements OnInit {
 
 //SUBMITTING_COMPLAIN
  onFileUpload(event:any){
+ 
   const fd = new FormData();
   fd.append('compImg', this.SelectedFile, this.SelectedFile.name);
   fd.append('description', this.credential.description);

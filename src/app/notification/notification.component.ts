@@ -30,7 +30,7 @@ export class NotificationComponent implements OnInit {
   }
 
   marked = true;
-  red;
+  
 
   subscription1;
   subscription2;
@@ -45,7 +45,7 @@ export class NotificationComponent implements OnInit {
       switchMap(() => this.ns.NotificationPosts(this.userData))
     ).subscribe(
       data1 => {
-        this.red = true;
+      
         this.notificationPost = data1;
       });
 
@@ -54,8 +54,8 @@ export class NotificationComponent implements OnInit {
       switchMap(() => this.ns.NotificationComplains(this.userData))
     ).subscribe(
       data2 => {
-        this.red = false;
-        this.notificationComp = data2;
+       
+       this.notificationComp = data2;
       });
 
   }

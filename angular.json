@@ -65,7 +65,7 @@
             "production": {
               "browserTarget": "client:build:production"
             }
-          }
+           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -118,6 +118,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "client:serve:production"
+            },
+            "remote":{
+              "baseUrl" : "http://localhost:3000"
             }
           }
         },

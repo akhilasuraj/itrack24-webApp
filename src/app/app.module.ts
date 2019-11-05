@@ -9,6 +9,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { ChartsModule } from 'ng2-charts';
 import { MatCardModule } from '@angular/material';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -27,7 +28,6 @@ import { ComplainComponent } from './complain/complain.component';
 import { ComplainService } from './complain/complain.service';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { MapComponent } from './map/map.component';
-import { AgmCoreModule } from '@agm/core'
 import { ResetPassTokenComponent } from './reset-pass-token/reset-pass-token.component';
 import { PostComponent } from './post/post.component';
 import { PostService } from './post/post.service';
@@ -56,10 +56,6 @@ import { ApprovedComplainComponent } from './admin/approved-complain/approved-co
 import { ApprovedComplainService } from './admin/approved-complain/approved-complain.service';
 import { AuthService} from './admin/auth.service';
 import { UserprofileComponent } from './userprofile/userprofile.component';
-import { PopResetpasswordComponent } from './pop-resetpassword/pop-resetpassword.component';
-import { PopRegisterComponent } from './pop-register/pop-register.component';
-import { PopComplainComponent } from './pop-complain/pop-complain.component';
-import { PopSubmitpostComponent } from './pop-submitpost/pop-submitpost.component';
 import { AddworkersComponent } from './admin/addworkers/addworkers.component';
 import { AddworkersService } from './admin/addworkers/addworkers.service';
 
@@ -95,7 +91,6 @@ const routes: Routes = [
    { path: 'addsupervisor', component: AddsupervisorComponent },
    { path: 'notification2', component: Notification2Component},
    { path: 'approved-complain', component: ApprovedComplainComponent},
-   { path: 'pop-resetpassword', component: PopResetpasswordComponent},
    { path: 'addworkers', component: AddworkersComponent}
 ];
 
@@ -125,10 +120,6 @@ const routes: Routes = [
       Notification2Component,
       ApprovedComplainComponent,
       UserprofileComponent,
-      PopResetpasswordComponent,
-      PopRegisterComponent,
-      PopComplainComponent,
-      PopSubmitpostComponent,
       AddworkersComponent,
     
       
@@ -145,9 +136,9 @@ const routes: Routes = [
       MatInputModule,
       ReactiveFormsModule,
       AgmCoreModule.forRoot({
-         apiKey: 'AIzaSyCy3YWkcSF7UpkpFx9sDoAH3RegR1HGUE0',
+         apiKey:'AIzaSyBjTh5fhWEMqiDEtMYmmQyVfNYdvNcB39A',
          libraries: ['places']
-      }),
+       }),
       ChartsModule,
       MatCardModule
 
@@ -169,7 +160,8 @@ const routes: Routes = [
       Notification2Service,
       ApprovedComplainService,
       AuthService,
-      AddworkersService
+      AddworkersService,
+      MapComponent
 
    ],
    bootstrap: [

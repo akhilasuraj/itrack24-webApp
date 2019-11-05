@@ -1,100 +1,107 @@
-   <app-navbar></app-navbar>
-   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!------ Include the above in your HEAD tag ---------->
-  
-  <div class="container emp-profile">
-              <form method="post">
-                  <div class="row">
-                      <div class="col-md-4">
-                          <form (submit)="Upload()" method="POST">
-                          <div class="profile-img">
-                              <img src="http://localhost:3000/{{ fileUrl?.pic_name }}" alt="{{ fileUrl }}"><br><br>
-                              <input type="file" name="proimage" accept="image/*" (change)="OnFileSelected($event)" style="margin-left: 50px;">
-                          </div>
-                        </form>
-                      </div>
-                      <div class="col-md-6">
-                          <div class="profile-head">
-                                      <h5>
-                                          {{details.first_name}} {{details?.last_name}}
-                                      </h5>
-                                      <h6>
-                                        
-                                      </h6>
-                                      <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
-                              <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                  <li class="nav-item">
-                                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                      <div class="col-md-2">
-                          <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-secondary">Update profile</button>
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-md-4">
-                         
-                      </div>
-                      <div class="col-md-8">
-                          <div class="tab-content profile-tab" id="myTabContent">
-                              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <label>First Name</label>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <p>{{details.first_name}}</p>
-                                              </div>
-                                          </div>
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <label>Last Name</label>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <p>{{details.last_name}}</p>
-                                              </div>
-                                          </div>
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <label>Address</label>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <p>{{details?.address}}</p>
-                                              </div>
-                                          </div>
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <label>Contact Number </label>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <p>{{details.contact_num}}</p>
-                                              </div>
-                                          </div>
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <label>Email</label>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <p>{{details.email}}</p>
-                                              </div>
-                                          </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </form>           
-          </div>
-        
+<app-navbar></app-navbar>
 
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <app-edit-profile></app-edit-profile>
+<link href="" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <form (submit)="Upload()" method="POST">
+                    <div class="profile-img">
+                        <img src="http://localhost:3000/{{ fileUrl?.pic_name }}" alt="{{ fileUrl }}"><br><br>
+                        <input type="file" name="prophoto" accept="image/*" (change)="OnFileSelected($event)"
+                            style="margin-left: 50px;">
+                    </div><br>
+                    <div class="group">
+                        <button type="submit" class="button-primary" style="margin-left: 50px">Add Image</button>
+				</div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5>
+
+                    </h5>
+                    <h6>
+
+                    </h6>
+                    <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-secondary">Update
+                    profile</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>First Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{details.first_name}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Last Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{details.last_name}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Address</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{details?.address}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Contact Number </label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{details.contact_num}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{details.email}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <app-edit-profile></app-edit-profile>
+        </div>
     </div>
-  </div>
 </div>

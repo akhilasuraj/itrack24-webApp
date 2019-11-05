@@ -1,3 +1,6 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <app-navbar></app-navbar>
 <div class="body">
   <br><br>
@@ -35,31 +38,28 @@
                       <label for="pass" class="label">Select Complain Category</label>
                       <select class="form-control" [(ngModel)]="credential.category" name="category"
                         placeholder="Street-Signal post" required>
-                        <optgroup label="Emergency on street">
+                        
                           <option value="Street-Signal post">Street-Signal post</option>
                           <option value="Street-Pedestrian crossing">Street-Pedestrian crossing</option>
                           <option value="Street-lamp">Street-lamp</option>
                           <option value="Street-Color light">Street-Color light</option>
+                          <option value="Illegal-Constrction">Illegal-Constrction</option>
                           <option value="Street-Dangerous tree">Street-Dangerous tree</option>
                           <option value="Street-Dangerous construction area">Street-Dangerous construction area</option>
-                        </optgroup>
-                        <optgroup label="Drainage Blockage">
-                          <option value="Drainage Blockage-house">Drainage Blockage-house</option>
+                       
+                          <option value="Drainage Blockage-Private">Drainage Blockage-Private</option>
                           <option value="Drainage Blockage-Public building">Drainage Blockage-Public building</option>
                           <option value="Drainage Blockage-Road">Drainage Blockage-Road</option>
-                        </optgroup>
-                        <optgroup label="Solid Waste Removal">
-                          <option value="Solid waste-house">Solid waste-house</option>
+                        
+                          <option value="Solid waste-Private">Solid waste-Private</option>
                           <option value="Solid waste-Public premises">Solid waste-Public premises</option>
-                        </optgroup>
-                        <optgroup label="Removal of Tree Cutting Debris">
-                          <option value="Tree Cutting Debris-house">Tree Cutting Debris-house</option>
-                          <option value="Tree Cutting Debris-Public premises">Tree Cutting Debris-Public premises
-                          </option>
-                        </optgroup>
-                        <optgroup label="Other">
-                          <option value="Mosquito breeding area">Mosquito breeding area</option>
-                        </optgroup>
+                          <option value="Decaying-Waste Public">Decaying-Waste Public</option>
+
+                          <option value="Tree Cutting Debris-Private">Tree Cutting Debris-Private</option>
+                          <option value="Tree Cutting Debris-Public premises">Tree Cutting Debris-Public premises</option>                     
+                          <option value="Mosquito breeding area-Public">Mosquito breeding area-Public</option>
+                          <option value="Mosquito breeding area-Private">Mosquito breeding area-House</option>
+                        
                       </select>
                     </div>
                   </div>
@@ -131,16 +131,7 @@
 
                 <div class="row">
                   <div class="col-sm">
-                    <div class="group">
-                      <label for="pass" class="label">Add Complain Location</label>
-                    </div>
-                    <app-map>
-                      <script
-                        src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCy3YWkcSF7UpkpFx9sDoAH3RegR1HGUE0"></script>
-                    </app-map>
-                    <agm-map [latitude]="latitude" [longitude]="longitude">
-                      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-                    </agm-map>
+                    <app-map></app-map>
                   </div>
                 </div>
                 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

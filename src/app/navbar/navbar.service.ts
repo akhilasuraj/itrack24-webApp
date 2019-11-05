@@ -8,14 +8,14 @@ export class NavbarService {
   constructor(private http: HttpClient, private route: Router) { }
 
   public PostCount(data1): Observable<any> {
-    return this.http.post(`http://localhost:3000/users/getPostCount`, data1);
+    return this.http.post(`/users/getPostCount`, data1);
   }
 
   public CompCount(data2): Observable<any> {
-    return this.http.post(`http://localhost:3000/users/getCompCount`, data2);
+    return this.http.post(`/users/getCompCount`, data2);
   }
   
   public NavImage(navImg): Observable<any> {
-    return this.http.post(`http://localhost:3000/users/viewnavimage`, navImg);
+    return this.http.post(`/users/viewnavimage`, navImg);
   }
 }

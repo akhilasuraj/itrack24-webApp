@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Notification2Service } from './notification2.service';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 
 @Component({
@@ -9,74 +10,92 @@ import { Notification2Service } from './notification2.service';
   styleUrls: ['./notification2.component.css']
 })
 export class Notification2Component implements OnInit {
-  compdata;
-  postdata;
+  constructor(private ns: Notification2Service, private router: Router, private dc: DashboardComponent) { }
 
   compDetail = {
     id: 0
   };
+
   postDetail = {
     id: 0
   };
 
-  constructor(private no: Notification2Service, private router: Router) { }
+  Compinfo;
+  Postinfo;
+
+  signed;
 
   ngOnInit() {
-    this.no.ViewCompNotifications().subscribe(
-      (data1) => {
-        this.compdata = data1;
-        console.log(this.compdata);
+    this.compDetail.id = this.dc.compData.id;
+    console.log("//" + this.compDetail.id);
+    this.ns.viewComplain(this.compDetail).subscribe(
+      (dataC) => {
+        this.Compinfo = dataC;
+        console.log(this.Compinfo);
+        if (this.Compinfo = null) {
+         this.signed = true;
+        }
+       
       });
 
-    this.no.ViewPostNotifications().subscribe(
-      (data2) => {
-        this.postdata = data2;
-        console.log(this.postdata);
-      });
-  }
-
-  //VIEW_MORE
-  ViewMoreComp(id) { //GET_THE_ID_WHEN_CLICK_VIEWMORE
-    this.compDetail.id = id;
-    this.no.ViewMoreComplain(this.compDetail).subscribe(
-      (data) => {
-        this.router.navigateByUrl("/");
-      });
-  }
-
-  ViewMorePost(id) {
-    this.postDetail.id = id;
-    this.no.ViewMorePost(this.postDetail).subscribe(
-      (data) => {
-        this.router.navigateByUrl("/");
+    this.postDetail.id = this.dc.postData.id;
+    console.log("//" + this.postDetail.id);
+    this.ns.viewPost(this.postDetail).subscribe(
+      (dataP) => {
+        this.Postinfo = dataP;
+        console.log( this.Postinfo);
+        if (this.Postinfo = null) {
+          this.signed = false;
+        }
+        
       });
   }
 
-  //ACCEPT_POST_&_COMPLAIN
-  AcceptC(id) {
-    this.postDetail.id = id;
-    this.no.AcceptPost(this.postDetail).subscribe(
+
+
+  //ACCEPT_POST_&_REJECT_COMPLAINS
+  AcceptComp() {
+   
+    console.log( this.compDetail.id)
+    this.dc.marked = true;
+    this.ns.AcceptComplain(this.compDetail).subscribe(
       (res) => {
-        this.router.navigateByUrl("/");
+
       });
   }
 
-
-  AcceptP(id) {
-    this.compDetail.id = id;
-    this.no.AcceptComplain(this.compDetail).subscribe(
+  RejectComp() {
+   
+    console.log( this.compDetail.id);
+    this.dc.marked = true;
+    this.ns.RejectComplain(this.compDetail).subscribe(
       (res) => {
-        this.router.navigateByUrl("/approvedComplain");
+
       });
   }
 
-  //REJECT_USER_POST
-  Reject(id){
-    this.postDetail.id = id;
-    this.no.RejectPost(this.postDetail).subscribe(
-      (res)=>{
-        this.router.navigateByUrl("/");
+
+//ACCEPT_&_REJECT_POSTS  
+  AcceptPost() {
+    console.log(this.postDetail.id);
+    this.dc.marked = true;
+    this.ns.AcceptPost(this.postDetail).subscribe(
+      (res) => {
+
       });
   }
+
+  RejectPost() {
+    
+    console.log( this.postDetail.id);
+    this.dc.marked = true;
+    this.ns.RejectPost(this.postDetail).subscribe(
+      (res) => {
+
+      });
+  }
+
+  
+
 
 }

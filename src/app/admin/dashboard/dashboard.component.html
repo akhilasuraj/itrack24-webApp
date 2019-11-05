@@ -1,4 +1,32 @@
 <app-navbar2></app-navbar2>
-<p>
-  dashboard works!
-</p>
+<div *ngIf="marked">
+  <div class="main">
+    <div *ngFor="let info1 of comp">
+      <ul class="list-group">
+        <li class="list-group-item">
+          {{info1?.user.first_name}} {{info1?.user.last_name}} added new complain On {{info1?.category}} at
+          {{info1?.date}} {{info1?.time}} ------------
+          <button type="button" (click)="ViewMore1(info1?.id)" class="btn btn-link">View</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main">
+    <div *ngFor="let info2 of post">
+      <ul class="list-group">
+        <li class="list-group-item">
+          {{info2?.FirstName}} {{info2?.LastName}} added new post On {{info2?.PostTitle}} at {{info2?.PostDate}}
+          {{info2?.PostTime}} ------------
+          <button type="button" (click)="ViewMore2(info2?.id)" class="btn btn-link">View</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
+<div *ngIf="!marked">
+  <app-notification2></app-notification2>
+</div>
