@@ -10,11 +10,11 @@ export class NewsfeedService {
   constructor(private http:HttpClient, private route: Router ) {}
 
   public getPost(): Observable<any>{
-    return this.http.get(`/users/viewposts`); 
+    return this.http.get(`http://localhost:3000/users/viewposts`); 
   }
 
   public GetSelectPost(postdata):Observable<any>{
-    return this.http.get(`/users/getselectpost`,postdata);
+    return this.http.get(`http://localhost:3000/users/getselectpost`,postdata);
   }
    
 }

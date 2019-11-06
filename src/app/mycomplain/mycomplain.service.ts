@@ -11,7 +11,7 @@ export class MycomplainService {
   constructor(private http:HttpClient, private route: Router) { }
 
   public getMyComp(data):Observable<any>{
-    return this.http.post(`/users/mycomplains`,data);
+    return this.http.post(`http://localhost:3000/users/mycomplains`,data);
   }
   
 }

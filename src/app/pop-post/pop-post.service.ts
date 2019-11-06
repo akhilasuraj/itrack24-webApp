@@ -11,12 +11,12 @@ export class PopPostService {
   constructor(private http:HttpClient, private route:Router) { }
 
   public GetSelectPost(data):Observable<any>{
-    return this.http.post(`/users/getselectedpost`,data);
+    return this.http.post(`http://localhost:3000/users/getselectedpost`,data);
   }
 
   
   public  GetSelectComplain(data):Observable<any>{
-    return this.http.post(`/users/getselectedcomplain`,data);
+    return this.http.post(`http://localhost:3000/users/getselectedcomplain`,data);
   }
 
  

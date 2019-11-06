@@ -8,10 +8,10 @@ export class MypostService {
   constructor(private http:HttpClient, private route:Router) {}
 
   public myposts(id):Observable<any>{
-    return this.http.post(`/users/viewmyposts`,{uid:id});
+    return this.http.post(`http://localhost:3000/users/viewmyposts`,{uid:id});
   }
 
   public delpost(postid):Observable<any>{
-    return this.http.post(`/users/deletepost`,{postid:postid});
+    return this.http.post(`http://localhost:3000/users/deletepost`,{postid:postid});
   }
 }

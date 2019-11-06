@@ -24,7 +24,7 @@ export class ComplainService {
   constructor(private http: HttpClient, private router: Router)  {}
 
   public complain(fd): Observable<any> {
-    return this.http.post(`/users/complain`,fd);
+    return this.http.post(`http://localhost:3000/users/complain`,fd);
   }
 
 

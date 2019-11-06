@@ -28,6 +28,7 @@ import { ComplainComponent } from './complain/complain.component';
 import { ComplainService } from './complain/complain.service';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { MapComponent } from './map/map.component';
+import { MapService} from './map/map.service';
 import { ResetPassTokenComponent } from './reset-pass-token/reset-pass-token.component';
 import { PostComponent } from './post/post.component';
 import { PostService } from './post/post.service';
@@ -168,7 +169,8 @@ const routes: Routes = [
       ApprovedComplainService,
       AuthService,
       AddworkersService,
-      MapComponent
+      MapComponent,
+      MapService
 
    ],
    bootstrap: [

@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef, NgZone, ViewChild } from '@angular/core';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
+import { MapService} from './map.service';
 
 @Component({
   selector: 'app-map',
@@ -22,7 +23,10 @@ export class MapComponent implements OnInit {
   
   constructor(
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone) { }
+    private ngZone: NgZone,
+    private mapService: MapService
+    
+    ) { }
  
   ngOnInit() {
     //load Places Autocomplete
@@ -47,8 +51,11 @@ export class MapComponent implements OnInit {
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
           this.zoom = 12;
-          console.log(this.longitude);
-          console.log(this.latitude);
+          console.log("Zoom longitude from map component"+this.longitude);
+          console.log("Zoom latitude from map component"+this.latitude);
+
+          // Update location data in map service
+          this.mapService.updateLocation(this.latitude, this.longitude);
           
         });
       });
@@ -66,6 +73,9 @@ export class MapComponent implements OnInit {
         this.longitude = position.coords.longitude;
         this.zoom = 8;
         this.getAddress(this.latitude, this.longitude);
+
+        // Update location data in map service
+        this.mapService.updateLocation(this.latitude, this.longitude);
        
       });
     }
@@ -78,6 +88,9 @@ export class MapComponent implements OnInit {
     this.latitude = $event.coords.lat;
     this.longitude = $event.coords.lng;
     this.getAddress(this.latitude, this.longitude);
+
+    // Update location data in map service
+    this.mapService.updateLocation(this.latitude, this.longitude);
   }
  
   getAddress(latitude, longitude) {
