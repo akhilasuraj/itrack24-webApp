@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ComplainService} from './complain.service';
 import { AuthenticationService } from '../authentication.service';
+import {MapComponent} from '../map/map.component';
 
 
 
@@ -32,9 +33,11 @@ export class ComplainComponent implements OnInit {
   SelectedFile: File;
   imageUrl: any;
 
+  lat;
+  long;
   
 
-  constructor(private ser: ComplainService, private router: Router, private auth: AuthenticationService) { }
+  constructor(private ser: ComplainService, private router: Router, private auth: AuthenticationService, private mc:MapComponent) { }
 
   ngOnInit() {
     this.credential.user_id = this.auth.getUserDetails().id;
@@ -60,7 +63,7 @@ export class ComplainComponent implements OnInit {
 
 //SUBMITTING_COMPLAIN
  onFileUpload(event:any){
- 
+  console.log("this is lat " + this.mc.latitude);
   const fd = new FormData();
   fd.append('compImg', this.SelectedFile, this.SelectedFile.name);
   fd.append('description', this.credential.description);

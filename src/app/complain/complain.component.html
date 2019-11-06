@@ -6,7 +6,7 @@
   <br><br>
   <div class="login-wrap">
     <div class="login-html">
-      <label for="pass" class="label"><h3>Enter your complain details here</h3></label>
+      <label for="pass" class="label"><h3 style="color: black;">Enter your complain details here</h3></label>
       <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"></label>
       <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
       <div class="login-form">
@@ -58,7 +58,7 @@
                           <option value="Tree Cutting Debris-Private">Tree Cutting Debris-Private</option>
                           <option value="Tree Cutting Debris-Public premises">Tree Cutting Debris-Public premises</option>                     
                           <option value="Mosquito breeding area-Public">Mosquito breeding area-Public</option>
-                          <option value="Mosquito breeding area-Private">Mosquito breeding area-House</option>
+                          <option value="Mosquito breeding area-Private">Mosquito breeding area-Private</option>
                         
                       </select>
                     </div>
@@ -100,18 +100,17 @@
                     <div class="group">
                       <label for="pass" class="label" placeholder="District 2B Colombo Central">District</label>
                       <select class="form-control" [(ngModel)]="credential.district" name="district" required>
-                        <option value="1" selected="Colombo">District 1 Colombo North</option>
-                        <option value="2" selected>District 2A Colombo Central</option>
-                        <option value="3">District 2B Colombo Central</option>
-                        <option value="4">District 3 Borella</option>
-                        <option value="5">District 4 Colombo East</option>
-                        <option value="6">District 5 Colombo West</option>
+                        <option value="District 1 Colombo North" selected="Colombo">District 1 Colombo North</option>
+                        <option value="District 2A Colombo Central" selected>District 2A Colombo Central</option>
+                        <option value="District 2B Colombo Central">District 2B Colombo Central</option>
+                        <option value="District 3 Borella">District 3 Borella</option>
+                        <option value="District 4 Colombo East5">District 4 Colombo East</option>
+                        <option value="District 5 Colombo West">District 5 Colombo West</option>
                       </select>
                     </div>
                   </div>
                 </div>
               </div>
-
 
               <div class="col-md-1"></div>
               <div class="col-md-4" style="color:black">
@@ -126,18 +125,15 @@
                     </form>
                   </div>
                 </div>
-                <br>
-
-
+              
                 <div class="row">
                   <div class="col-sm">
                     <app-map></app-map>
                   </div>
                 </div>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+                <br><br>
                 <div class="group">
-                  <button (click)="onFileUpload($event)" class="button">Submit Complain</button>
+                  <button (click)="onFileUpload($event)" class="btn btn-primary">Submit Complain</button>
                 </div>
               </div>
             </div>
@@ -148,3 +144,15 @@
   </div>
   <br><br>
 </div>
+
+<!-- data-toggle="modal" data-target="#exampleModalCenter" -->
+
+
+<!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <pop-complain></pop-complain>
+        </div>
+    </div>
+</div> -->

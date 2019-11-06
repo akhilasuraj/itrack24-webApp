@@ -7,12 +7,16 @@
     <div *ngFor="let info of postdata">
 
         <div class="main">
+            <div class="row">
+                <div class="col-sm-4">
                 <ul class="list-group">
                     <li class="list-group-item">{{ info?.PostTitle}} - {{ info?.PostDate}} at {{ info?.PostTime}}
-                        &nbsp;&nbsp;&nbsp;&nbsp; <button type="button" class="btn btn-danger"
-                            (click)="delete(info.id, info.UserID)">Delete</button>
                     </li>
                 </ul>
+            </div>
+            <div class="col-sm-4">
+                    <button type="button" class="btn btn-danger" (click)="delete(info.id, info.UserID)">Delete</button>
+            </div>
             </div>
         </div>
 

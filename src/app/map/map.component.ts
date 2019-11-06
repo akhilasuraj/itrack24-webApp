@@ -47,10 +47,13 @@ export class MapComponent implements OnInit {
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
           this.zoom = 12;
+          console.log(this.longitude);
+          console.log(this.latitude);
+          
         });
       });
     });
-   }
+  }
 
 
  
@@ -63,6 +66,7 @@ export class MapComponent implements OnInit {
         this.longitude = position.coords.longitude;
         this.zoom = 8;
         this.getAddress(this.latitude, this.longitude);
+       
       });
     }
   } 

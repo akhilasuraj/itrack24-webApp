@@ -19,6 +19,8 @@ export class UserprofileComponent implements OnInit {
   fileUrl;
 
   tokenid: string;
+  first_name:string;
+  last_name:string;
 
   ngOnInit() {
 

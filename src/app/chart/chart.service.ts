@@ -14,9 +14,18 @@ export class ChartService {
     return this.http.get(`/users/category_count1`);
   }
   
-  
   public GetCount2():Observable<any>{
     return this.http.get(`/users/category_count2`);
+  }
+
+  
+  public GetCount3():Observable<any>{
+    return this.http.get(`/users/category_count3`);
+  }
+
+  
+  public GetCount4():Observable<any>{
+    return this.http.get(`/users/category_count4`);
   }
   
 }

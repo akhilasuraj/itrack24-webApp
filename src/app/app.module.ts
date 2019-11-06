@@ -58,6 +58,9 @@ import { AuthService} from './admin/auth.service';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { AddworkersComponent } from './admin/addworkers/addworkers.component';
 import { AddworkersService } from './admin/addworkers/addworkers.service';
+import { PopComplainComponent } from './pop-complain/pop-complain.component';
+import { PiChartComponent } from './pi-chart/pi-chart.component';
+
 
 
 
@@ -91,7 +94,9 @@ const routes: Routes = [
    { path: 'addsupervisor', component: AddsupervisorComponent },
    { path: 'notification2', component: Notification2Component},
    { path: 'approved-complain', component: ApprovedComplainComponent},
-   { path: 'addworkers', component: AddworkersComponent}
+   { path: 'addworkers', component: AddworkersComponent},
+   { path: 'pop-complain', component: PopComplainComponent},
+   { path: 'pi-chart', component: PiChartComponent}
 ];
 
 @NgModule({
@@ -121,6 +126,8 @@ const routes: Routes = [
       ApprovedComplainComponent,
       UserprofileComponent,
       AddworkersComponent,
+      PopComplainComponent,
+      PiChartComponent,
     
       
  

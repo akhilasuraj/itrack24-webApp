@@ -12,8 +12,15 @@ import { Router } from '@angular/router';
 export class ChartComponent implements OnInit {
  
   
-  signal_count: number;
-  garbage_count: number;
+  Solid_waste_Public_premise: number;
+  Tree_Cutting_Debris_Public_premises: number;
+  Decaying_Waste_Public: number;
+  Drainage_Blockage_Road: number;
+
+  x;
+  y;
+  z;
+  p;
 
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -26,35 +33,53 @@ export class ChartComponent implements OnInit {
       }
     },
   };
-  public barChartLabels: Label[] = ['Drains','Dengue','Signal post', 'Garbage disposal',];
+  public barChartLabels: Label[] = ['Solid_waste_Public_premise','Tree_Cutting_Debris_Public_premises','ecaying_Waste_Public', 'Drainage_Blockage_Road',];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: [40,30],  label: 'Complains' },
+    { data: [],  label: 'Complains' },
   ];
   
   constructor(private cs:ChartService, private route:Router) { }
 
-  async ngOnInit() {
+   ngOnInit() {
     
-    await this.cs.GetCount1().subscribe(
-      (data1:number)=>{
-        //  this.signal_count=150;
-        //  console.log(data1);
-        // this.barChartData[0].data.push(this.signal_count);
+     this.cs.GetCount1().subscribe(
+      (data1: number) => {
+        // this.Solid_waste_Public_premise = data1;
+        this.x = data1;
+        console.log("* "+ data1);
+         (this.barChartData[0].data as number[]).push(this.x);
       });
 
-    await this.cs.GetCount2().subscribe(
-      (data2:number)=>{
-        // this.garbage_count=76;
-        // console.log(this.garbage_count);
-        // this.barChartData[0].data.push(this.garbage_count);
+   
+     this.cs.GetCount2().subscribe(
+      (data2: number) => {
+        // this.Tree_Cutting_Debris_Public_premises = data2
+        this.y = data2
+        console.log("* "+data2);
+        (this.barChartData[0].data as number[]).push(this.y);
       });
 
+        
+     this.cs.GetCount3().subscribe(
+      (data3: number) => {
+        this.z = data3;
+        // this.Tree_Cutting_Debris_Public_premises = data2
+        console.log("* "+data3);
+        (this.barChartData[0].data as number[]).push(this.z);
+      });
+
+        
+     this.cs.GetCount4().subscribe(
+      (data4: number) => {
+        this.p = data4;
+        // this.Tree_Cutting_Debris_Public_premises = data2
+        console.log("* "+data4);
+        (this.barChartData[0].data as number[]).push(this.p);
+      });
   }
-
-
 
  
 }

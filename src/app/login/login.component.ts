@@ -37,6 +37,7 @@ export class LoginComponent {
             this.router.navigateByUrl('/dashboard');
           }
           else{
+            alert("incorrect email or password");
             console.log("user_type_not_exist");
           }
         }

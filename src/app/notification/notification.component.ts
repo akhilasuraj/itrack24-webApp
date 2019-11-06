@@ -41,18 +41,18 @@ export class NotificationComponent implements OnInit {
     this.userData.UserID = this.auth.getUserDetails().id;
     this.userData.user_id = this.auth.getUserDetails().id;
 
-    this.subscription1 = timer(0, 800).pipe(
-      switchMap(() => this.ns.NotificationPosts(this.userData))
-    ).subscribe(
+    // this.subscription1 = timer(0, 800).pipe(
+    //   switchMap(() =>
+     this.ns.NotificationPosts(this.userData).subscribe(
       data1 => {
       
         this.notificationPost = data1;
       });
 
 
-    this.subscription1 = timer(0, 800).pipe(
-      switchMap(() => this.ns.NotificationComplains(this.userData))
-    ).subscribe(
+    // this.subscription1 = timer(0, 800).pipe(
+    //   switchMap(() =>
+      this.ns.NotificationComplains(this.userData).subscribe(
       data2 => {
        
        this.notificationComp = data2;
