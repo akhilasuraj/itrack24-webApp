@@ -13,8 +13,9 @@ export class UserprofileComponent implements OnInit {
   details: UserDetails;
 
   userData = {
-    user_ID: 0
-  };
+    id: 0
+  }
+
   SelectedFile: File;
   fileUrl;
 
@@ -24,16 +25,14 @@ export class UserprofileComponent implements OnInit {
 
   ngOnInit() {
 
-    this.userData.user_ID = this.auth.getUserDetails().id;
+    this.userData.id = this.auth.getUserDetails().id;
 
-    this.auth.profile().subscribe(
-      user => {
-        console.log(user);
-        this.details = user;
-      },
-      err => {
-        console.error(err)
-      });
+   this.auth.profile(this.userData).subscribe(
+     (data)=>{
+       console.log(this.details);
+       this.details = data;
+     }
+   )
 
     this.auth.viewPhoto(this.userData).subscribe(
       pic => {
@@ -47,13 +46,11 @@ export class UserprofileComponent implements OnInit {
   }
 
   OnFileSelected(event) {
-
     this.SelectedFile = event.target.files[0] as File;
-
   }
 
   Upload() {
-    this.userData.user_ID = this.auth.getUserDetails().id;
+    this.userData.id = this.auth.getUserDetails().id;
     const fd = new FormData();
     fd.append('prophoto', this.SelectedFile, this.SelectedFile.name);
 

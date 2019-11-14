@@ -61,6 +61,7 @@ import { AddworkersComponent } from './admin/addworkers/addworkers.component';
 import { AddworkersService } from './admin/addworkers/addworkers.service';
 import { PopComplainComponent } from './pop-complain/pop-complain.component';
 import { PiChartComponent } from './pi-chart/pi-chart.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 
 
@@ -97,7 +98,8 @@ const routes: Routes = [
    { path: 'approved-complain', component: ApprovedComplainComponent},
    { path: 'addworkers', component: AddworkersComponent},
    { path: 'pop-complain', component: PopComplainComponent},
-   { path: 'pi-chart', component: PiChartComponent}
+   { path: 'pi-chart', component: PiChartComponent},
+   { path: 'changepassword', component: ChangepasswordComponent}
 ];
 
 @NgModule({
@@ -129,6 +131,7 @@ const routes: Routes = [
       AddworkersComponent,
       PopComplainComponent,
       PiChartComponent,
+      ChangepasswordComponent,
     
       
  

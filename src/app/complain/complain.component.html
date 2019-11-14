@@ -5,13 +5,13 @@
 <div class="body">
   <br><br>
   <div class="login-wrap">
+      <label for="pass" class="label"><h3 style="color: black; text-align: center;">Enter your complain details here</h3></label>
     <div class="login-html">
-      <label for="pass" class="label"><h3 style="color: black;">Enter your complain details here</h3></label>
       <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"></label>
       <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
       <div class="login-form">
         <div class="sign-in-htm">
-          <form ngNativeValidate>
+          <form ngNativeValidate style="margin-top: 20px;">
             <div class="row">
               <div class="col-md-3" style="color:black">
                 <br>
@@ -74,42 +74,12 @@
                     </div>
                   </div>
                 </div>
+                 <br><br>
+                  <button (click)="onFileUpload($event)" class="btn btn-primary  btn-lg" >Submit Complain</button>
+                
 
                 <br>
                 <br>
-                <div class="row">
-                  <div class="col-sm">
-                    <div class="group">
-                      <label for="pass" class="label">Address 1</label>
-                      <input type="text" class="form-control" name="address 1" placeholder="address 1"
-                        [(ngModel)]="credential.address1" required>
-                    </div>
-                  </div>
-                  <div class="col-sm">
-                    <div class="group">
-                      <label for="pass" class="label">Address 2</label>
-                      <input type="text" class="form-control" name="address 2" placeholder="address 2"
-                        [(ngModel)]="credential.address2" required>
-                    </div>
-                  </div>
-                </div>
-
-                <br>
-                <div class="row">
-                  <div class="col-sm">
-                    <div class="group">
-                      <label for="pass" class="label" placeholder="District 2B Colombo Central">District</label>
-                      <select class="form-control" [(ngModel)]="credential.district" name="district" required>
-                        <option value="District 1 Colombo North" selected="Colombo">District 1 Colombo North</option>
-                        <option value="District 2A Colombo Central" selected>District 2A Colombo Central</option>
-                        <option value="District 2B Colombo Central">District 2B Colombo Central</option>
-                        <option value="District 3 Borella">District 3 Borella</option>
-                        <option value="District 4 Colombo East5">District 4 Colombo East</option>
-                        <option value="District 5 Colombo West">District 5 Colombo West</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <div class="col-md-1"></div>
@@ -132,9 +102,6 @@
                   </div>
                 </div>
                 <br><br>
-                <div class="group">
-                  <button (click)="onFileUpload($event)" class="btn btn-primary">Submit Complain</button>
-                </div>
               </div>
             </div>
           </form>
@@ -145,14 +112,3 @@
   <br><br>
 </div>
 
-<!-- data-toggle="modal" data-target="#exampleModalCenter" -->
-
-
-<!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <pop-complain></pop-complain>
-        </div>
-    </div>
-</div> -->

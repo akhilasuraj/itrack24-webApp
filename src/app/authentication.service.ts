@@ -112,10 +112,8 @@ export class AuthenticationService {
   }
 
   // profile
-  public profile(): Observable<any> {
-    return this.http.get(`http://localhost:3000/users/profile`, {headers: { Authorization: `${this.getToken()}` }
-    });
-
+  public profile(data):Observable<any>{
+    return this.http.post(`http://localhost:3000/users/userprofile`, data)
   }
   // logout
   public logout(): void {
@@ -174,4 +172,15 @@ export class AuthenticationService {
   public verification(token, email): Observable<any> {
     return this.http.get(`http://localhost:3000/users/verify?token=` + token + "&email=" + email);
   }
+ 
+  /*getuserpassword*/
+  public getPassword(data): Observable<any> {
+    return this.http.post('http://localhost:3000/users/getpassword',data);
+  }
+
+  /*change_password*/
+  public changePassword(obj): Observable<any> {
+    return this.http.post('http://localhost:3000/users/changepassword',obj);
+  }
+
 }

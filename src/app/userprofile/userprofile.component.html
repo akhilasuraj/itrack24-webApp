@@ -28,8 +28,9 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <button data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-secondary">Update
-                    profile</button>
+                <button data-toggle="modal" data-target="#exampleModalCenter1" class="btn btn-secondary">Edit profile</button>
+                <br><br>
+                <button data-toggle="modal" data-target="#exampleModalCenter2" class="btn btn-secondary">Change Password</button>
             </div>
         </div>
         <div class="row">
@@ -87,11 +88,21 @@
 </div>
 
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <app-edit-profile></app-edit-profile>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <app-changepassword></app-changepassword>
         </div>
     </div>
 </div>
