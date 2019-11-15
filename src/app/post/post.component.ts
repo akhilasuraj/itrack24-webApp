@@ -63,7 +63,10 @@ export class PostComponent implements OnInit {
 
     this.pt.makePost(fd).subscribe(
       data=>{
-        this.route.navigateByUrl("/home");
+        if(data.message){
+          window.alert(data.message);
+          this.route.navigateByUrl("/home");
+        } 
       });
   }
 

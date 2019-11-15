@@ -1,6 +1,5 @@
 <form (submit)="submit()">
   <input type="password" name="pass" [(ngModel)]="pass">
   <input type="password" name="confPass" [(ngModel)]="confPass">
-  <span *ngIf="message">{{message}}</span>
-  <button type="submit">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>

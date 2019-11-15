@@ -18,7 +18,11 @@ export class PopPostComponent implements OnInit {
   };
 
   compinfo = {
-    id:0
+    id: 0
+  }
+
+  completedcompinfo = {
+    id: 0
   }
 
   ngOnInit() {
@@ -29,15 +33,23 @@ export class PopPostComponent implements OnInit {
         console.log(pdata);
       });
 
-      this.compinfo.id = this.nc.compData.id;
-      console.log("this is " + this.compinfo.id);
-      this.ps.GetSelectComplain(this.compinfo).subscribe(
-        cdata => {
-          console.log(cdata);
-        });
+    this.compinfo.id = this.nc.compData.id;
+    console.log("this is " + this.compinfo.id);
+    this.ps.GetSelectComplain(this.compinfo).subscribe(
+      cdata => {
+        console.log(cdata);
+      });
+
+    this.completedcompinfo.id = this.nc.completedcompData.id;
+    console.log("this is " + this.completedcompinfo.id);
+    this.ps.GetSelectCompletedComplain(this.completedcompinfo).subscribe(
+      ccdata => {
+        console.log(ccdata);
+      });
+
   }
 
-  back(){
+  back() {
     this.nc.marked = true
   }
 }

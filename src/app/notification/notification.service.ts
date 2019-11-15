@@ -18,4 +18,9 @@ export class NotificationService {
   public NotificationComplains(Cdata):Observable<any>{
     return this.http.post(`http://localhost:3000/users/viewCompNotifications`,Cdata)
   }
+
+  
+  public NotificationCompletedComplains(CCdata):Observable<any>{
+    return this.http.post(`http://localhost:3000/users/viewCompletedCompNotifications`,CCdata)
+  }
 }

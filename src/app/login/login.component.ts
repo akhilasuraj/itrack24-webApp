@@ -25,41 +25,52 @@ export class LoginComponent {
   };
 
   constructor(private auth: AuthenticationService, private router: Router) { }
+
   async login() {
-   await this.auth.login(this.credential).subscribe(
+    await this.auth.login(this.credential).subscribe(
       (data) => {
         console.log(data.user_type);
-        if (data) {
+        if (data.message5) {
           if (data.user_type === 'user') {
             this.router.navigateByUrl('/home');
+           
           }
           else if (data.user_type === 'admin') {
             this.router.navigateByUrl('/dashboard');
+            window.alert(data.message5);
           }
-          else{
-            alert("incorrect email or password");
-            console.log("user_type_not_exist");
-          }
+        }
+        else if (data.message3) {
+          window.alert(data.message3);
+        }
+        else if (data.message4) {
+          window.alert(data.message4);
         }
       });
 
   }
 
-  
- async register() {
-   await this.auth.register(this.credential).subscribe(
-      (data) => {
-        if (data) {
-         
-          console.log(data);
+
+  async register() {
+    await this.auth.register(this.credential).subscribe(
+      (result) => {
+        if (result.message1) {
+          window.alert(result.message1);
+          this.credential.first_name = "";
+          this.credential.last_name = "";
+          this.credential.address = "";
+          this.credential.contact_num = "";
+          this.credential.address = "";
+          this.credential.email = "";
+          this.credential.password = "";
         }
-        else{
-          
-          alert("invalid")
+        else if (result.message2) {
+          window.alert(result.message2);
         }
-        
+
       });
   }
+
 
 
 }

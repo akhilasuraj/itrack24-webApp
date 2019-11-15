@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ComplainService} from './complain.service';
+import { ComplainService } from './complain.service';
 import { AuthenticationService } from '../authentication.service';
 import { MapService } from '../map/map.service';
 
@@ -14,9 +14,9 @@ import { MapService } from '../map/map.service';
 
 export class ComplainComponent implements OnInit {
 
-  credential={
+  credential = {
     complain_id: 0,
-    user_id:0,
+    user_id: 0,
     category: '',
     description: '',
     address1: '',
@@ -24,7 +24,7 @@ export class ComplainComponent implements OnInit {
     district: '',
     date: '',
     time: '',
-    longitude:7.564,
+    longitude: 7.564,
     latitude: 6.457
   };
   userData = {
@@ -35,9 +35,9 @@ export class ComplainComponent implements OnInit {
 
   lat;
   long;
-  
 
-  constructor(private ser: ComplainService, private router: Router, private auth: AuthenticationService, private mapService:MapService) { }
+
+  constructor(private ser: ComplainService, private router: Router, private auth: AuthenticationService, private mapService: MapService) { }
 
   ngOnInit() {
     this.credential.user_id = this.auth.getUserDetails().id;
@@ -61,30 +61,35 @@ export class ComplainComponent implements OnInit {
     }
   };
 
-//SUBMITTING_COMPLAIN
- onFileUpload(event:any){
-  console.log("this is lat from complain component " + this.mapService.getLatitude());
-  this.credential.latitude = this.mapService.getLatitude();
-  this.credential.longitude = this.mapService.getLongitude();
-  const fd = new FormData();
-  fd.append('compImg', this.SelectedFile, this.SelectedFile.name);
-  fd.append('description', this.credential.description);
-  fd.append('category', this.credential.category);
-  fd.append('user_id', this.credential.user_id.toString());
-  fd.append('address1', this.credential.address1);
-  fd.append('address2', this.credential.address2);
-  fd.append('district', this.credential.district);
-  fd.append('date', this.credential.date);
-  fd.append('time', this.credential.time);
-  fd.append('longitude', this.credential.longitude.toString());
-  fd.append('latitude', this.credential.latitude.toString());
+  //SUBMITTING_COMPLAIN
+  async onFileUpload(event: any) {
+    console.log("this is lat from complain component " + this.mapService.getLatitude());
+    this.credential.latitude = this.mapService.getLatitude();
+    this.credential.longitude = this.mapService.getLongitude();
+    const fd = new FormData();
+    fd.append('compImg', this.SelectedFile, this.SelectedFile.name);
+    fd.append('description', this.credential.description);
+    fd.append('category', this.credential.category);
+    fd.append('user_id', this.credential.user_id.toString());
+    fd.append('address1', this.credential.address1);
+    fd.append('address2', this.credential.address2);
+    fd.append('district', this.credential.district);
+    fd.append('date', this.credential.date);
+    fd.append('time', this.credential.time);
+    fd.append('longitude', this.credential.longitude.toString());
+    fd.append('latitude', this.credential.latitude.toString());
 
-  this.ser.complain(fd).subscribe(
-    data=>{
-         this.router.navigateByUrl("/home");
-    });
+    await this.ser.complain(fd).subscribe(
+      data => {
+        if (data.message) {
+          this.router.navigateByUrl("/home");
+          window.alert(data.message);
 
-}
+        }
+
+      });
+
+  }
 
 
 

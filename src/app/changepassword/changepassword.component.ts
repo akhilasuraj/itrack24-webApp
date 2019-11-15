@@ -37,7 +37,8 @@ export class ChangepasswordComponent implements OnInit {
           this.marked = false;
         }
         else if (data.message2) {
-          console.log("incorrect passowrd");
+          window.alert("Incorrect password");
+          this.userData.password = "";
         }
       });
   }
@@ -47,7 +48,7 @@ export class ChangepasswordComponent implements OnInit {
       this.auth.changePassword(this.userData).subscribe(
         (result) => {
           this.marked = true;
-          console.log(result.message);
+          window.alert(result.message);
           this.userData.confermpassword = "";
           this.userData.newpassword = ""
           this.userData.password = ""

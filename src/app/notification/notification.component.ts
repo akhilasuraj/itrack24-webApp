@@ -14,6 +14,7 @@ import { Subscription, timer, pipe } from 'rxjs';
 export class NotificationComponent implements OnInit {
 
   notificationComp;
+  notificationCompletedComp;
   notificationPost;
 
   userData = {
@@ -24,13 +25,17 @@ export class NotificationComponent implements OnInit {
   postData = {
     id: 0
   }
-  
+
   compData = {
     id: 0
   }
 
+  completedcompData = {
+    id: 0
+  }
+
   marked = true;
-  
+
 
   subscription1;
   subscription2;
@@ -43,19 +48,24 @@ export class NotificationComponent implements OnInit {
 
     // this.subscription1 = timer(0, 800).pipe(
     //   switchMap(() =>
-     this.ns.NotificationPosts(this.userData).subscribe(
+    this.ns.NotificationPosts(this.userData).subscribe(
       data1 => {
-      
         this.notificationPost = data1;
       });
 
 
     // this.subscription1 = timer(0, 800).pipe(
     //   switchMap(() =>
-      this.ns.NotificationComplains(this.userData).subscribe(
+    this.ns.NotificationComplains(this.userData).subscribe(
       data2 => {
-       
-       this.notificationComp = data2;
+        this.notificationComp = data2;
+      });
+
+    // this.subscription1 = timer(0, 800).pipe(
+    //   switchMap(() =>
+    this.ns.NotificationCompletedComplains(this.userData).subscribe(
+      data3 => {
+        this.notificationCompletedComp = data3;
       });
 
   }
@@ -71,6 +81,13 @@ export class NotificationComponent implements OnInit {
     this.compData.id = id;
     this.marked = false
     console.log("compdata " + this.compData.id);
+  }
+
+  
+  GetValuesCompletedComp(id: number) {      //VIEW_MORE
+    this.completedcompData.id = id;
+    this.marked = false
+    console.log("compdata " + this.completedcompData.id);
   }
 
 

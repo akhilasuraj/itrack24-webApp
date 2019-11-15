@@ -18,28 +18,28 @@ export class ResetPasswordComponent implements OnInit {
     contact_num: '',
     email: '',
     password: '',
-   
-   
-};
 
-message : string;
-mark;
+
+  };
+
+  mark;
 
   constructor(private auth: AuthenticationService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  resetPassword() {
+    this.auth.ResetPassword(this.credential).subscribe(
+      (data) => {
+        if (data.message6) {
+          window.alert(data.message6);
+        }
+        else if (data.message7) {
+          window.alert(data.message7);
+          this.credential.email =""
+        }
+      });
   }
 
-  resetPassword(){
-     this.auth.ResetPassword(this.credential).subscribe(
-       (data)=>{
-         if(data){
-           this.mark = false;
-          this.message = ('Email has sent to the'+ this.credential.email);
-           console.log(data);
-           this.credential.email = "";
-         
-         }
-       });
-  }
+
 }

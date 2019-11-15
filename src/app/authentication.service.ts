@@ -78,20 +78,21 @@ export class AuthenticationService {
   public register(user: TokenPayload): Observable<any> {
     const base = this.http.post(`http://localhost:3000/users/register`, user);
 
-    const request = base.pipe(
-      map((data: TokenResponse) => {
-        if (data.token) {
-          this.saveToken(data.token);
-          return data;
-        } else {
-          return null;
-        }
+    // const request = base.pipe(
+    //   map((data: TokenResponse) => {
+    //     if (data.token) {
+    //       this.saveToken(data.token);
+    //       return data;
+    //     } else {
+    //       return null;
+    //     }
 
-      })
-    );
+    //   })
+    // );
 
-    return request;
+    return base;
   }
+  
   public login(user: TokenPayload): Observable<any> {
     const base = this.http.post(`http://localhost:3000/users/login`, user);
 
