@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <app-navbar></app-navbar>
     <br><br><br>
-    <div class="row">
+    <!-- <div class="row">
 <div *ngFor="let info of postdata">
     <div class="colum-sm-2">
 <div class="wrapper">
@@ -36,5 +36,58 @@
     </div>
 </div>
 <br><br><br>
-</div>
+</div> -->
+
+
+<div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="container" style="position: fixed;">
+                    <button type="button" class="btn btn-info btn-lg bg-dark" routerLink="/mypost" style="width: 200px;">Go
+                        to My Posts</button>
+                    <br>
+                    <br>
+                    <button type="button" class="btn btn-info btn-lg bg-dark" routerLink="/post"
+                        style="width: 200px;">Submit a Post</button>
+                </div>
+    
+            </div>
+            <div class="col-sm-6">
+    
+                <div *ngFor="let info of postdata">
+                    <div class="wrapper">
+                        <div class="card radius shadowDepth1">
+                            <div class="card__image border-tlr-radius">
+                                <img src="http://localhost:3000/{{ info?.PostImg}}"
+                                    alt="http://localhost:3000/{{ info?.PostImg}}" alt="image" class="border-tlr-radius">
+                            </div>
+    
+                            <div class="card__content card__padding">
+                                <div class="card__meta">
+                                    <a href="#">{{ info?.PostTitle}}</a>
+                                    <time>{{ info?.PostDate}} at {{ info?.PostTime}}</time>
+                                </div>
+    
+                                <article class="card__article">
+                                    <p>{{ info?.PostContent}}</p>
+                                </article>
+                            </div>
+    
+                            <div class="card__action">
+    
+                                <div class="card__author">
+                                    <div class="card__author-content">
+                                        By <time>{{ info?.FirstName}} {{ info?.LastName}}</time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+    
+            </div>
+        </div>
+    </div>
 
