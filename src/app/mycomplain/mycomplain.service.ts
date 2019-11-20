@@ -10,8 +10,16 @@ export class MycomplainService {
 
   constructor(private http:HttpClient, private route: Router) { }
 
-  public getMyComp(data):Observable<any>{
-    return this.http.post(`http://localhost:3000/users/mycomplains`,data);
+  public AcceptedMyComp(data):Observable<any>{
+    return this.http.post(`/users/mycomplains`,data);
+  }
+ 
+  public EditableMyComp(data):Observable<any>{
+    return this.http.post(`/users/editablecomplains`,data);
+  }
+    
+  public deleteComplain(data):Observable<any>{
+    return this.http.post(`/users/deletecomplains`,data);
   }
   
 }

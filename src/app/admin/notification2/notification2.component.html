@@ -1,77 +1,111 @@
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <br><br><br>
-
- <div *ngIf = "signed">   
-    <div class="row">
-    <div class="colum-sm-2">
-<div class="wrapper">
-        <div class="card radius shadowDepth1">
-            <div class="card__image border-tlr-radius">
-                <img src="http://localhost:3000/{{ Compinfo?.complainImg}}" alt="http://localhost:3000/{{ Compinfo?.ComplainImg}}" alt="image" class="border-tlr-radius">
-            </div>
-
-            <div class="card__content card__padding">
-                <div class="card__meta">
-                    <a href="#">{{Compinfo?.description}}</a> By <time>{{Compinfo?.user.first_name}} {{ Compinfo?.user.last_name}}</time>
-                    <time>{{ Compinfo?.date}}  at  {{ Compinfo?.time}}</time>
-                </div>
-
-                <article class="card__article">
-                    <p>{{Compinfo?.sectionName}}</p>
-                </article>
-                <br>
-                <article class="card__article">
-                    <p>{{Compinfo?.description}}</p>
-                </article>
-            </div>
-
-            <div class="card__action">
-                <button type="button" class="btn btn-primary" (click) = "AcceptComp()">Accept</button> &nbsp;&nbsp;&nbsp;  <button type="button" class="btn btn-secondary" (click) = "RejectComp()">Reject</button>
-                <div class="card__author">
-                    <div class="card__author-content">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-</div>
-</div>
 <br><br><br>
 
-<div *ngIf = "!signed">
-<div class="row">
-    <div class="colum-sm-2">
-<div class="wrapper">
-        <div class="card radius shadowDepth1">
-            <div class="card__image border-tlr-radius">
-                <img src="http://localhost:3000/{{ Postinfo?.PostImg}}" alt="http://localhost:3000/{{ Postinfo?.PostImg}}" alt="image" class="border-tlr-radius">
-            </div>
+<div class="container">
 
-            <div class="card__content card__padding">
-                <div class="card__meta">
-                    <a href="#">{{Postinfo?.PostTitle}}</a> By <time>{{Postinfo?.FirstName}} {{ Postinfo?.LastName}}</time>
-                    <time>{{ Postinfo?.PostDate}}  at  {{ Postinfo?.PostTime}}</time>
+    <div *ngIf="signed">
+
+        <div class="wrapper">
+            <div class="card radius shadowDepth1">
+                <div class="card__image border-tlr-radius">
+                    <!-- <img src="http://localhost:3000/{{ Compinfo?.complainImg}}" alt="http://localhost:3000/{{ Compinfo?.ComplainImg}}" alt="image" class="border-tlr-radius"> -->
+                    <img src="/assets/img/pexels-photo-945453.jpeg" class="border-tlr-radius">
                 </div>
-                <br>
-                <article class="card__article">
-                    <p>{{Postinfo?.PostContent}}</p>
-                </article>
+
+                <div class="card__content card__padding">
+                    <div class="card__meta">
+                        <a href="#">{{Compinfo?.description}}</a> By <time>{{Compinfo?.user.first_name}}
+                            {{ Compinfo?.user.last_name}}</time>
+                        <time>{{ Compinfo?.date}} at {{ Compinfo?.time}}</time>
+                    </div>
+
+                    <article class="card__article">
+                        <p>{{Compinfo?.sectionName}}</p>
+                    </article>
+                    <br>
+                    <article class="card__article">
+                        <p>{{Compinfo?.description}}</p>
+                    </article>
+                </div>
+
+                <div class="card__action">
+                    <div style="margin-left: 35%;">
+                        <button type="button" class="btn btn-primary" (click)="AcceptComp()">Accept</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <!-- <button type="button" class="btn btn-secondary" (click)="RejectComp()">Reject</button> -->
+                        <button data-toggle="modal" data-target="#exampleModalCenter"
+                            class="btn btn-secondary">Abort</button>
+                        <div class="card__author">
+                            <div class="card__author-content">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="card__action">
-                <button type="button" class="btn btn-primary" (click) = "AcceptPost()">Accept</button> &nbsp;&nbsp;&nbsp;  <button type="button" class="btn btn-secondary" (click) = "RejectPost()">Reject</button>
-                <div class="card__author">
-                    <div class="card__author-content">
+        </div>
+    </div>
+    <br><br><br>
+
+    <div *ngIf="!signed">
+
+        <div class="wrapper">
+            <div class="card radius shadowDepth1">
+                <div class="card__image border-tlr-radius">
+                    <!-- <img src="http://localhost:3000/{{ Postinfo?.PostImg}}" alt="http://localhost:3000/{{ Postinfo?.PostImg}}" alt="image" class="border-tlr-radius"> -->
+                    <img src="/assets/img/pexels-photo-945453.jpeg" class="border-tlr-radius">
+                </div>
+
+                <div class="card__content card__padding">
+                    <div class="card__meta">
+                        <a href="#">{{Postinfo?.PostTitle}}</a> By <time>{{Postinfo?.FirstName}}
+                            {{ Postinfo?.LastName}}</time>
+                        <time>{{ Postinfo?.PostDate}} at {{ Postinfo?.PostTime}}</time>
+                    </div>
+                    <br>
+                    <article class="card__article">
+                        <p>{{Postinfo?.PostContent}}</p>
+                    </article>
+                </div>
+
+                <div class="card__action">
+                    <div style="margin-left: 35%;">
+                        <button type="button" class="btn btn-primary" (click)="AcceptPost()">Accept</button>
+                        &nbsp;&nbsp;&nbsp;
+                        <button type="button" class="btn btn-secondary" (click)="RejectPost()">Reject</button>
+                    </div>
+                    <div class="card__author">
+                        <div class="card__author-content">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
-    </div>
-</div>
+
 </div>
 
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">why are you abort this?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <input type="text" class="form-control" name="reason" placeholder="Reason.."
+                        [(ngModel)]="reason" required>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="RejectComp()">Send</button>
+            </div>
+        </div>
+    </div>
+</div>

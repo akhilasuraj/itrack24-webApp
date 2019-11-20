@@ -83,9 +83,13 @@ background-attachment: fixed;
 .card__padding {
 	padding: 1.6rem;
 }
+img{
+	height: 300px;
+}
  
 .card__image {
 	min-height: 100px;
+	
 	background-color: #eee;
 }
 	.card__image img {

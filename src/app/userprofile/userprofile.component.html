@@ -6,7 +6,7 @@
             <div class="col-md-4">
                 <form (submit)="Upload()" method="POST">
                     <div class="profile-img">
-                        <img src="http://localhost:3000/{{ fileUrl?.pic_name }}" alt="{{ fileUrl }}"><br><br>
+                        <img src="http://192.168.1.30:3000/{{ fileUrl?.pic_name }}" alt="{{ fileUrl }}"><br><br>
                         <input type="file" name="prophoto" accept="image/*" (change)="OnFileSelected($event)"
                             style="margin-left: 50px;">
                     </div><br>

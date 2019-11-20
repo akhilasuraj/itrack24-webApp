@@ -1,94 +1,92 @@
 <app-navbar2></app-navbar2>
 <html>
-<div class style="height: 800px; padding-top: 25px">
+<div class="ba">
 
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-7">
-          <div class="box">
-            <h5 style=color:#007bff>Register Workers</h5>
-            <form (submit)="Register()" ngNativeValidate>
-              <div class="inputBox">
-                <label for="">Last Name</label>
-                <input type="text" class="form-control" name="LastName" placeholder="last name"
-                  [(ngModel)]="credential.LastName" required>
-              </div>
-              <br>
-              <div class="inputBox">
-                <label for="">National Id</label>
-                <input type="text" class="form-control" name="Nicno" placeholder="Nic no" [(ngModel)]="credential.Nicno"
-                  required>
-              </div>
-              <br>
-              <div class="inputBox">
-                <label for="">Contact No</label>
-                <input type="text" class="form-control" name="contactno" placeholder="contact no"
-                  [(ngModel)]="credential.contactno" required>
-              </div>
-              <br>
-              <div class="group">
-                  <label for="">Job Type 1</label>
-                  <select class="form-control" [(ngModel)]="credential.JobType1" name="JobType1"  placeholder="Street-Signal post" required>
-                      <option value="Street-Signal post">Street-Signal post</option>
-                      <option value="Street-Pedestrian crossing">Street-Pedestrian crossing</option>
-                      <option value="Street-lamp">Street-lamp</option>
-                      <option value="Street-Color light">Street-Color light</option>
-                      <option value="Illegal-Constrction">Illegal-Constrction</option>
-                      <option value="Street-Dangerous tree">Street-Dangerous tree</option>
-                      <option value="Street-Dangerous construction area">Street-Dangerous construction area</option>
-                   
-                      <option value="Drainage Blockage-Private">Drainage Blockage-Private</option>
-                      <option value="Drainage Blockage-Public building">Drainage Blockage-Public building</option>
-                      <option value="Drainage Blockage-Road">Drainage Blockage-Road</option>
-                    
-                      <option value="Solid waste-Private">Solid waste-Private</option>
-                      <option value="Solid waste-Public premises">Solid waste-Public premises</option>
-                      <option value="Decaying-Waste Public">Decaying-Waste Public</option>
-
-                      <option value="Tree Cutting Debris-Private">Tree Cutting Debris-Private</option>
-                      <option value="Tree Cutting Debris-Public premises">Tree Cutting Debris-Public premises</option>                     
-                      <option value="Mosquito breeding area-Public">Mosquito breeding area-Public</option>
-                      <option value="Mosquito breeding area-Private">Mosquito breeding area-Private</option>  
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="box">
+                        <h3 style=color:#007bff><strong> Register Workers</strong></h3>
+                        <br>
+                        <form (submit)="Register()" ngNativeValidate>
+                            <div class="inputBox">
+                                <label for="">Last Name</label>
+                                <input type="text" class="form-control" name="last name" placeholder="Last Name" [(ngModel)]="credential.lastname" required>
+                            </div>
+                            <br>
+                            <div class="inputBox">
+                                <label for="">National Id</label>
+                                <input type="text" class="form-control" name="Nicno" placeholder="Nic no" [(ngModel)]="credential.Nicno" required>
+                            </div>
+                            <br>
+                            <div class="inputBox">
+                                <label for="">Contact No</label>
+                                <input type="text" class="form-control" name="Contact" placeholder="contact no" [(ngModel)]="credential.Contact" required>
+                            </div>
+                            <br>
+                            <div class="group">
+                                <label for="">Job Type 1</label>
+                                <select class="form-control" [(ngModel)]="credential.JobType1" name="JobType1" placeholder="Street-Signal post" required>
+                                  <option value="Street-Signal post">Street-Signal post</option>
+                                  <option value="Street-Pedestrian crossing">Street-Pedestrian crossing</option>
+                                  <option value="Street-lamp">Street-lamp</option>
+                                  <option value="Street-Color light">Street-Color light</option>
+                                  <option value="Illegal-Constrction">Illegal-Constrction</option>
+                                  <option value="Street-Dangerous tree">Street-Dangerous tree</option>
+                                  <option value="Street-Dangerous construction area">Street-Dangerous construction area</option>
+                               
+                                  <option value="Drainage Blockage-Private">Drainage Blockage-Private</option>
+                                  <option value="Drainage Blockage-Public building">Drainage Blockage-Public building</option>
+                                  <option value="Drainage Blockage-Road">Drainage Blockage-Road</option>
+                                
+                                  <option value="Solid waste-Private">Solid waste-Private</option>
+                                  <option value="Solid waste-Public premises">Solid waste-Public premises</option>
+                                  <option value="Decaying-Waste Public">Decaying-Waste Public</option>
+        
+                                  <option value="Tree Cutting Debris-Private">Tree Cutting Debris-Private</option>
+                                  <option value="Tree Cutting Debris-Public premises">Tree Cutting Debris-Public premises</option>                     
+                                  <option value="Mosquito breeding area-Public">Mosquito breeding area-Public</option>
+                                  <option value="Mosquito breeding area-Private">Mosquito breeding area-Private</option>
                   </select>
-                </div>
+                            </div> <br>
 
-                <div class="group">
-                    <label for="">Job Type 2</label>
-                    <select class="form-control" [(ngModel)]="credential.JobType2" name="JobType2"  placeholder="Drainage Blockage" required>
-                        <option value="Street-Signal post">Street-Signal post</option>
-                        <option value="Street-Pedestrian crossing">Street-Pedestrian crossing</option>
-                        <option value="Street-lamp">Street-lamp</option>
-                        <option value="Street-Color light">Street-Color light</option>
-                        <option value="Illegal-Constrction">Illegal-Constrction</option>
-                        <option value="Street-Dangerous tree">Street-Dangerous tree</option>
-                        <option value="Street-Dangerous construction area">Street-Dangerous construction area</option>
-                     
-                        <option value="Drainage Blockage-Private">Drainage Blockage-Private</option>
-                        <option value="Drainage Blockage-Public building">Drainage Blockage-Public building</option>
-                        <option value="Drainage Blockage-Road">Drainage Blockage-Road</option>
-                      
-                        <option value="Solid waste-Private">Solid waste-Private</option>
-                        <option value="Solid waste-Public premises">Solid waste-Public premises</option>
-                        <option value="Decaying-Waste Public">Decaying-Waste Public</option>
-  
-                        <option value="Tree Cutting Debris-Private">Tree Cutting Debris-Private</option>
-                        <option value="Tree Cutting Debris-Public premises">Tree Cutting Debris-Public premises</option>                     
-                        <option value="Mosquito breeding area-Public">Mosquito breeding area-Public</option>
-                        <option value="Mosquito breeding area-Private">Mosquito breeding area-Private</option>  
+                            <div class="group">
+                                <label for="">Job Type 2</label>
+                                <select class="form-control" [(ngModel)]="credential.JobType2" name="JobType2" placeholder="Drainage Blockage" required>
+                                  <option value="Street-Signal post">Street-Signal post</option>
+                                  <option value="Street-Pedestrian crossing">Street-Pedestrian crossing</option>
+                                  <option value="Street-lamp">Street-lamp</option>
+                                  <option value="Street-Color light">Street-Color light</option>
+                                  <option value="Illegal-Constrction">Illegal-Constrction</option>
+                                  <option value="Street-Dangerous tree">Street-Dangerous tree</option>
+                                  <option value="Street-Dangerous construction area">Street-Dangerous construction area</option>
+                               
+                                  <option value="Drainage Blockage-Private">Drainage Blockage-Private</option>
+                                  <option value="Drainage Blockage-Public building">Drainage Blockage-Public building</option>
+                                  <option value="Drainage Blockage-Road">Drainage Blockage-Road</option>
+                                
+                                  <option value="Solid waste-Private">Solid waste-Private</option>
+                                  <option value="Solid waste-Public premises">Solid waste-Public premises</option>
+                                  <option value="Decaying-Waste Public">Decaying-Waste Public</option>
+        
+                                  <option value="Tree Cutting Debris-Private">Tree Cutting Debris-Private</option>
+                                  <option value="Tree Cutting Debris-Public premises">Tree Cutting Debris-Public premises</option>                     
+                                  <option value="Mosquito breeding area-Public">Mosquito breeding area-Public</option>
+                                  <option value="Mosquito breeding area-Private">Mosquito breeding area-Private</option>
                     </select>
-                  </div>
-              <br>
-              <div class="row">
-              </div>
-              <br><br>
-              <button class="btn btn-primary" type="submit">Register</button>&nbsp;&nbsp;
-            </form>
-          </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                            </div>
+                            <br><br>
+                            <button class="btn btn-primary" type="submit">Register</button>&nbsp;&nbsp;
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </body>
+    </body>
 </div>
 
 </html>

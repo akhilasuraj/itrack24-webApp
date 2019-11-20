@@ -4,32 +4,18 @@
 <app-navbar></app-navbar>
 <div class="body">
   <br><br><br>
-  <div class="row">
-    <div *ngFor="let info of complains">
-      <div class="colum-sm-2">
-        <div class="wrapper">
-          <div class="card radius shadowDepth1">
-            <div class="card__image border-tlr-radius">
-              <img height="200" src="http://localhost:3000/{{ info?.complainImg}}"
-                alt="http://localhost:3000/{{ info?.complainImg}}" alt="image" class="border-tlr-radius">
-            </div>
-
-            <div class="card__content card__padding">
-              <div class="card__meta">
-                <a href="#">{{ info?.category}}</a>
-                at <time>{{ info?.address1}}, {{ info?.address2}}</time>
-              </div>
-
-              <article class="card__article">
-                <p>{{ info?.description}}</p>
-              </article>
-              Report Date and Time:
-              <article class="card__article">
-                <time>{{ info?.date}} at {{ info?.time}}</time>
-              </article>
-            </div>
+  <div class="row px-4">
+    <div *ngFor="let info of editablecomplains">
+      <div class="col-sm-4 py-4">
+        <div class="card bg-light h-100" style="width: 24rem;">
+          <img class="card-img-top" src="http://192.168.1.30:3000/{{ info?.complainImg}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ info?.category}} at <time>{{ info?.address1}}, {{ info?.address2}}</time></h5>
+            <p class="card-text">{{ info?.description}}</p>
+            <h5>Reported date and time</h5>
+            <p class="card-text"> <time>{{ info?.date}} at {{ info?.time}}</time></p>
+            <button type="button" class="btn btn-danger" (click)="delete(info.id)">Delete</button>
           </div>
-          <br><br><br>
         </div>
       </div>
     </div>

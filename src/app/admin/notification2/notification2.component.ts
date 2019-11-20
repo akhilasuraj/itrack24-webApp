@@ -10,18 +10,20 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
   styleUrls: ['./notification2.component.css']
 })
 export class Notification2Component implements OnInit {
+  Compinfo: any;
+  Postinfo: any;
   constructor(private ns: Notification2Service, private router: Router, private dc: DashboardComponent) { }
 
   compDetail = {
-    id: 0
+    id: 0,
+    reason:''
   };
 
   postDetail = {
     id: 0
   };
 
-  Compinfo;
-  Postinfo;
+  reason;
 
   signed;
 
@@ -30,72 +32,72 @@ export class Notification2Component implements OnInit {
     console.log("//" + this.compDetail.id);
     this.ns.viewComplain(this.compDetail).subscribe(
       (dataC) => {
-        this.Compinfo = dataC;
-        console.log(this.Compinfo);
-        if (this.Compinfo = null) {
-         this.signed = true;
+        if (dataC != null) {
+          this.Compinfo = dataC;
+          this.signed = true;
+          console.log(this.Compinfo);
         }
-       
       });
 
     this.postDetail.id = this.dc.postData.id;
     console.log("//" + this.postDetail.id);
     this.ns.viewPost(this.postDetail).subscribe(
       (dataP) => {
-        this.Postinfo = dataP;
-        console.log( this.Postinfo);
-        if (this.Postinfo = null) {
+        if (dataP != null) {
+          this.Postinfo = dataP;
           this.signed = false;
+          console.log(this.Postinfo);
         }
-        
       });
+
   }
 
 
 
   //ACCEPT_POST_&_REJECT_COMPLAINS
   AcceptComp() {
-   
-    console.log( this.compDetail.id)
-    this.dc.marked = true;
+    console.log(this.compDetail.id)
     this.ns.AcceptComplain(this.compDetail).subscribe(
       (res) => {
-
+        window.alert("Complain was accepted!!")
+        this.dc.marked = true;
       });
   }
 
   RejectComp() {
-   
-    console.log( this.compDetail.id);
-    this.dc.marked = true;
+    console.log(this.compDetail.id);
+    this.compDetail.reason = this.reason;
+    console.log(this.compDetail.reason);
     this.ns.RejectComplain(this.compDetail).subscribe(
       (res) => {
-
+        window.alert("Complain was rejected!")
+         this.dc.marked = true;
       });
   }
 
 
-//ACCEPT_&_REJECT_POSTS  
+  //ACCEPT_&_REJECT_POSTS
   AcceptPost() {
     console.log(this.postDetail.id);
-    this.dc.marked = true;
     this.ns.AcceptPost(this.postDetail).subscribe(
       (res) => {
-
+        window.alert("Post was accepted!!")
+        this.dc.marked = true;
       });
   }
+
+
 
   RejectPost() {
-    
-    console.log( this.postDetail.id);
-    this.dc.marked = true;
+    console.log(this.postDetail.id);
     this.ns.RejectPost(this.postDetail).subscribe(
       (res) => {
-
+        window.alert("Post was rejected!!")
+        this.dc.marked = true;
       });
   }
 
-  
+
 
 
 }

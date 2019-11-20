@@ -1,32 +1,83 @@
 <app-navbar2></app-navbar2>
-<div *ngIf="marked">
-  <div class="main">
-    <div *ngFor="let info1 of comp">
-      <ul class="list-group">
-        <li class="list-group-item">
+
+<div class="backImg" style=" padding-bottom: 300px;">
+
+
+  <div *ngIf="marked">
+
+    <div class="row">
+      <div class="col mx-auto">
+
+        <h2 style="text-align: center;">Complains</h2>
+
+        <div class="main">
+          <div *ngFor="let info1 of comp">
+            <!-- <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">
           {{info1?.user.first_name}} {{info1?.user.last_name}} added new complain On {{info1?.category}} at
           {{info1?.date}} {{info1?.time}} ------------
-          <button type="button" (click)="ViewMore1(info1?.id)" class="btn btn-link">View</button>
+          <button type="button" (click)="ViewMore1(info1?.id)" class="btn btn-dark;btn btn-outline-success">View</button>
         </li>
-      </ul>
-    </div>
-  </div>
+      </ul> -->
 
-  <div class="main">
-    <div *ngFor="let info2 of post">
-      <ul class="list-group">
+            <div class="list-group">
+              <a class="list-group-item list-group-item-action flex-column align-items-start"
+                (click)="ViewMore1(info1?.id)">
+                <div class="d-flex w-100 justify-content-between" style="margin-left: 80%;">
+                  <small class="text-muted">{{info1?.date}} {{info1?.time}}</small>
+                </div>
+                <p class="mb-1 h5">{{info1?.category}}</p>
+                <small class="text-muted"><b>By {{info1?.user.first_name}} {{info1?.user.last_name}}</b></small>
+              </a>
+            </div>
+
+            <br>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="col mx-auto">
+
+        <h2 style="text-align: center;">Posts</h2>
+
+        <div class="main">
+          <div *ngFor="let info2 of post">
+            <!-- <ul class="list-group">
         <li class="list-group-item">
           {{info2?.FirstName}} {{info2?.LastName}} added new post On {{info2?.PostTitle}} at {{info2?.PostDate}}
           {{info2?.PostTime}} ------------
-          <button type="button" (click)="ViewMore2(info2?.id)" class="btn btn-link">View</button>
+          <button type="button" (click)="ViewMore2(info2?.id)" class="btn btn-success">View</button>
         </li>
-      </ul>
+      </ul> -->
+
+            <div class="list-group">
+              <a class="list-group-item list-group-item-action flex-column align-items-start"
+                (click)="ViewMore2(info2?.id)">
+                <div class="d-flex w-100 justify-content-between" style="margin-left: 80%;">
+                  <small class="text-muted">{{info2?.PostDate}} {{info2?.PostTime}}</small>
+                </div>
+                <p class="mb-1 h5">{{info2?.PostTitle}} </p>
+                <small class="text-muted"><b>By {{info2?.FirstName}} {{info2?.LastName}}</b></small>
+              </a>
+            </div>
+
+            <br>
+
+          </div>
+        </div>
+
+      </div>
+
     </div>
+
   </div>
 
-</div>
 
+  <div *ngIf="!marked">
+    <app-notification2></app-notification2>
+  </div>
 
-<div *ngIf="!marked">
-  <app-notification2></app-notification2>
 </div>

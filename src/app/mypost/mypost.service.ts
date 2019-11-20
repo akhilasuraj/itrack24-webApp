@@ -1,17 +1,34 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Router} from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class MypostService {
-  constructor(private http:HttpClient, private route:Router) {}
+  constructor(private http: HttpClient, private route: Router) { }
 
-  public myposts(id):Observable<any>{
-    return this.http.post(`http://localhost:3000/users/viewmyposts`,{uid:id});
+  public myAcceptedposts(obj1): Observable<any> {
+    return this.http.post(`/users/acceptedposts`, obj1);
   }
 
-  public delpost(postid):Observable<any>{
-    return this.http.post(`http://localhost:3000/users/deletepost`,{postid:postid});
+
+  public myEditableposts(obj2): Observable<any> {
+    return this.http.post(`/users/editableposts`, obj2);
   }
+
+
+  public delpost(obj3): Observable<any> {
+    return this.http.post(`/users/deletepost`,obj3 );
+  }
+
+  public editPost(obj4): Observable<any> {
+    return this.http.post(`/users/editpost`,obj4 );
+  }
+
+  public updatePost(fd): Observable<any> {
+    return this.http.post(`/users/updatepost`, fd);
+  }
+  
+
+
 }

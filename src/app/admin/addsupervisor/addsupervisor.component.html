@@ -1,49 +1,45 @@
 <app-navbar2></app-navbar2>
 <html>
-<div class style="height: 800px; padding-top: 25px">
+<div class style="height: 650px; padding-top: 25px">
 
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-7">
-          <div class="box">
-            <h5 style=color:#007bff>Register Supervisor</h5>
-            <form (submit)="Register()" ngNativeValidate>
-              <div class="inputBox">
-                <label for="">First Name</label>
-                <input type="text" class="form-control" name="firstname" placeholder="first name"
-                  [(ngModel)]="credential.firstname" required>
-              </div>
-              <br>
-              <div class="inputBox">
-                <label for="">Last Name</label>
-                <input type="text" class="form-control" name="lastname" placeholder="last name" [(ngModel)]="credential.lastname"
-                  required>
-              </div>
-              <br>
-              <div class="inputBox">
-                <label for="">Contact No</label>
-                <input type="text" class="form-control" name="contactno" placeholder="contact no"
-                  [(ngModel)]="credential.contactno" required>
-              </div>
-              <br>
-              <div class="inputBox">
-                <label for="">Email</label>
-                <input type="email" class="form-control" name="email" placeholder="email" [(ngModel)]="credential.email"
-                  required>
-              </div>
-              <br>
-              <div class="inputBox">
-                <label for="">Password</label>
-                <input type="password" class="form-control" name="password" placeholder="password"
-                  [(ngModel)]="credential.password" required>
-              </div>
-              <br>
-              <div class="row">
-                <div class="col-sm">
-                  <div>
-                    <label for="pass" class="label">Job Section 1</label>
-                      <select class="form-control" [(ngModel)]="credential.jobcategory1" name="jobcategory1" placeholder="Electrical" required>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="box">
+                        <h3 style=color:#007bff><strong> Register Supervisor</strong></h3>
+                        <br>
+                        <form (submit)="Register()" ngNativeValidate>
+                            <div class="inputBox">
+                                <label for="">First Name</label>
+                                <input type="text" class="form-control" name="firstname" placeholder="first name" [(ngModel)]="credential.firstname" required>
+                            </div>
+                            <br>
+                            <div class="inputBox">
+                                <label for="">Last Name</label>
+                                <input type="text" class="form-control" name="lastname" placeholder="last name" [(ngModel)]="credential.lastname" required>
+                            </div>
+                            <br>
+                            <div class="inputBox">
+                                <label for="">Contact No</label>
+                                <input type="text" class="form-control" name="contactno" placeholder="contact no" [(ngModel)]="credential.contactno" required>
+                            </div>
+                            <br>
+                            <div class="inputBox">
+                                <label for="">Email</label>
+                                <input type="email" class="form-control" name="email" placeholder="email" [(ngModel)]="credential.email" required>
+                            </div>
+                            <br>
+                            <div class="inputBox">
+                                <label for="">Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="password" [(ngModel)]="credential.password" required>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div>
+                                        <label for="pass" class="label">Job Section 1</label>
+                                        <select class="form-control" [(ngModel)]="credential.jobcategory1" name="jobcategory1" placeholder="Electrical" required>
                           <option value="Electrical">Electrical</option>
                           <option value="Environment">Environment</option>
                           <option value="Construction">Construction</option>
@@ -51,13 +47,13 @@
                           <option value="Drainage">Drainage</option>
                           <option value="Mosquito-Spreading">Mosquito-Spreading</option>
                       </select>
-                  </div>
-                </div>
+                                    </div>
+                                </div>
 
-                <div class="col-sm">
-                    <div>
-                      <label for="pass" class="label">Job Section 2</label>
-                      <select class="form-control" [(ngModel)]="credential.jobcategory2" name="jobcategory2" placeholder="Electrical" required>
+                                <div class="col-sm">
+                                    <div>
+                                        <label for="pass" class="label">Job Section 2</label>
+                                        <select class="form-control" [(ngModel)]="credential.jobcategory2" name="jobcategory2" placeholder="Electrical" required>
                         <option value="Electrical">Electrical</option>
                         <option value="Environment">Environment</option>
                         <option value="Construction">Construction</option>
@@ -65,18 +61,18 @@
                         <option value="Drainage">Drainage</option>
                         <option value="Mosquito-Spreading">Mosquito-Spreading</option>
                       </select>
-                    </div>
-                  </div>
+                                    </div>
+                                </div>
 
-              </div>
-              <br><br>
-              <button class="btn btn-primary" type="submit">Register</button>&nbsp;&nbsp;
-            </form>
-          </div>
+                            </div>
+                            <br><br>
+                            <button class="btn btn-primary" type="submit">Register</button>&nbsp;&nbsp;
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </body>
+    </body>
 </div>
 
 </html>

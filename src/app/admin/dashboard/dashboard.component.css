@@ -1,3 +1,16 @@
+.backImg{
+	background-image: url(/assets/img/low-opacity.jpg);
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	
+	
+}
+
+
+
 
 .sidenav {
     height: 100%;
@@ -29,4 +42,3 @@
     font-size:15px; /* Increased text to enable scrolling */
     padding: 0px 10px;
   }
-  

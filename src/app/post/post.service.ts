@@ -22,7 +22,7 @@ export class PostService {
   constructor(private http:HttpClient, private route:Router) {}
 
   public makePost(fd): Observable<any>{
-    return this.http.post(`http://localhost:3000/users/addpost`, fd);
+    return this.http.post(`/users/addpost`, fd);
   }
 }
 

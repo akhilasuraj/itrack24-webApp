@@ -29,8 +29,18 @@ export class AddworkersComponent implements OnInit {
   Register() {
     this.aw.AddWorker(this.credential).subscribe(
       (data) => {
-        // window.location.reload();
-        console.log(data);
+       if(data.message1){
+         window.alert(data.message1);
+         this.credential.lasttname = "";
+         this.credential.Nicno = "";
+         this.credential.Contact = "";
+         this.credential.JobType1 = "";
+         this.credential.JobType2 = "";
+       }
+
+       else if(data.message2){
+         window.alert(data.message2);
+       }
       });
   }
 }

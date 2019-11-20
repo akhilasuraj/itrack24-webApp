@@ -38,3 +38,4 @@ export class Navbar2Component implements CanActivate {
   }
 
 }
+

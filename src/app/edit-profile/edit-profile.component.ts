@@ -21,24 +21,9 @@ export class EditProfileComponent implements OnInit {
     password: '',
   }
 
- userdetails;
+  userdetails;
 
   constructor(private auth: AuthenticationService, private router: Router) { }
-  
-
-   EditProfile() {
-   
-    this.credential.id = this.auth.getUserDetails().id;
-
-     this.auth.EditProfile(this.credential).subscribe(
-      (data) => {
-        if (data) {
-          this.userdetails = data;
-          window.location.reload();
-        } else {
-          alert('invalid');
-        }}
-      )};
 
   async ngOnInit() {
     this.credential.first_name = this.auth.getUserDetails().first_name;
@@ -47,6 +32,23 @@ export class EditProfileComponent implements OnInit {
     this.credential.contact_num = this.auth.getUserDetails().contact_num;
     this.credential.email = this.auth.getUserDetails().email;
   }
+
+
+
+  EditProfile() {
+
+    this.credential.id = this.auth.getUserDetails().id;
+
+    this.auth.EditProfile(this.credential).subscribe(
+      (data) => {
+        if (data) {
+          this.userdetails = data;
+          window.location.reload();
+        } else {
+          alert('invalid');
+        }
+      });
+  };
 
 
 }

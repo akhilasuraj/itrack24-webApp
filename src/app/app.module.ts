@@ -10,9 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ChartsModule } from 'ng2-charts';
 import { MatCardModule } from '@angular/material';
 import { AgmCoreModule } from '@agm/core';
-
-
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppComponent } from './app.component';
@@ -62,6 +60,9 @@ import { AddworkersService } from './admin/addworkers/addworkers.service';
 import { PopComplainComponent } from './pop-complain/pop-complain.component';
 import { PiChartComponent } from './pi-chart/pi-chart.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { RatingComponent } from './rating/rating.component';
+import { RatingService } from './rating/rating.service';
+import { EditpostComponent } from './editpost/editpost.component';
 
 
 
@@ -99,7 +100,9 @@ const routes: Routes = [
    { path: 'addworkers', component: AddworkersComponent},
    { path: 'pop-complain', component: PopComplainComponent},
    { path: 'pi-chart', component: PiChartComponent},
-   { path: 'changepassword', component: ChangepasswordComponent}
+   { path: 'changepassword', component: ChangepasswordComponent},
+   { path: 'rating', component: RatingComponent },
+   { path: 'editablepost', component: EditpostComponent}
 ];
 
 @NgModule({
@@ -132,6 +135,8 @@ const routes: Routes = [
       PopComplainComponent,
       PiChartComponent,
       ChangepasswordComponent,
+      RatingComponent,
+      EditpostComponent,
     
       
  
@@ -151,7 +156,8 @@ const routes: Routes = [
          libraries: ['places']
        }),
       ChartsModule,
-      MatCardModule
+      MatCardModule,
+      NgbModule
 
    ],
    providers: [
@@ -173,7 +179,9 @@ const routes: Routes = [
       AuthService,
       AddworkersService,
       MapComponent,
-      MapService
+      MapService,
+      RatingService,
+      RatingComponent
 
    ],
    bootstrap: [

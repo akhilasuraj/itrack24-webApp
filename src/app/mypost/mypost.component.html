@@ -2,24 +2,63 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <app-navbar></app-navbar>
+<div *ngIf = "marked">
 <div class="body">
     <br><br><br>
-    <div *ngFor="let info of postdata">
-
-        <div class="main">
-            <div class="row">
-                <div class="col-sm-4">
-                <ul class="list-group">
-                    <li class="list-group-item">{{ info?.PostTitle}} - {{ info?.PostDate}} at {{ info?.PostTime}}
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-4">
-                    <button type="button" class="btn btn-danger" (click)="delete(info.id, info.UserID)">Delete</button>
-            </div>
+    <div class="row">
+        <div class="col mx-auto">
+           <h2>Accepted Posts</h2>
+            <div class="main">
+                <div *ngFor="let info of Acceptedpost">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="card bg-light h-100" style="width: 40rem;">
+                                <img class="card-img-top" src="http://192.168.1.30:3000/{{ info?.PostImg}}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ info?.PostTitle}} at <time>{{ info?.PostDate}} at
+                                            {{ info?.PostTime}}</time></h5>
+                                    <!--<a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                    <p class="card-text"> <time>{{ info?.date}} at {{ info?.time}}</time></p>
+                                    <button type="button" class="btn btn-danger"
+                                        (click)="delete(info.id, info.UserID)">Delete</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
+        <div class="col mx-auto">
+            <h2>Editable Posts</h2>
+            <div class="main">
+                <div *ngFor="let info of Editablepost">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="card bg-light h-100" style="width: 50rem;">
+                                <img class="card-img-top" src="http://192.168.1.30:3000/{{ info?.PostImg}}"
+                                    alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ info?.PostTitle}} at <time>{{ info?.PostDate}} at
+                                            {{ info?.PostTime}}</time></h5>
+                                    <p class="card-text"> <time>{{ info?.date}} at {{ info?.time}}</time></p>
+                                    <button type="button" class="btn btn-danger"
+                                        (click)=" getEditpostId(info.id)">Edit</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 
+            </div>
+        </div>
     </div>
-    <br><br><br>
+</div>
+</div>
+
+    <div *ngIf="!marked">
+        <div>
+            <app-editpost></app-editpost>
+        </div>
+    </div>

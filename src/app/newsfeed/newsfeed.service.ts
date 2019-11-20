@@ -10,11 +10,24 @@ export class NewsfeedService {
   constructor(private http:HttpClient, private route: Router ) {}
 
   public getPost(): Observable<any>{
-    return this.http.get(`http://localhost:3000/users/viewposts`); 
+    return this.http.get(`/users/viewposts`); 
   }
 
   public GetSelectPost(postdata):Observable<any>{
-    return this.http.get(`http://localhost:3000/users/getselectpost`,postdata);
+    return this.http.get(`/users/getselectpost`,postdata);
   }
+
+  public AddLike(likedata): Observable<any> {
+    return this.http.post(`/users/addlike`, likedata);
+  }
+
+  public RemoveLike(likedata): Observable<any> {
+    return this.http.post(`/users/removelike`, likedata);
+  }
+
+  public GetLikes(likedata): Observable<any> {
+    return this.http.post(`/users/getlikes`, likedata);
+  }
+
    
 }

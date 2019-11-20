@@ -20,28 +20,24 @@ export class UserprofileComponent implements OnInit {
   fileUrl;
 
   tokenid: string;
-  first_name:string;
-  last_name:string;
+  first_name: string;
+  last_name: string;
 
   ngOnInit() {
 
     this.userData.id = this.auth.getUserDetails().id;
-
-   this.auth.profile(this.userData).subscribe(
-     (data)=>{
-       console.log(this.details);
-       this.details = data;
-     }
-   )
+    console.log("this is userid " + this.userData.id);
+    this.auth.profile(this.userData).subscribe(
+      (data) => {
+        console.log(this.details);
+        this.details = data;
+      });
 
     this.auth.viewPhoto(this.userData).subscribe(
       pic => {
         this.fileUrl = pic;
         console.log("here is the profile image " + pic);
       });
-
-
-
 
   }
 

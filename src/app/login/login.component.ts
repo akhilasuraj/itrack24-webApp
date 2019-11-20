@@ -30,21 +30,21 @@ export class LoginComponent {
     await this.auth.login(this.credential).subscribe(
       (data) => {
         console.log(data.user_type);
-        if (data.message5) {
+        if (data.message == "Logged succesfully") {
           if (data.user_type === 'user') {
             this.router.navigateByUrl('/home');
            
           }
           else if (data.user_type === 'admin') {
             this.router.navigateByUrl('/dashboard');
-            window.alert(data.message5);
+            window.alert(data.message);
           }
         }
-        else if (data.message3) {
-          window.alert(data.message3);
+        else if (data.message == "Incorrect password") {
+          window.alert(data.message);
         }
-        else if (data.message4) {
-          window.alert(data.message4);
+        else if (data.message == "Incorrect email") {
+          window.alert(data.message);
         }
       });
 
@@ -52,10 +52,10 @@ export class LoginComponent {
 
 
   async register() {
-    await this.auth.register(this.credential).subscribe(
+   await  this.auth.register(this.credential).subscribe(
       (result) => {
-        if (result.message1) {
-          window.alert(result.message1);
+        if (result.message == "Verification link has been sent to your email") {
+          window.alert("Verification link has been sent to your email " + this.credential.email + ".Check and activate your account");
           this.credential.first_name = "";
           this.credential.last_name = "";
           this.credential.address = "";
@@ -64,8 +64,8 @@ export class LoginComponent {
           this.credential.email = "";
           this.credential.password = "";
         }
-        else if (result.message2) {
-          window.alert(result.message2);
+        else if (result.message == "this email registered already.Try another email") {
+          window.alert( this.credential.email + " email registered already.Try another email");
         }
 
       });

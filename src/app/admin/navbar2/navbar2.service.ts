@@ -12,11 +12,11 @@ export class Navbar2Service {
   constructor(private http:HttpClient, private router:Router) { }
 
   public getcompCount():Observable<any>{
-    return this.http.get("http://localhost:3000/admin/compcount");
+    return this.http.get("/admin/compcount");
   }
 
   
   public getpostCount():Observable<any>{
-    return this.http.get("http://localhost:3000/admin/postcount");
+    return this.http.get("/admin/postcount");
   }
 }

@@ -13,6 +13,6 @@ export class AddsupervisorService {
   constructor(private http: HttpClient, private router: Router) { }
 
   public AddSupervisor(obj): Observable<any>{
-    return this.http.post("http://localhost:3000/admin/registerSupervisor",obj)
+    return this.http.post("/admin/registerSupervisor",obj)
   }
 }

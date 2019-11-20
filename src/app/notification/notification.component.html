@@ -1,82 +1,92 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <app-navbar></app-navbar>
 
-<div *ngIf="marked">
-
-  <div *ngFor="let info1 of notificationPost">
+<div *ngFor="let info1 of notificationPost">
 
     <div *ngIf="info1?.isAccepted">
-      <div class="col-sm-8-left">
-        <table>
-          <tr>
-            <th>new Post {{ info1?.PostTitle}} On {{ info1?.PostDate}} at {{ info1?.PostTime}} Accepted.
-            </th>
-          </tr>
-        </table>
-        <td><button (click)="GetValues(info1.id)">Close</button></td>
-      </div>
+        <div class="col-sm-8-left">
+            <table>
+                <tr>
+                    <th>new Post {{ info1?.PostTitle}} On {{ info1?.PostDate}} at {{ info1?.PostTime}} Accepted.
+                    </th>
+                </tr>
+            </table>
+            <td><button (click)="GetValues(info1.id)">Close</button></td>
+        </div>
     </div>
 
     <div *ngIf="!info1?.isAccepted">
-      <div class="col-sm-8-left">
-        <table>
-          <tr>
-            <th>new Post {{ info1?.PostTitle}} On {{ info1?.PostDate}} at {{ info1?.PostTime}} Rejected.
-            </th>
-          </tr>
-        </table>
-        <td><button (click)="GetValues(info1.id)">Close</button></td>
-      </div>
+        <div class="col-sm-8-left">
+            <table>
+                <tr>
+                    <th>new Post {{ info1?.PostTitle}} On {{ info1?.PostDate}} at {{ info1?.PostTime}} Rejected.
+                    </th>
+                </tr>
+            </table>
+            <td><button (click)="GetValues(info1.id)">Close</button></td>
+        </div>
     </div>
-  </div>
+</div>
 
-  <div *ngFor="let info2 of notificationComp">
+<div *ngFor="let info2 of notificationComp">
 
     <div *ngIf="info2?.isAccepted">
-      <div class="col-sm-8-left">
-        <table>
-          <tr>
-            <th>new Complain  {{ info2?.category}} On {{ info2?.date}} at {{ info2?.time}} Accepted.
-            </th>
-          </tr>
-        </table>
-        <td><button (click)="GetValuesComp(info2.id)">Close</button></td>
-      </div>
+        <div class="col-sm-8-left">
+            <table>
+                <tr>
+                    <th>new Complain {{ info2?.category}} On {{ info2?.date}} at {{ info2?.time}} Accepted.
+                    </th>
+                </tr>
+            </table>
+            <td><button (click)="GetValuesComp(info2.id)">Close</button></td>
+        </div>
     </div>
 
     <div *ngIf="!info2?.isAccepted">
-      <div class="col-sm-8-left">
-        <table>
-          <tr>
-            <th>new Complain at {{ info2?.category}} On {{ info2?.date}} at {{ info2?.time}} Rejected.
-            </th>
-          </tr>
-        </table>
-        <td><button (click)="GetValuesComp(info2.id)">Close</button></td>
-      </div>
+        <div class="col-sm-8-left">
+            <table>
+                <tr>
+                    <th>new Complain at {{ info2?.category}} On {{ info2?.date}} at {{ info2?.time}} Rejected.
+                    </th>
+                </tr>
+            </table>
+            <td><button (click)="GetValuesComp(info2.id)">Close</button></td>
+        </div>
     </div>
-  </div>
-
-  <div *ngFor="let info3 of notificationCompletedComp">
-    <div class="col-sm-8-left">
-      <table>
-        <tr>
-          <th>your Complain at {{ info3?.category}}  On {{ info3?.date}} at {{ info3?.time}} completed.
-          </th>
-        </tr>
-      </table>
-      <td><button (click)="GetValuesCompletedComp(info3.id)">Close</button></td>
-    </div>
-  </div>
-
 </div>
 
 
 
+<div *ngFor="let info3 of notificationCompletedComp">
+    <div class="col-sm-8-left">
+        <table>
+            <tr>
+                <th>your Complain at {{ info3?.category}} On {{ info3?.date}} at {{ info3?.time}} completed.
+                </th>
+            </tr>
+        </table>
+        <!-- <td><button (click)="GetValuesCompletedComp(info3.id)">Close</button></td>&nbsp;&nbsp; -->
+        <button data-toggle="modal" data-target="#exampleModalCenter1" class="btn btn-secondary"
+            (click)="GetValuesCompletedComp(info3.id)">Rate</button>
+    </div>
+</div>
 
-
-<div *ngIf="!marked">
-  <app-pop-post></app-pop-post>
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <!-- <app-rating></app-rating> -->
+            
+            <div class="container">
+                <ngb-rating [(rate)]="currentRate">
+                    <ng-template let-fill="fill" let-index="index">
+                        <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                    </ng-template>
+                </ngb-rating>
+                <hr>
+                <pre>Rate: <b>{{currentRate}}</b></pre>
+            </div>
+            <button class="btn btn-secondary" (click)="Ratevalue()">Done</button>
+           
+        </div>
+    </div>
 </div>

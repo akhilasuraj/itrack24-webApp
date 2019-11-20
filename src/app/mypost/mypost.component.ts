@@ -11,39 +11,49 @@ import { MypostService } from './mypost.service';
 
 
 export class MypostComponent implements OnInit {
+  userData = {
+    UserID: 0
+  }
 
-  userID;
-  postdata;
   userid;
 
+  Acceptedpost;
+  Editablepost;
+
   postID = {
-    postid: 0
+    id: 0
   }
+
+  marked = true;
+
   constructor(private mp: MypostService, private auth: AuthenticationService, private route: Router) { }
 
   ngOnInit() {
-    this.userID = this.auth.getUserDetails().id
+    this.userData.UserID = this.auth.getUserDetails().id
 
-    console.log(this.auth.getUserDetails().id);
-    this.mp.myposts(this.userID).subscribe(
+    this.mp.myAcceptedposts(this.userData).subscribe(
       data => {
-        this.postdata = data;
-        console.log(this.postdata)
-      })
+        this.Acceptedpost = data;
+        console.log(this.Acceptedpost)
+      });
+
+      this.mp.myEditableposts(this.userData).subscribe(
+        result => {
+          this.Editablepost = result;
+          console.log(this.Editablepost);
+        });
   }
 
-  public getMyPost() {
-  }
-
+  //delete_a_post
   public delete(id, UserID) {
     this.userid = UserID;
-    this.postID.postid = id;
+    this.postID.id = id;
     console.log(this.userid);
-    console.log(this.postID.postid);
+    console.log(this.postID.id);
 
     if (this.userid == this.auth.getUserDetails().id) {  //TO_AVOID_UNAUTHORIZED_ACCESS
       console.log("id matched");
-      this.mp.delpost(this.postID.postid).subscribe(
+      this.mp.delpost(this.postID).subscribe(
         (result) => {
           if (result.message) {
             window.alert(result.message);
@@ -51,8 +61,16 @@ export class MypostComponent implements OnInit {
           }
         });
     }
-
+    else {
+      window.alert("You have no permission to delet this post")
+    }
   }
+
+  getEditpostId(id: number) {
+    this.marked = false;
+    this.postID.id = id;
+  };
+
 }
 
 

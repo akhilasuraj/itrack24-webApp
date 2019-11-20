@@ -11,6 +11,6 @@ export class AddworkersService {
   constructor(private router:Router, private http:HttpClient) { }
 
   public AddWorker(obj):Observable<any>{
-    return this.http.post("http://localhost:3000/admin/registerWorker",obj)
+    return this.http.post("/admin/registerWorker",obj)
   }
 }

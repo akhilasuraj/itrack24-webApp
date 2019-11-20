@@ -28,8 +28,21 @@ export class AddsupervisorComponent implements OnInit {
   Register() {
     this.as.AddSupervisor(this.credential).subscribe(
       (data) => {
-        // window.location.reload();
-        console.log(data);
+        if(data.message1){
+          window.alert(data.message1);
+          this.credential.firstname = "";
+          this.credential.lastname = "";
+          this.credential.contactno = "";
+          this.credential.email = "";
+          this.credential.password = "";
+          this.credential.jobcategory1 = "";
+          this.credential.jobcategory2 = ""
+        }
+
+        else if(data.message2){
+          window.alert(data.message2);
+        }
+      
       });
   }
 

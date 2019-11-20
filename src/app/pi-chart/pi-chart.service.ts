@@ -13,10 +13,10 @@ export class PiChartService {
 
   
   public GetCountA():Observable<any>{
-    return this.http.get(`http://localhost:3000/users/category_countA`);
+    return this.http.get(`/users/category_countA`);
   }
   
   public GetCountB():Observable<any>{
-    return this.http.get(`http://localhost:3000/users/category_countB`);
+    return this.http.get(`/users/category_countB`);
   }
 }
