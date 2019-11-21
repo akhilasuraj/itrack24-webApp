@@ -61,6 +61,7 @@ export class Notification2Component implements OnInit {
       (res) => {
         window.alert("Complain was accepted!!")
         this.dc.marked = true;
+        window.location.reload();
       });
   }
 
@@ -72,6 +73,7 @@ export class Notification2Component implements OnInit {
       (res) => {
         window.alert("Complain was rejected!")
          this.dc.marked = true;
+         window.location.reload();
       });
   }
 
@@ -83,6 +85,7 @@ export class Notification2Component implements OnInit {
       (res) => {
         window.alert("Post was accepted!!")
         this.dc.marked = true;
+        window.location.reload();
       });
   }
 
@@ -94,6 +97,7 @@ export class Notification2Component implements OnInit {
       (res) => {
         window.alert("Post was rejected!!")
         this.dc.marked = true;
+        window.location.reload();
       });
   }
 

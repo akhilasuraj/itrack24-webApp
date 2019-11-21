@@ -7,24 +7,25 @@
         <div class="wrapper">
             <div class="card radius shadowDepth1">
                 <div class="card__image border-tlr-radius">
-                    <!-- <img src="http://localhost:3000/{{ Compinfo?.complainImg}}" alt="http://localhost:3000/{{ Compinfo?.ComplainImg}}" alt="image" class="border-tlr-radius"> -->
-                    <img src="/assets/img/pexels-photo-945453.jpeg" class="border-tlr-radius">
+                    <img src="http://192.168.1.30:3000/{{ Compinfo?.complainImg}}"
+                        alt="http://192.168.1.30:3000/{{ Compinfo?.ComplainImg}}" alt="image" class="border-tlr-radius">
+                    <!-- <img src="/assets/img/pexels-photo-945453.jpeg" class="border-tlr-radius"> -->
                 </div>
 
                 <div class="card__content card__padding">
                     <div class="card__meta">
-                        <a href="#">{{Compinfo?.description}}</a> By <time>{{Compinfo?.user.first_name}}
-                            {{ Compinfo?.user.last_name}}</time>
-                        <time>{{ Compinfo?.date}} at {{ Compinfo?.time}}</time>
+                        <a href="#">{{Compinfo?.description}}</a> By <time>{{Compinfo?.user.first_name}} {{ Compinfo?.user.last_name}}</time>
+                        <time>On {{ Compinfo?.date}} | {{ Compinfo?.time}}</time>
                     </div>
 
                     <article class="card__article">
                         <p>{{Compinfo?.sectionName}}</p>
                     </article>
-                    <br>
+
                     <article class="card__article">
-                        <p>{{Compinfo?.description}}</p>
+                        <p> {{ Compinfo?.location}}</p>
                     </article>
+                    <br>
                 </div>
 
                 <div class="card__action">
@@ -51,8 +52,9 @@
         <div class="wrapper">
             <div class="card radius shadowDepth1">
                 <div class="card__image border-tlr-radius">
-                    <!-- <img src="http://localhost:3000/{{ Postinfo?.PostImg}}" alt="http://localhost:3000/{{ Postinfo?.PostImg}}" alt="image" class="border-tlr-radius"> -->
-                    <img src="/assets/img/pexels-photo-945453.jpeg" class="border-tlr-radius">
+                    <img src="http://192.168.1.30:3000/{{ Postinfo?.PostImg}}"
+                        alt="http://192.168.1.30:3000/{{ Postinfo?.PostImg}}" alt="image" class="border-tlr-radius">
+                    <!-- <img src="/assets/img/pexels-photo-945453.jpeg" class="border-tlr-radius"> -->
                 </div>
 
                 <div class="card__content card__padding">
@@ -99,8 +101,8 @@
             </div>
             <div class="modal-body">
                 <p>
-                    <input type="text" class="form-control" name="reason" placeholder="Reason.."
-                        [(ngModel)]="reason" required>
+                    <input type="text" class="form-control" name="reason" placeholder="Reason.." [(ngModel)]="reason"
+                        required>
                 </p>
             </div>
             <div class="modal-footer">

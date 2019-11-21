@@ -25,29 +25,6 @@ export class PopPostComponent implements OnInit {
     id: 0,
   }
 
-  ngOnInit() {
-    this.postinfo.id = this.nc.postData.id;
-    console.log("this is " + this.postinfo.id);
-    this.ps.GetSelectPost(this.postinfo).subscribe(
-      pdata => {
-        console.log(pdata);
-      });
-
-    this.compinfo.id = this.nc.compData.id;
-    console.log("this is " + this.compinfo.id);
-    this.ps.GetSelectComplain(this.compinfo).subscribe(
-      cdata => {
-        console.log(cdata);
-      });
-
-    this.completedcompinfo.id = this.nc.completedcompData.id;
-    console.log("this is " + this.completedcompinfo.id )
-    //+ "and rate " + this.completedcompinfo.rate); //SEND_TO_THE_BACKEND
-    this.ps.GetSelectCompletedComplain(this.completedcompinfo).subscribe(
-      ccdata => {
-        console.log(ccdata);
-      });
-
-  }
+  ngOnInit() {}
 
 }

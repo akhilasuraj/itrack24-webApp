@@ -10,9 +10,10 @@
         <div class="card bg-light h-100" style="width: 24rem;">
           <img class="card-img-top" src="http://192.168.1.30:3000/{{ info?.complainImg}}" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">{{ info?.category}} at <time>{{ info?.address1}}, {{ info?.address2}}</time></h5>
+            <h5 class="card-title">{{ info?.category}} at <time>{{ info?.location}}</time></h5>
+            <h5><strong>Description</strong></h5>
             <p class="card-text">{{ info?.description}}</p>
-            <h5>Reported date and time</h5>
+            <h5><strong>Reported date and time</strong></h5>
             <p class="card-text"> <time>{{ info?.date}} at {{ info?.time}}</time></p>
             <button type="button" class="btn btn-danger" (click)="delete(info.id)">Delete</button>
           </div>

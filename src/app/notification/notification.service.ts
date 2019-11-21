@@ -28,4 +28,18 @@ export class NotificationService {
   public Ratejob(obj):Observable<any>{
     return this.http.post(`/users/ratejob`,obj);
   }
+
+  
+  public GetSelectPost(data):Observable<any>{
+    return this.http.post(`/users/postMore`,data);
+  }
+
+  
+  public  GetSelectComplain(data):Observable<any>{
+    return this.http.post(`/users/complainMore`,data);
+  }
+  
+  public GetSelectCompletedComplain(data1):Observable<any>{
+    return this.http.post(`/users/completedcomplainMore`, data1);
+  }
 }

@@ -49,11 +49,11 @@
                                     </div>
                                     <div>
                                         <button [style.display]="likedstatus ? 'inline' : 'none'"
-                                            (click)="onPostDislikeClick(info)">Dislike</button>
+                                            (click)="onPostDislikeClick(info)" class="btn btn-primary">Dislike</button>
                                     </div>
                                     <div>
                                         <button [style.display]="!likedstatus ? 'inline' : 'none'"
-                                            (click)="onPostLikeClick(info)">Like</button>
+                                            (click)="onPostLikeClick(info)" class="btn btn-primary">Like</button>
                                     </div>
                                     <div>
                                       Likes : {{info?.PostLike}} Users

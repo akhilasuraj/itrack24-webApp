@@ -12,14 +12,6 @@
 
         <div class="main">
           <div *ngFor="let info1 of comp">
-            <!-- <ul class="list-group">
-        <li class="list-group-item list-group-item-primary">
-          {{info1?.user.first_name}} {{info1?.user.last_name}} added new complain On {{info1?.category}} at
-          {{info1?.date}} {{info1?.time}} ------------
-          <button type="button" (click)="ViewMore1(info1?.id)" class="btn btn-dark;btn btn-outline-success">View</button>
-        </li>
-      </ul> -->
-
             <div class="list-group">
               <a class="list-group-item list-group-item-action flex-column align-items-start"
                 (click)="ViewMore1(info1?.id)">
@@ -30,12 +22,9 @@
                 <small class="text-muted"><b>By {{info1?.user.first_name}} {{info1?.user.last_name}}</b></small>
               </a>
             </div>
-
             <br>
-
           </div>
         </div>
-
       </div>
 
 

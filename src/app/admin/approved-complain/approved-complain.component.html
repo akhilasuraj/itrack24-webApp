@@ -1,3 +1,67 @@
-<p>
-  approved-complain works!
-</p>
+<app-navbar2></app-navbar2>
+
+<div *ngIf="marked">
+  <div class="row">
+    <div class="col mx-auto">
+      <h2 style="text-align: center;">Inprogressing Complains</h2>
+      <div class="main">
+        <div *ngFor="let info1 of comp">
+          <div class="list-group">
+            <a class="list-group-item list-group-item-action flex-column align-items-start"
+              (click)="ViewMore(info1?.complainID)">
+              <div class="d-inline-flex p-3 bg-secondary text-white" style="margin-left: 0%;">
+                <div class="p-2 bg-info"><label>Complain ID :</label> {{info1?.complainID}}</div>
+                <div class="p-2 bg-warning"><label>Supervisor Name :</label> {{info1?.supervisor.firstname}}
+                  {{info1?.supervisor.lastname}}</div>
+                <div class="p-2 bg-primary"><label>Supervisor Contact number :</label> {{info1?.supervisor.contactno}}
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!marked">
+
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2 style="margin-left:40%;">Viewed Details</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Resident Name</th>
+            <th>Resident Contact no</th>
+            <th>Resident Address</th>
+            <th>Complain Category</th>
+            <th>Complain Date</th>
+            <th>Complanin Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ moredata.user.first_name}} {{ moredata.user.last_name}}</td>
+            <td>{{ moredata.user.contact_num}}</td>
+            <td>{{ moredata.user.address}}</td>
+            <td>{{ moredata.category}}</td>
+            <td>{{ moredata.date}}</td>
+            <td>{{ moredata.time}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button (click)="back()" class="btn btn-primary" style="margin-left:40%;">Back</button>
+  </body>
+</div>

@@ -42,6 +42,8 @@ export class NotificationComponent implements OnInit {
   subscription1;
   subscription2;
 
+  marked;
+
   constructor(private ns: NotificationService, private auth: AuthenticationService, private route: Router, private rc: RatingComponent) { }
 
   ngOnInit() {
@@ -65,6 +67,7 @@ export class NotificationComponent implements OnInit {
     this.ns.NotificationComplains(this.userData).subscribe(
       data2 => {
         this.notificationComp = data2;
+        console.log(this.notificationComp);
       });
 
     // this.subscription1 = timer(0, 800).pipe(
@@ -78,20 +81,30 @@ export class NotificationComponent implements OnInit {
 
   GetValues(id: number) {      //VIEW_MORE
     this.postData.id = id;
-
+    this.ns.GetSelectPost(this.postData).subscribe(
+      pdata => {
+       window.location.reload();
+      });
     console.log("postdata " + this.postData.id);
   }
 
 
   GetValuesComp(id: number) {      //VIEW_MORE
     this.compData.id = id;
-
+    this.ns.GetSelectComplain(this.compData).subscribe(
+      cdata => {
+        window.location.reload();
+      });
     console.log("compdata " + this.compData.id);
   }
 
 
   GetValuesCompletedComp(id: number) {      //VIEW_MORE
     this.completedcompData.id = id;
+    this.ns.GetSelectCompletedComplain(this.completedcompData).subscribe(
+      ccdata => {
+        window.location.reload();
+      });
     // console.log("rate " +  this.completedcompData.ratevalue);
     // console.log("compdata " + this.completedcompData.id);
   }
@@ -101,13 +114,10 @@ export class NotificationComponent implements OnInit {
     this.completedcompData.rate = this.currentRate;
     this.ns.Ratejob(this.completedcompData).subscribe(
       data => {
-        window.alert("Thanks for your feedback");
+        this.marked = false;
+        window.location.reload();
       })
   }
-
-  // ngOnDestroy() {
-  //   this.subscription1.unsubscribe()
-  // }
 
 }
 

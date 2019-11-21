@@ -63,6 +63,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 import { RatingComponent } from './rating/rating.component';
 import { RatingService } from './rating/rating.service';
 import { EditpostComponent } from './editpost/editpost.component';
+import { CompletedComplainsComponent } from './admin/completed-complains/completed-complains.component';
 
 
 
@@ -102,7 +103,8 @@ const routes: Routes = [
    { path: 'pi-chart', component: PiChartComponent},
    { path: 'changepassword', component: ChangepasswordComponent},
    { path: 'rating', component: RatingComponent },
-   { path: 'editablepost', component: EditpostComponent}
+   { path: 'editablepost', component: EditpostComponent},
+   { path: 'completedcomplains', component: CompletedComplainsComponent}
 ];
 
 @NgModule({
@@ -137,6 +139,7 @@ const routes: Routes = [
       ChangepasswordComponent,
       RatingComponent,
       EditpostComponent,
+      CompletedComplainsComponent,
     
       
  
@@ -181,7 +184,8 @@ const routes: Routes = [
       MapComponent,
       MapService,
       RatingService,
-      RatingComponent
+      RatingComponent,
+      ApprovedComplainService
 
    ],
    bootstrap: [

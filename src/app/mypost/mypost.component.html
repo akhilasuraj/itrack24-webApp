@@ -40,9 +40,9 @@
                                 <img class="card-img-top" src="http://192.168.1.30:3000/{{ info?.PostImg}}"
                                     alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ info?.PostTitle}} at <time>{{ info?.PostDate}} at
-                                            {{ info?.PostTime}}</time></h5>
-                                    <p class="card-text"> <time>{{ info?.date}} at {{ info?.time}}</time></p>
+                                    <h5 class="card-title"><strong>{{ info?.PostTitle}} </strong>
+                                           On <time>{{ info?.PostDate}} At {{ info?.PostTime}}</time></h5>      
+                                    <p class="card-text"> <time>{{ info?.PostContent}}</time></p>
                                     <button type="button" class="btn btn-danger"
                                         (click)=" getEditpostId(info.id)">Edit</button>
                                 </div>

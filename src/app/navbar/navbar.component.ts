@@ -54,9 +54,8 @@ export class NavbarComponent implements CanActivate {
       });
 
 
-    //  this.subscription1 = timer(0,10000).pipe(
-    // switchMap(()=>
-    this.ns.PostCount(this.userData).subscribe(
+      this.subscription1 = timer(0,10000).pipe(
+     switchMap(()=>this.ns.PostCount(this.userData))).subscribe(
       data1 => {
         this.postcount = data1;
         console.log(this.postcount);
@@ -64,18 +63,16 @@ export class NavbarComponent implements CanActivate {
 
 
 
-    //  this.subscription2 = timer(0,1000).pipe(
-    //  switchMap(()=>
-    this.ns.CompCount(this.userData).subscribe(
+     this.subscription2 = timer(0,1000).pipe(
+     switchMap(()=>this.ns.CompCount(this.userData))).subscribe(
       data2 => {
         this.compcount = data2;
         console.log(this.compcount);
       });
 
     
-    //  this.subscription2 = timer(0,1000).pipe(
-    //  switchMap(()=>
-    this.ns.CompletedCompCount(this.userData).subscribe(
+     this.subscription2 = timer(0,1000).pipe(
+     switchMap(()=> this.ns.CompletedCompCount(this.userData))).subscribe(
       data3 => {
         this.completedcompcount = data3;
         console.log(this.completedcompcount);
@@ -84,10 +81,10 @@ export class NavbarComponent implements CanActivate {
   }
 
 
-  // ngOnDestroy(){
-  //   this.subscription1.unsubscribe()
-  //   this.subscription2.unsubscribe()
-  // }
+  ngOnDestroy(){
+    this.subscription1.unsubscribe()
+    this.subscription2.unsubscribe()
+  }
 
 
 

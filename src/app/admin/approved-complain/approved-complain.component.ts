@@ -9,28 +9,39 @@ import {ApprovedComplainService} from './approved-complain.service'
 })
 export class ApprovedComplainComponent implements OnInit {
 
-details;
-compDetail={
-  category:''
+comp;
+moredata;
+
+compdata = {
+  complainID:0
 }
-supervisor;
+
+marked;
+
   constructor(private as:ApprovedComplainService, private router:Router ) { }
 
   ngOnInit() {
-    this.as.GetComplains().subscribe(
-      (res)=>{
-        this.details = res;
-        console.log(this.details);
-      });
+   this.as.progressingComplains().subscribe(
+     data=>{
+       this.marked =true;
+        this.comp = data;
+        console.log(this.comp);
+     });
   }
+  
+  ViewMore(complainID: number){
+   this.compdata.complainID = complainID;
+   this.as.getMoredetails(this.compdata).subscribe(
+     (data)=>{
+        this.moredata = data;
+        this.marked = false;
+        console.log(this.moredata);
+     })
 
-  AddSupervisor(category){
-    this.compDetail.category = category;
-    this.as.SelectSupervisor(this.compDetail).subscribe(
-      (data)=>{
-         console.log(data);
-         this.supervisor = data;
-      });
+  }
+  
+  back(){
+    this.marked = true;
   }
 
   

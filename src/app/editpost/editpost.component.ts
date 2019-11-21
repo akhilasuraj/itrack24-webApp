@@ -81,6 +81,7 @@ export class EditpostComponent implements OnInit {
       result => {
         this.mp.marked = true;
         window.alert(result.message);
+        window.location.reload();
         console.log("post updated");
       });
   };

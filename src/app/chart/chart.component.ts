@@ -33,7 +33,7 @@ export class ChartComponent implements OnInit {
       }
     },
   };
-  public barChartLabels: Label[] = ['Solid_waste_Public_premise','Tree_Cutting_Debris_Public_premises','ecaying_Waste_Public', 'Drainage_Blockage_Road',];
+  public barChartLabels: Label[] = ['Solid_waste_Public_premise','Tree_Cutting_Debris_Public_premises','Decaying_Waste_Public', 'Drainage_Blockage_Road',];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
 

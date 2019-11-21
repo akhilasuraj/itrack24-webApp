@@ -19,11 +19,9 @@ export class ComplainComponent implements OnInit {
     user_id: 0,
     category: '',
     description: '',
-    address1: '',
-    address2: '',
-    district: '',
     date: '',
     time: '',
+    location:'',
     longitude: 7.564,
     latitude: 6.457
   };
@@ -42,6 +40,7 @@ export class ComplainComponent implements OnInit {
   ngOnInit() {
     this.credential.user_id = this.auth.getUserDetails().id;
     this.userData.user_ID = this.auth.getUserDetails().id;
+    
   }
 
   OnFileSelected(event: {
@@ -66,16 +65,17 @@ export class ComplainComponent implements OnInit {
     console.log("this is lat from complain component " + this.mapService.getLatitude());
     this.credential.latitude = this.mapService.getLatitude();
     this.credential.longitude = this.mapService.getLongitude();
+    this.credential.location = this.mapService.getLocate();
+    console.log("this is location "+ this.credential.location  );
+
     const fd = new FormData();
     fd.append('compImg', this.SelectedFile, this.SelectedFile.name);
     fd.append('description', this.credential.description);
     fd.append('category', this.credential.category);
     fd.append('user_id', this.credential.user_id.toString());
-    fd.append('address1', this.credential.address1);
-    fd.append('address2', this.credential.address2);
-    fd.append('district', this.credential.district);
     fd.append('date', this.credential.date);
     fd.append('time', this.credential.time);
+    fd.append('location', this.credential.location);
     fd.append('longitude', this.credential.longitude.toString());
     fd.append('latitude', this.credential.latitude.toString());
 
@@ -86,7 +86,6 @@ export class ComplainComponent implements OnInit {
           window.alert(data.message);
 
         }
-
       });
 
   }

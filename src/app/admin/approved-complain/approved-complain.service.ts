@@ -10,12 +10,15 @@ export class ApprovedComplainService {
 
   constructor(private router:Router, private http:HttpClient) { }
 
-  public GetComplains():Observable<any>{
-    return this.http.get("http://localhost:3000/admin/acceptedcomplains");
+  public progressingComplains():Observable<any>{
+    return this.http.get("/admin/inprogresscomplains");
   }
 
-  public SelectSupervisor(data):Observable<any>{
-    return this.http.post("http://localhost:3000/admin/selectsupervisor",data);
+  public getMoredetails(obj):Observable<any>{
+    return this.http.post("/admin/getmoredetails", obj);
   }
 
+  public completedcomplains():Observable<any>{
+    return this.http.get("/admin/completedcomplains");
+  }
 }

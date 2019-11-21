@@ -1,5 +1,8 @@
 <form (submit)="submit()">
+  <label>Password</label>
   <input type="password" name="pass" [(ngModel)]="pass">
-  <input type="password" name="confPass" [(ngModel)]="confPass">
+  <label>Conferm Password</label>
+  <input type="password" name="confPass" [(ngModel)]="confPass"><br><br><br>
+  
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

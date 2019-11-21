@@ -3,26 +3,20 @@
 <div *ngFor="let info1 of notificationPost">
 
     <div *ngIf="info1?.isAccepted">
-        <div class="col-sm-8-left">
-            <table>
-                <tr>
-                    <th>new Post {{ info1?.PostTitle}} On {{ info1?.PostDate}} at {{ info1?.PostTime}} Accepted.
-                    </th>
-                </tr>
-            </table>
-            <td><button (click)="GetValues(info1.id)">Close</button></td>
+        <div class="d-flex p-3 ">
+            <div class="p-2 bg-light"> new Post {{ info1?.PostTitle}} On {{ info1?.PostDate}} at {{ info1?.PostTime}}
+                Accepted.
+                <button (click)="GetValues(info1.id)" class="btn btn-danger">Close</button>
+            </div>
         </div>
     </div>
 
     <div *ngIf="!info1?.isAccepted">
-        <div class="col-sm-8-left">
-            <table>
-                <tr>
-                    <th>new Post {{ info1?.PostTitle}} On {{ info1?.PostDate}} at {{ info1?.PostTime}} Rejected.
-                    </th>
-                </tr>
-            </table>
-            <td><button (click)="GetValues(info1.id)">Close</button></td>
+        <div class="d-flex p-3 ">
+            <div class="p-2 bg-light"> new Post {{ info1?.PostTitle}} On {{ info1?.PostDate}} at {{ info1?.PostTime}}
+                Rejected.
+                <button (click)="GetValues(info1.id)" class="btn btn-danger">Close</button>
+            </div>
         </div>
     </div>
 </div>
@@ -30,26 +24,20 @@
 <div *ngFor="let info2 of notificationComp">
 
     <div *ngIf="info2?.isAccepted">
-        <div class="col-sm-8-left">
-            <table>
-                <tr>
-                    <th>new Complain {{ info2?.category}} On {{ info2?.date}} at {{ info2?.time}} Accepted.
-                    </th>
-                </tr>
-            </table>
-            <td><button (click)="GetValuesComp(info2.id)">Close</button></td>
+        <div class="d-flex p-3 ">
+            <div class="p-2 bg-light"> new Complain {{ info2?.category}} On {{ info2?.date}} at {{ info2?.time}}
+                Accepted.
+                <button (click)="GetValuesComp(info2.id)" class="btn btn-danger">Close</button>
+            </div>
         </div>
     </div>
 
     <div *ngIf="!info2?.isAccepted">
-        <div class="col-sm-8-left">
-            <table>
-                <tr>
-                    <th>new Complain at {{ info2?.category}} On {{ info2?.date}} at {{ info2?.time}} Rejected.
-                    </th>
-                </tr>
-            </table>
-            <td><button (click)="GetValuesComp(info2.id)">Close</button></td>
+        <div class="d-flex p-3">
+            <div class="p-2 bg-light"> new Complain at {{ info2?.category}} On {{ info2?.date}} at {{ info2?.time}} Rejected.
+            <div class="p-2 bg-light"><b> Reason |</b><strong>{{ info2?.reason}}</strong> </div>
+                <button (click)="GetValuesComp(info2.id)" class="btn btn-danger">Close</button>
+            </div>
         </div>
     </div>
 </div>
@@ -57,16 +45,12 @@
 
 
 <div *ngFor="let info3 of notificationCompletedComp">
-    <div class="col-sm-8-left">
-        <table>
-            <tr>
-                <th>your Complain at {{ info3?.category}} On {{ info3?.date}} at {{ info3?.time}} completed.
-                </th>
-            </tr>
-        </table>
-        <!-- <td><button (click)="GetValuesCompletedComp(info3.id)">Close</button></td>&nbsp;&nbsp; -->
-        <button data-toggle="modal" data-target="#exampleModalCenter1" class="btn btn-secondary"
-            (click)="GetValuesCompletedComp(info3.id)">Rate</button>
+    <div class="d-flex p-3">
+        <div class="p-2 bg-light"> your Complain at {{ info3?.category}} On {{ info3?.date}} at {{ info3?.time}}
+            completed.
+            <button (click)="GetValuesCompletedComp(info3.id)" class="btn btn-danger">Close</button>&nbsp;&nbsp;
+            <button data-toggle="modal" data-target="#exampleModalCenter1" class="btn btn-secondary"
+                (click)="GetValuesCompletedComp(info3.id)">Rate</button></div>
     </div>
 </div>
 
@@ -74,8 +58,6 @@
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <!-- <app-rating></app-rating> -->
-            
             <div class="container">
                 <ngb-rating [(rate)]="currentRate">
                     <ng-template let-fill="fill" let-index="index">
@@ -83,10 +65,10 @@
                     </ng-template>
                 </ngb-rating>
                 <hr>
-                <pre>Rate: <b>{{currentRate}}</b></pre>
+                <!-- <pre>Rate: <b>{{currentRate}}</b></pre> -->
             </div>
-            <button class="btn btn-secondary" (click)="Ratevalue()">Done</button>
-           
+            <button class="btn btn-secondary" (click)="Ratevalue()">Rate</button>
+
         </div>
     </div>
 </div>
